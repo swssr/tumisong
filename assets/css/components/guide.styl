@@ -1,0 +1,23 @@
+@import 'components/type'
+$h = 2px
+:root
+    --primary: #000;
+    --secondary: #fff;
+    // --test-1: red;
+    // --test-2: orange;
+    // --test-3: blue;
+    --stripe-height: 45vh;
+    --side-nav-width: 20vw;
+    --main-width: calc(100% - var(--side-nav-width))
+    --deco-bar: calc(var(--bar)/3);
+    --bar: 90px;
+    --pad: var(--deco-bar);
+    --sect-40-width: calc(var(--side-nav-width) * 2);
+
+*
+    color var(--secondary)
+
+h1
+    font-family 'druk'
+svg 
+    fill: var(--secondary)
