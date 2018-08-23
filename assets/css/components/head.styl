@@ -3,7 +3,6 @@
     width 135px
     height h = 2em
     line-height h
-    background-color #000
     color #fff
     span
         width 50%
@@ -24,23 +23,35 @@
     z-index -1
     background-repeat no-repeat
     object-fit: cover
-    filter grayscale(100%) blur(0px) brightness(20%)
+    filter grayscale(100%) blur(0px)
 .stripe
     position absolute
     width 100vw
     height var(--stripe-height)
-    background-color #000
-    bottom 0px
+    background-image repeating-linear-gradient(
+        45deg,
+        var(--primary),
+        var(--primary) 2px,
+        var(--secondary) 2px,
+        var(--secondary) 14px
+    )
+    filter: blur(1px)
+    mix-blend-mode: screen
+    bottom 30vh
     z-index -1
 .nav--left
     position absolute
     left 0
     width var(--side-nav-width)
     height 100%
-    background-color var(--test-1)
+    background-color black
     text-transform uppercase
     border-right 1px solid rgba(0,0,0,0.3)
+    mix-blend-mode: multiply
 
+    *
+        color #fff
+        fill  #fff
 
 .split
     position absolute
@@ -48,7 +59,7 @@
     height 3px
     top calc(50vh - 9px)
     margin-left var(--pad)
-    box-shadow 0 -3px 0 0 var(--secondary), 0 3px 0 0 var(--secondary);
+    box-shadow 0 -3px 0 0 var(--primary), 0 3px 0 0 var(--primary);
 
 
 .main
@@ -74,7 +85,7 @@
         bottom 0
         background-color var(--secondary)
         z-index 2
-        mix-blend-mode: screen
+        //mix-blend-mode: multiply
 .nav__span
     position absolute
     width 100%
@@ -96,7 +107,13 @@
     padding-bottom var(--pad)
 
 .split ~ .bottom
-    background-color var(--primary)
+    background-image repeating-linear-gradient(
+        45deg,
+        var(--primary),
+        var(--primary) 4px,
+        var(--secondary) 4px,
+        var(--secondary) 40px
+    )
 
 .pad--top
     margin-top 2.5em
@@ -127,8 +144,8 @@
     display flex
     justify-content space-between
     flex-direction column
-    transform translateY(-1em)
-    mix-blend-mode: screen
+    transform translateY(-4em)
+    
     &__txt
         margin-bottom 1em
 
@@ -144,7 +161,6 @@
     position relative
     display flex
     align-items: center
-    mix-blend-mode: multiply
     .text
         font-weight 400
         color var(--primary)
