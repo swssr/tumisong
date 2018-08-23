@@ -76,23 +76,25 @@ li {
 }
 .logo {
   position: relative;
-  width: 135px;
-  height: 2em;
-  line-height: 2em;
+  display: flex;
+  padding: 4px;
   color: #fff;
-}
-.logo span {
-  width: 50%;
-  height: 3em;
-  color: #000;
-  background-color: #fff;
+  background-color: #000;
 }
 .logo::before {
   content: '';
   position: absolute;
-  width: 50%;
-  height: inherit;
+  width: 100%;
+  height: 200%;
+  margin-left: -50%;
+  margin-top: -20%;
   z-index: -1;
+  background-image: repeating-linear-gradient(45deg, var(--primary), var(--primary) 6px, var(--secondary) 6px, var(--secondary) 40px);
+}
+.logo span:first-child {
+  position: relative;
+  color: #fff;
+  text-shadow: -2px -2px 0 #000;
 }
 .bg {
   position: absolute;
@@ -101,17 +103,8 @@ li {
   z-index: -1;
   background-repeat: no-repeat;
   object-fit: cover;
-  filter: grayscale(100%) blur(0px);
-}
-.stripe {
-  position: absolute;
-  width: 100vw;
-  height: var(--stripe-height);
-  background-image: repeating-linear-gradient(45deg, var(--primary), var(--primary) 2px, var(--secondary) 2px, var(--secondary) 14px);
-  filter: blur(1px);
-  mix-blend-mode: screen;
-  bottom: 30vh;
-  z-index: -1;
+  filter: grayscale(100%) brightness(80%);
+  background-size: 100px 100px;
 }
 .nav--left {
   position: absolute;
@@ -154,10 +147,13 @@ li {
   position: absolute;
   left: calc(var(--side-nav-width) * 2);
   right: var(--pad);
-  top: calc(100% - var(--deco-bar));
+  top: calc(100% - var(--deco-bar) * 3);
   bottom: 0;
   background-color: var(--secondary);
   z-index: 2;
+  outline: 2px solid #fff;
+  box-shadow: -4px -4px 0 0 #000;
+  mix-blend-mode: multiply;
 }
 .nav__span {
   position: absolute;
@@ -180,7 +176,7 @@ li {
   padding-bottom: var(--pad);
 }
 .split ~ .bottom {
-  background-image: repeating-linear-gradient(45deg, var(--primary), var(--primary) 4px, var(--secondary) 4px, var(--secondary) 40px);
+  background-image: repeating-linear-gradient(45deg, var(--primary), var(--primary) 6px, var(--secondary) 6px, var(--secondary) 30px);
 }
 .pad--top {
   margin-top: 2.5em;
@@ -216,6 +212,7 @@ li {
   justify-content: space-between;
   flex-direction: column;
   transform: translateY(-4em);
+  mix-blend-mode: multiply;
 }
 .hero__txt {
   margin-bottom: 1em;
@@ -280,4 +277,37 @@ li {
 }
 .r-90 span {
   transform: translateX(-1.2em) rotate(-90deg);
+}
+.social {
+  --h: 100px;
+  position: absolute;
+  width: 20px;
+  height: var(--h);
+  right: 0px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: calc(50% - var(--h) / 2);
+}
+.social__icon {
+  background-color: #000;
+  width: 100%;
+  height: 20%;
+}
+.email {
+  background-color: #000;
+  padding: 4px;
+  width: 130px;
+}
+.blur {
+  position: absolute;
+  width: 80vw;
+  height: 60vw;
+  background-color: #fff;
+  margin: 42vh 0 0 55vh;
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(1px);
+  overflow: hidden;
 }
