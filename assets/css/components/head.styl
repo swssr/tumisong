@@ -2,7 +2,7 @@
     position relative
     display flex
     padding 4px
-    color #fff
+    color var(--gray)
     background-color #000
     &::before
                 content ''
@@ -14,18 +14,20 @@
                 z-index -1
                 background-image repeating-linear-gradient(
                     45deg,
-                    var(--primary),
-                    var(--primary) 6px,
+                    var(--gray),
+                    var(--gray) 6px,
                     var(--secondary) 6px,
                     var(--secondary) 40px
                 )
     span:first-child
         position relative
-        color #fff
+        color var(--gray)
         text-shadow -2px -2px 0 #000
 .bg
     position absolute
+    // left var(--side-nav-width)
     width 100%
+    right 0px
     height 100%
     z-index -1
     background-repeat no-repeat
@@ -33,18 +35,17 @@
     filter grayscale(100%) brightness(80%)
     background-size 100px 100px
 .nav--left
-    position absolute
+    position fixed
     left 0
     width var(--side-nav-width)
     height 100%
     background-color black
     text-transform uppercase
     border-right 1px solid rgba(0,0,0,0.3)
-    mix-blend-mode: multiply
+    // mix-blend-mode: multiply
 
     *
-        color #fff
-        fill  #fff
+        color var(--gray)
 
 .split
     position absolute
@@ -52,7 +53,8 @@
     height 3px
     top calc(50vh - 9px)
     margin-left var(--pad)
-    box-shadow 0 -3px 0 0 var(--primary), 0 3px 0 0 var(--primary);
+    box-shadow 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
+    transform rotate(45deg)
 
 
 .main
@@ -61,10 +63,17 @@
     width var(--main-width)
     height 100%
 .head
-    height 100%
+    height 100vh
+.container
+    position relative
+    width 100%
+    height 100vh
+    background-color var(--secondary)
+    *
+        color var(--primary)
 
 .sect-40
-    width w = calc(var(--side-nav-width) * 2)
+    width var(--sect-40-width)
     height 100%
     display flex
     // border-top var(--deco-bar) solid var(--secondary)
@@ -72,9 +81,12 @@
     &::after
         content ''
         position absolute
-        left w
-        right var(--pad)
-        top calc(100% - var(--deco-bar)*3)
+        //looks nice but there's no achor 
+        // left calc(var(--sect-40-width))
+        //anchored but I do not like it
+        left calc(var(--sect-40-width)/2)
+        right 0
+        top calc(100% - var(--deco-bar)*2)
         bottom 0
         background-color var(--secondary)
         z-index 2
@@ -100,12 +112,11 @@
     display flex
     flex-basis 50%
     padding-bottom var(--pad)
-
 .split ~ .bottom
     background-image repeating-linear-gradient(
         45deg,
-        var(--primary),
-        var(--primary) 6px,
+        var(--gray),
+        var(--gray) 6px,
         var(--secondary) 6px,
         var(--secondary) 30px
     )
@@ -170,7 +181,7 @@
         z-index -1
 .sect-60
     position absolute
-    width calc(100% - var(--sect-40-width) - var(--pad))
+    width var(--sect-60-width)
     top p = var(--pad)
     right p
     bottom p
@@ -221,9 +232,67 @@
     width 80vw
     height 60vw
     background-color #fff
-    margin 42vh 0 0 55vh 
-    
+    margin 40vh 0 0 20vh 
     z-index -1
     opacity .4
     filter blur(1px)
     overflow hidden
+.container
+    position relative
+    widows 100%
+    height 100vh
+    padding var(--pad)
+
+.featured
+    margin-left ml = calc(var(--sect-40-width)/2 - var(--pad))
+    background-color var(--secondary)
+    *
+        color var(--gray)
+        margin 8px 0
+    &__list
+        position absolute
+        margin-top 1em
+        left 20vh
+        right var(--pad)
+        height max-content
+        display grid
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: var(--pad)
+        grid-auto-flow: row
+        .item
+            height 250px
+            display flex
+            flex-direction column
+            justify-content space-between
+            *
+                flex 1
+            &__image
+                flex 99999
+                border 1px solid #000
+                background-image repeating-linear-gradient(
+                    45deg,
+                    var(--gray),
+                    var(--gray) 6px,
+                    var(--secondary) 6px,
+                    var(--secondary) 40px
+                )
+            &__caption
+                height 1em
+                display flex
+                padding 0 4px
+                justify-content space-between
+                .text
+                    flex 99999
+                .actions
+                    flex 2
+                    position relative
+                    display flex
+
+                    .icon
+                        width 10px
+                        height 10px
+                        background-color var(--gray)
+                        &--play
+                            clip-path: polygon(
+                                0 0, 100% 50%, 0 100%
+                            )
