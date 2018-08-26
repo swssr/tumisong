@@ -104,17 +104,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"assets\\js\\index.js":[function(require,module,exports) {
-// @ts-nocheck
+// @ts-check
 
-console.log(TweenMax);
-var vars = {
-    rotation: 180
+var nav = document.querySelector(".nav--left");
+
+var col = document.querySelector(".col");
+var observer = void 0;
+
+var options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 1.0
 };
-var target = document.querySelector('.split');
 
-target.addEventListener('mouseover', function () {
-    TweenMax.to(target, 1, vars);
-});
+observer = new IntersectionObserver(handleIntersect, options);
+
+function handleIntersect(entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) {
+      // TweenMax.to(nav, 1, { left: -500 })
+      console.log("hello its " + entry.isIntersecting);;
+      nav.classList.add('nav-up');
+    }
+    if (entry.isIntersecting) {
+      // TweenMax.to(nav, 1, { left: 0 });
+      console.log("hello its " + entry.isIntersecting);
+      nav.classList.remove('nav-up');
+    }
+  });
+}
+observer.observe(col);
 },{}],"..\\..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -144,7 +163,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '8830' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '3936' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

@@ -11,6 +11,11 @@
   --primary: #fff;
   --secondary: #000;
   --gray: #b9b9b9;
+  --twvh: 0;
+  --after-top: calc(100% - var(--deco-bar) * 2);
+  --after-left: calc(var(--sect-40-width) / 2);
+  --twvh: 20vh;
+  --snug: calc(100% - var(--pad) * 4 - 8px);
   --sect-40-width: calc(var(--side-nav-width) * 2);
   --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad));
   --side-nav-width: 18vw;
@@ -26,7 +31,7 @@
 }
 body {
   height: 100%;
-  background-color: #b9b9b9;
+  background-color: var(--secondary);
   cursor: crosshair;
 }
 .hero__head {
@@ -42,20 +47,26 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
   font-family: 'oswald';
   overflow-x: hidden;
 }
-body {
-  width: 100%;
-  min-height: 100vh;
-}
 a,
 ul,
-li {
+li,
+button {
   text-decoration: none;
   list-style: none;
   margin: 0;
   padding: 0;
+  outline: none;
+  appearance: none;
+  border: none;
+}
+button {
+  cursor: pointer;
 }
 .bottom {
   bottom: 0;
@@ -87,7 +98,7 @@ li {
   display: flex;
   padding: 4px;
   color: var(--gray);
-  background-color: #000;
+  background-color: var(--secondary);
 }
 .logo::before {
   content: '';
@@ -98,11 +109,14 @@ li {
   margin-top: -20%;
   z-index: -1;
   background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 6px, var(--secondary) 6px, var(--secondary) 40px);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  animation: movestripe 1s linear infinite;
 }
 .logo span:first-child {
   position: relative;
   color: var(--gray);
-  text-shadow: -2px -2px 0 #000;
+  text-shadow: -2px -2px 0 var(--secondary);
 }
 .bg {
   position: absolute;
@@ -120,7 +134,8 @@ li {
   left: 0;
   width: var(--side-nav-width);
   height: 100%;
-  background-color: #000;
+  z-index: 9999;
+  background-color: var(--secondary);
   text-transform: uppercase;
   border-right: 1px solid rgba(0,0,0,0.3);
 }
@@ -145,14 +160,9 @@ li {
 .head {
   height: 100vh;
 }
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--secondary);
-}
-.container * {
-  color: var(--primary);
+.wide {
+  width: 100vw;
+  background-color: var(--test-2);
 }
 .sect-40 {
   width: var(--sect-40-width);
@@ -162,14 +172,14 @@ li {
 .sect-40::after {
   content: '';
   position: absolute;
-  left: calc(var(--sect-40-width) / 2);
+  left: var(--after-left);
   right: 0;
-  top: calc(100% - var(--deco-bar) * 2);
+  top: var(--after-top);
   bottom: 0;
   background-color: var(--secondary);
   z-index: 2;
   outline: 2px solid #fff;
-  box-shadow: -4px -4px 0 0 #000;
+  box-shadow: -4px -4px 0 0 var(--secondary);
   mix-blend-mode: multiply;
 }
 .nav__span {
@@ -194,6 +204,9 @@ li {
 }
 .split ~ .bottom {
   background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 6px, var(--secondary) 6px, var(--secondary) 30px);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  animation: movestripe 1s linear infinite;
 }
 .pad--top {
   margin-top: 2.5em;
@@ -308,12 +321,12 @@ li {
   margin-top: calc(50% - var(--h) / 2);
 }
 .social__icon {
-  background-color: #000;
+  background-color: var(--secondary);
   width: 100%;
   height: 20%;
 }
 .email {
-  background-color: #000;
+  background-color: var(--secondary);
   padding: 4px;
   width: 130px;
 }
@@ -321,71 +334,171 @@ li {
   position: absolute;
   width: 80vw;
   height: 60vw;
-  background-color: #fff;
-  margin: 40vh 0 0 20vh;
+  background-color: var(--primary);
+  margin: 40vh 0 0 var(--twvh);
   z-index: -1;
   opacity: 0.4;
   filter: blur(1px);
   overflow: hidden;
 }
 .container {
+  --new-pad: calc(var(--pad) * 2);
   position: relative;
   widows: 100%;
   height: 100vh;
-  padding: var(--pad);
-}
-.featured {
-  margin-left: calc(var(--sect-40-width) / 2 - var(--pad));
+  padding: var(--new-pad);
   background-color: var(--secondary);
 }
-.featured * {
+.featured,
+.playlists {
+  margin-left: calc(var(--sect-40-width) / 2 - var(--pad));
+  background-color: var(--secondary);
+  height: 100%;
+  width: calc(100% - var(--twvh) - var(--pad) * 2);
+}
+.featured *,
+.playlists * {
   color: var(--gray);
   margin: 8px 0;
 }
-.featured__list {
+.featured__list,
+.playlists__list {
   position: absolute;
   margin-top: 1em;
-  left: 20vh;
+  left: var(--twvh);
   right: var(--pad);
-  height: max-content;
+  background-color: var(--secondary);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
   grid-column-gap: var(--pad);
   grid-auto-flow: row;
 }
-.featured__list .item {
+.featured__list .item,
+.playlists__list .item {
   height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.featured__list .item * {
+.featured__list .item *,
+.playlists__list .item * {
   flex: 1;
 }
-.featured__list .item__image {
+.featured__list .item__image,
+.playlists__list .item__image {
   flex: 99999;
-  border: 1px solid #000;
+  border: 1px solid var(--secondary);
   background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 6px, var(--secondary) 6px, var(--secondary) 40px);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  animation: movestripe 1s linear infinite;
 }
-.featured__list .item__caption {
+.featured__list .item__caption,
+.playlists__list .item__caption {
   height: 1em;
   display: flex;
   padding: 0 4px;
   justify-content: space-between;
 }
-.featured__list .item__caption .text {
+.featured__list .item__caption .text,
+.playlists__list .item__caption .text {
   flex: 99999;
 }
-.featured__list .item__caption .actions {
+.featured__list .item__caption .actions,
+.playlists__list .item__caption .actions {
   flex: 2;
   position: relative;
   display: flex;
 }
-.featured__list .item__caption .actions .icon {
+.featured__list .item__caption .actions .icon,
+.playlists__list .item__caption .actions .icon {
   width: 10px;
   height: 10px;
   background-color: var(--gray);
 }
-.featured__list .item__caption .actions .icon--play {
+.featured__list .item__caption .actions .icon--play,
+.playlists__list .item__caption .actions .icon--play {
   clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.debug:nth-of-type(odd) {
+  background-color: #f00;
+}
+.debug:nth-of-type(odd) * {
+  border: 1px solid #800080;
+}
+.debug:nth-of-type(even) {
+  background-color: #ffefd5;
+}
+.debug:nth-of-type(even) * {
+  border: 1px solid var(--secondary);
+}
+.playlist__list {
+  width: 100%;
+  height: var(--snug);
+  background-color: #ffc0cb;
+}
+.controls {
+  position: absolute;
+  width: 50px;
+  height: 150px;
+  top: calc(50% - 75px);
+  left: var(--twvh);
+  display: flex;
+  flex-direction: column;
+}
+.controls .prev,
+.controls .next {
+  flex: 1;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controls .prev .icon,
+.controls .next .icon {
+  width: 20px;
+  height: 20px;
+}
+.anim-on-click {
+  animation: mousestripe 1s infinite;
+}
+.hide {
+  display: none;
+}
+.nav-up {
+  width: 100vw;
+  height: 10vh;
+}
+@-moz-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@-webkit-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@-o-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
 }

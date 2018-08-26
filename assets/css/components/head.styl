@@ -3,7 +3,7 @@
     display flex
     padding 4px
     color var(--gray)
-    background-color #000
+    background-color var(--secondary)
     &::before
                 content ''
                 position absolute
@@ -16,13 +16,16 @@
                     45deg,
                     var(--gray),
                     var(--gray) 6px,
-                    var(--secondary) 6px,
-                    var(--secondary) 40px
+e                    var(--secondary) 40px
                 )
+                background-position 0 0
+                background-repeat repeat-x
+                animation: movestripe 1s linear infinite;
+
     span:first-child
         position relative
         color var(--gray)
-        text-shadow -2px -2px 0 #000
+        text-shadow -2px -2px 0 var(--secondary)
 .bg
     position absolute
     // left var(--side-nav-width)
@@ -39,7 +42,8 @@
     left 0
     width var(--side-nav-width)
     height 100%
-    background-color black
+    z-index 9999
+    background-color var(--secondary)
     text-transform uppercase
     border-right 1px solid rgba(0,0,0,0.3)
     // mix-blend-mode: multiply
@@ -64,13 +68,9 @@
     height 100%
 .head
     height 100vh
-.container
-    position relative
-    width 100%
-    height 100vh
-    background-color var(--secondary)
-    *
-        color var(--primary)
+.wide
+    width 100vw
+    background-color var(--test-2)
 
 .sect-40
     width var(--sect-40-width)
@@ -84,14 +84,14 @@
         //looks nice but there's no achor 
         // left calc(var(--sect-40-width))
         //anchored but I do not like it
-        left calc(var(--sect-40-width)/2)
+        left var(--after-left)
         right 0
-        top calc(100% - var(--deco-bar)*2)
+        top var(--after-top)
         bottom 0
         background-color var(--secondary)
         z-index 2
         outline 2px solid white
-        box-shadow -4px -4px 0 0 #000
+        box-shadow -4px -4px 0 0 var(--secondary)
         mix-blend-mode: multiply
 .nav__span
     position absolute
@@ -120,7 +120,9 @@
         var(--secondary) 6px,
         var(--secondary) 30px
     )
-
+    background-position 0 0
+    background-repeat repeat-x
+    animation: movestripe 1s linear infinite;
 .pad--top
     margin-top 2.5em
     *
@@ -220,43 +222,50 @@
     justify-content space-between
     margin-top calc(50% - var(--h)/2)
     &__icon
-        background-color #000
+        background-color var(--secondary)
         width 100%
         height 20%
 .email
-    background-color #000000
+    background-color var(--secondary)
     padding 4px
     width 130px
 .blur
     position absolute
     width 80vw
     height 60vw
-    background-color #fff
-    margin 40vh 0 0 20vh 
+    background-color var(--primary)
+    margin 40vh 0 0 var(--twvh) 
     z-index -1
     opacity .4
     filter blur(1px)
     overflow hidden
 .container
+    --new-pad: calc(var(--pad)* 2);
     position relative
     widows 100%
     height 100vh
-    padding var(--pad)
+    padding var(--new-pad)
+    background-color var(--secondary)
 
 .featured
+.playlists
     margin-left ml = calc(var(--sect-40-width)/2 - var(--pad))
     background-color var(--secondary)
+    height 100%
+    width calc(100% - var(--twvh) - var(--pad)* 2)
+
     *
         color var(--gray)
         margin 8px 0
     &__list
         position absolute
         margin-top 1em
-        left 20vh
+        left var(--twvh)
         right var(--pad)
-        height max-content
+        background-color var(--secondary)
         display grid
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
         grid-column-gap: var(--pad)
         grid-auto-flow: row
         .item
@@ -264,11 +273,11 @@
             display flex
             flex-direction column
             justify-content space-between
-            *
+            * 
                 flex 1
             &__image
                 flex 99999
-                border 1px solid #000
+                border 1px solid var(--secondary)
                 background-image repeating-linear-gradient(
                     45deg,
                     var(--gray),
@@ -276,6 +285,10 @@
                     var(--secondary) 6px,
                     var(--secondary) 40px
                 )
+                background-position 0 0 
+                background-repeat repeat-x
+                animation: movestripe 1s linear infinite;
+
             &__caption
                 height 1em
                 display flex
@@ -296,3 +309,34 @@
                             clip-path: polygon(
                                 0 0, 100% 50%, 0 100%
                             )
+.debug:nth-of-type(odd)
+    background-color red
+    *
+        border 1px solid purple
+.debug:nth-of-type(even)
+    background-color papayawhip
+    *
+        border 1px solid var(--secondary)
+
+.playlist__list
+    width 100%
+    height var(--snug)
+    background-color pink
+
+.controls
+    position absolute
+    width 50px
+    height 150px
+    top calc(50% - 75px)
+    left var(--twvh)
+    display flex
+    flex-direction column
+    .prev, .next
+        flex 1
+        background-color var(--primary)
+        display flex
+        justify-content: center
+        align-items: center
+        .icon
+            width 20px
+            height 20px
