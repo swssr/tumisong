@@ -7,6 +7,38 @@
   font-size: 1.2em;
   font-weight: 600;
 }
+.section__prehead::after {
+  content: '___';
+}
+.section__head {
+  height: 2em;
+  display: flex;
+}
+.section__head::after {
+  content: '';
+  align-self: center;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  margin-left: 0.5em;
+  margin-top: -0.1em;
+  background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 2px, var(--secondary) 2px, var(--secondary) 4px);
+}
+.section__subhead {
+  transform: translateY(-1em);
+  font-size: 0.9em;
+  font-weight: lighter;
+}
+.white-text * {
+  color: var(--gray);
+}
+.event__date {
+  opacity: 0.6;
+}
+.event__descr {
+  font-weight: 300;
+  text-transform: none;
+}
 :root {
   --primary: #fff;
   --secondary: #000;
@@ -15,7 +47,7 @@
   --after-top: calc(100% - var(--deco-bar) * 2);
   --after-left: calc(var(--sect-40-width) / 2);
   --twvh: 20vh;
-  --snug: calc(100% - var(--pad) * 4 - 8px);
+  --snug: calc(100% - var(--pad) * 4 - 1em);
   --sect-40-width: calc(var(--side-nav-width) * 2);
   --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad));
   --side-nav-width: 18vw;
@@ -31,11 +63,23 @@
 }
 body {
   height: 100%;
-  background-color: var(--secondary);
+  background-color: #000;
   cursor: crosshair;
 }
 .hero__head {
   font-family: 'druk';
+}
+.debug:nth-of-type(odd) {
+  background-color: #f00;
+}
+.debug:nth-of-type(odd) * {
+  border: 1px solid #800080;
+}
+.debug:nth-of-type(even) {
+  background-color: #008000;
+}
+.debug:nth-of-type(even) * {
+  border: 1px solid #ee82ee;
 }
 * {
   box-sizing: border-box;
@@ -230,7 +274,7 @@ button {
   position: relative;
   margin-left: 1.3em;
   width: 80px;
-  height: 2px;
+  height: $h;
   background-color: var(--secondary);
 }
 .hero {
@@ -348,6 +392,11 @@ button {
   height: 100vh;
   padding: var(--new-pad);
   background-color: var(--secondary);
+  overflow: hidden;
+}
+.container * {
+  padding: 0;
+  margin: 0;
 }
 .featured,
 .playlists {
@@ -364,19 +413,18 @@ button {
 .featured__list,
 .playlists__list {
   position: absolute;
-  margin-top: 1em;
   left: var(--twvh);
   right: var(--pad);
   background-color: var(--secondary);
   display: grid;
   grid-template-columns: repeat(3, minmax(140px, 1fr));
-  grid-template-columns: repeat(3, minmax(140px, 1fr));
-  grid-column-gap: var(--pad);
+  grid-template-rows: repeat(2, minmax(140px, 1fr));
+  grid-gap: var(--pad);
   grid-auto-flow: row;
 }
 .featured__list .item,
 .playlists__list .item {
-  height: 250px;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -421,22 +469,10 @@ button {
 .playlists__list .item__caption .actions .icon--play {
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
-.debug:nth-of-type(odd) {
-  background-color: #f00;
-}
-.debug:nth-of-type(odd) * {
-  border: 1px solid #800080;
-}
-.debug:nth-of-type(even) {
-  background-color: #ffefd5;
-}
-.debug:nth-of-type(even) * {
-  border: 1px solid var(--secondary);
-}
 .playlist__list {
   width: 100%;
   height: var(--snug);
-  background-color: #ffc0cb;
+  background-color: var(--gray);
 }
 .controls {
   position: absolute;
@@ -447,10 +483,13 @@ button {
   display: flex;
   flex-direction: column;
 }
+.controls * {
+  transition: 0.2s all ease-out;
+}
 .controls .prev,
 .controls .next {
   flex: 1;
-  background-color: var(--primary);
+  background-color: var(--gray);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -460,6 +499,146 @@ button {
   width: 20px;
   height: 20px;
 }
+.controls .prev:hover,
+.controls .next:hover {
+  opacity: 0.9;
+}
+.controls .prev:hover .icon {
+  transform: translateY(-0.5em);
+}
+.controls .next:hover .icon {
+  transform: translateY(0.5em);
+}
+.bg-gray {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../images/bg4.jpg") no-repeat;
+  background-size: cover;
+  filter: brightness(10%) grayscale(100%);
+  z-index: 0;
+  opacity: 0.9;
+}
+.bg-gray::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.connect {
+  position: absolute;
+  z-index: 2;
+  width: calc(30% - var(--pad));
+  height: 100%;
+  margin-top: calc(var(--pad));
+  margin-left: calc(var(--pad));
+  padding: 0 var(--pad);
+  padding-top: 16px;
+  background-color: var(--secondary);
+}
+.connect * {
+  color: var(--gray);
+}
+.connect__links .l_item {
+  align-items: center;
+  position: relative;
+}
+.connect__links .l_item .click {
+  margin: 0.8em 0;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+.connect__links .l_item .click.active::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  margin-left: calc(var(--pad) * -1);
+  background-color: var(--gray);
+}
+.connect__links .l_item .underscore {
+  position: absolute;
+  background-color: var(--gray);
+  right: -0.5em;
+  width: 0;
+  height: 0;
+  top: calc(50% - 2px);
+}
+.feed {
+  position: absolute;
+  width: calc(100% - 30% + var(--pad));
+  height: 80%;
+  left: calc(34% - var(--pad));
+  margin-top: var(--pad);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-gap: 2px;
+}
+.feed::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  background-color: var(--secondary);
+  border-bottom: none;
+  border-right: none;
+  background-size: cover;
+  filter: grayscale(100%);
+  z-index: -1;
+}
+.feed__item {
+  background-color: var(--gray);
+}
+.calender-events {
+  width: 60%;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+.calender-events .event {
+  width: 100%;
+  padding: 6px 16px;
+  filter: brightness(90%) blur(0px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+.calender-events .event:not(.active):hover {
+  background-color: #141414;
+}
+.calender-events .event * {
+  color: var(--gray);
+}
+.calender-events .event:not(.active) > .event__descr {
+  display: none;
+  height: 100px;
+}
+.calender-events .active {
+  height: 200px;
+  background-color: var(--gray);
+  filter: brightness(100%) blur(0px);
+}
+.calender-events .active > * {
+  color: var(--secondary);
+  display: block;
+}
+.click {
+  transition: 0.2s all ease-out;
+}
+.click:not(.active):hover {
+  filter: brightness(120%) opacity(0.7);
+  transform: translateX(8px);
+}
 .anim-on-click {
   animation: mousestripe 1s infinite;
 }
@@ -467,8 +646,7 @@ button {
   display: none;
 }
 .nav-up {
-  width: 100vw;
-  height: 10vh;
+  --side-nav-width: 20vw;
 }
 @-moz-keyframes movestripe {
   from {

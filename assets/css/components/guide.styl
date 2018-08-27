@@ -1,20 +1,16 @@
 @import 'components/type'
-$h = 2px
 :root
     --primary: #fff;
     --secondary: #000;
     --gray: #b9b9b9;
-    // --test-1: red;
-    // --test-2: orange;
-    // --test-3: blue;
     //alternate header
     --twvh: 0
     --after-top: calc(100% - var(--deco-bar)*2)
+    --after-left: calc(var(--sect-40-width)/2)
     // --after-top: calc(100% - var(--deco-bar)*3)
     // --after-left: 0
-    --after-left: calc(var(--sect-40-width)/2)
     --twvh: 20vh
-    --snug: calc(100% - var(--pad) * 4 - 8px)
+    --snug: calc(100% - var(--pad) * 4 - 1em)
     --sect-40-width: calc(var(--side-nav-width) * 2)
     --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad))
     --side-nav-width: 18vw;
@@ -29,8 +25,17 @@ $h = 2px
     color var(--secondary)
 body
     height 100%
-    background-color var(--secondary)
+    background-color #000
     cursor crosshair
+
+//Testing
 .hero__head
     font-family 'druk'
-    
+.debug:nth-of-type(odd)
+    background-color red
+    *
+        border 1px solid purple
+.debug:nth-of-type(even)
+    background-color green
+    *
+        border 1px solid violet

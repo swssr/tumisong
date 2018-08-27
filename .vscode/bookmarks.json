@@ -3,8 +3,18 @@
 		"path": "$ROOTPATH$\\assets\\css\\components\\head.styl",
 		"bookmarks": [
 			{
-				"line": 83,
+				"line": 79,
 				"column": 2,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$\\index.html",
+		"bookmarks": [
+			{
+				"line": 161,
+				"column": 8,
 				"label": ""
 			}
 		]

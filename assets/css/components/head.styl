@@ -16,7 +16,8 @@
                     45deg,
                     var(--gray),
                     var(--gray) 6px,
-e                    var(--secondary) 40px
+                    var(--secondary) 6px,
+                    var(--secondary) 40px
                 )
                 background-position 0 0
                 background-repeat repeat-x
@@ -28,7 +29,6 @@ e                    var(--secondary) 40px
         text-shadow -2px -2px 0 var(--secondary)
 .bg
     position absolute
-    // left var(--side-nav-width)
     width 100%
     right 0px
     height 100%
@@ -46,7 +46,6 @@ e                    var(--secondary) 40px
     background-color var(--secondary)
     text-transform uppercase
     border-right 1px solid rgba(0,0,0,0.3)
-    // mix-blend-mode: multiply
 
     *
         color var(--gray)
@@ -76,8 +75,6 @@ e                    var(--secondary) 40px
     width var(--sect-40-width)
     height 100%
     display flex
-    // border-top var(--deco-bar) solid var(--secondary)
-    
     &::after
         content ''
         position absolute
@@ -209,7 +206,6 @@ e                    var(--secondary) 40px
     height 100px
     span
         transform translateX(-1.2em) rotate(-90deg)
-
 .social
     --h: 100px
     position absolute
@@ -246,6 +242,10 @@ e                    var(--secondary) 40px
     height 100vh
     padding var(--new-pad)
     background-color var(--secondary)
+    overflow hidden
+    *
+        padding 0
+        margin 0
 
 .featured
 .playlists
@@ -253,23 +253,21 @@ e                    var(--secondary) 40px
     background-color var(--secondary)
     height 100%
     width calc(100% - var(--twvh) - var(--pad)* 2)
-
     *
         color var(--gray)
         margin 8px 0
     &__list
         position absolute
-        margin-top 1em
         left var(--twvh)
         right var(--pad)
         background-color var(--secondary)
         display grid
         grid-template-columns: repeat(3, minmax(140px, 1fr));
-        grid-template-columns: repeat(3, minmax(140px, 1fr));
-        grid-column-gap: var(--pad)
+        grid-template-rows: repeat(2, minmax(140px, 1fr));
+        grid-gap: var(--pad)
         grid-auto-flow: row
         .item
-            height 250px
+            height 30vh
             display flex
             flex-direction column
             justify-content space-between
@@ -309,19 +307,10 @@ e                    var(--secondary) 40px
                             clip-path: polygon(
                                 0 0, 100% 50%, 0 100%
                             )
-.debug:nth-of-type(odd)
-    background-color red
-    *
-        border 1px solid purple
-.debug:nth-of-type(even)
-    background-color papayawhip
-    *
-        border 1px solid var(--secondary)
-
 .playlist__list
     width 100%
     height var(--snug)
-    background-color pink
+    background-color var(--gray)
 
 .controls
     position absolute
@@ -331,12 +320,137 @@ e                    var(--secondary) 40px
     left var(--twvh)
     display flex
     flex-direction column
+    *
+        transition .2s all ease-out
     .prev, .next
         flex 1
-        background-color var(--primary)
+        background-color var(--gray)
         display flex
         justify-content: center
         align-items: center
         .icon
             width 20px
             height 20px
+    .prev:hover, .next:hover
+        opacity .9
+    .prev:hover
+        .icon
+            transform translateY(-.5em) 
+    .next:hover
+        .icon
+            transform translateY(.5em)
+
+.bg-gray
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+    position absolute
+    width 100%
+    height 100%
+    background url('../images/bg4.jpg') no-repeat
+    background-size cover
+    filter brightness(10%) grayscale(100%)
+    z-index 0
+    opacity .9
+    &::before
+       content ''
+       position absolute
+       width 100%
+       height 100%
+.connect
+    position absolute
+    z-index 2
+    width calc(30% - var(--pad))
+    height 100%
+    margin-top calc(var(--pad))
+    margin-left calc(var(--pad))
+    padding 0 var(--pad)
+    padding-top 16px
+    background-color var(--secondary)
+    *
+        color var(--gray)
+    &__links
+        .l_item
+            align-items: center
+            position relative
+            .click
+                margin .8em 0
+                position relative
+                display flex
+                cursor pointer
+                &.active::before
+                    content ''
+                    position absolute
+                    width 4px
+                    height 100%
+                    margin-left calc(var(--pad) * -1)
+                    background-color var(--gray)
+                    // background-color red
+            .underscore
+                position absolute
+                background-color var(--gray)
+                right -.5em
+                width 0
+                height 0
+                top calc(50% - 2px)
+.feed
+    position absolute
+    width calc(100% - 30% + var(--pad))
+    height 80%
+    left calc(34% - var(--pad))
+    margin-top var(--pad)
+    z-index 10
+    display grid
+    grid-template-columns: 400px 1fr
+    grid-gap: 2px
+    &::before
+        content ''
+        position absolute
+        width 100%
+        height 120%
+        background-color var(--secondary)
+        border-bottom none
+        border-right none
+        background-size cover
+        filter grayscale(100%)
+        z-index -1
+    &__item
+        background-color var(--gray)
+// .mid
+//     padding-left calc(var(--sect-40-width) / 2 - var(--pad))
+.calender-events
+    width 60%
+    margin-top 1em
+    display flex
+    flex-direction column
+    align-items: center
+    position absolute
+    .event
+        width 100%
+        padding 6px 16px
+        filter: brightness(90%) blur(0px)
+        display flex
+        flex-direction column
+        justify-content: center
+        cursor pointer
+        &:not(.active):hover
+            background-color #141414
+        *
+            color var(--gray)
+    .event:not(.active) > .event__descr
+        display none
+        height 100px
+    .active
+        height 200px
+        background-color var(--gray)
+        filter: brightness(100%) blur(0px)
+        & > *
+            color var(--secondary)
+            display block
+.click
+    transition .2s all ease-out
+    &:not(.active):hover
+        filter: brightness(120%) opacity(.7)
+        transform translateX(8px)
