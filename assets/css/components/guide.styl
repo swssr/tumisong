@@ -1,31 +1,37 @@
-@import 'components/type'
 :root
     --primary: #fff;
-    --secondary: #000;
+    --secondary: #193549;
+    --secondary: rgb(6, 7, 9);
     --gray: #b9b9b9;
+    --accent1: rgb(254, 174, 1);
+    --accent2:  red;
     //alternate header
     --twvh: 0
-    --after-top: calc(100% - var(--deco-bar)*2)
+    --after-top: calc(100% - var(--deco-bar))
     --after-left: calc(var(--sect-40-width)/2)
+    
     // --after-top: calc(100% - var(--deco-bar)*3)
     // --after-left: 0
     --twvh: 20vh
     --snug: calc(100% - var(--pad) * 4 - 1em)
     --sect-40-width: calc(var(--side-nav-width) * 2)
     --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad))
-    --side-nav-width: 18vw;
+    --side-nav-width: 4vw;
+    --side-nav-width: 15vw;
     --stripe-height: 40vh;
     --main-width: calc(100% - var(--side-nav-width))
     --deco-bar: calc(var(--bar)/3);
     --bar: 80px;
     --pad: var(--deco-bar);
     --sect-40-width: calc(var(--side-nav-width) * 2);
+    //decorative tings
+    --sh: -1px 1px 10px 5px rgba(0,0,0, .2);
 
 *
     color var(--secondary)
 body
     height 100%
-    background-color #000
+    background-color var(--secondary)
     cursor crosshair
 
 //Testing

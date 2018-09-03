@@ -45,15 +45,14 @@
     z-index 9999
     background-color var(--secondary)
     text-transform uppercase
-    border-right 1px solid rgba(0,0,0,0.3)
-
     *
         color var(--gray)
 
 .split
     position absolute
     width 60px
-    height 3px
+    height 60px
+    border-radius 50%
     top calc(50vh - 9px)
     margin-left var(--pad)
     box-shadow 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
@@ -76,20 +75,19 @@
     height 100%
     display flex
     &::after
-        content ''
-        position absolute
-        //looks nice but there's no achor 
+        // content ''
+        // position absolute
+        // //looks nice but there's no achor 
         // left calc(var(--sect-40-width))
-        //anchored but I do not like it
-        left var(--after-left)
-        right 0
-        top var(--after-top)
-        bottom 0
-        background-color var(--secondary)
-        z-index 2
-        outline 2px solid white
-        box-shadow -4px -4px 0 0 var(--secondary)
-        mix-blend-mode: multiply
+        // //anchored but I do not like it
+        // // left var(--after-left)
+        // right 0
+        // top var(--after-top)
+        // bottom 0
+        // background-color var(--secondary)
+        // z-index 2
+        // // outline 2px solid white
+        // // box-shadow -2px -2px 0 0 var(--accent1)
 .nav__span
     position absolute
     width 100%
@@ -110,15 +108,9 @@
     flex-basis 50%
     padding-bottom var(--pad)
 .split ~ .bottom
-    background-image repeating-linear-gradient(
-        45deg,
-        var(--gray),
-        var(--gray) 6px,
-        var(--secondary) 6px,
-        var(--secondary) 30px
-    )
+    background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 6px, var(--secondary) 6px, var(--secondary) 50px);
+    height 500px
     background-position 0 0
-    background-repeat repeat-x
     animation: movestripe 1s linear infinite;
 .pad--top
     margin-top 2.5em
@@ -150,7 +142,7 @@
     justify-content space-between
     flex-direction column
     transform translateY(-4em)
-    mix-blend-mode: multiply
+    // mix-blend-mode: multiply
 
     
     &__txt
@@ -224,13 +216,16 @@
 .email
     background-color var(--secondary)
     padding 4px
-    width 130px
+    padding-left 24px
+    margin-left 12px
+    width 200px
 .blur
     position absolute
-    width 80vw
-    height 60vw
+    width 100vw
+    height 60vh
     background-color var(--primary)
     margin 40vh 0 0 var(--twvh) 
+    margin-left -10vw
     z-index -1
     opacity .4
     filter blur(1px)
@@ -242,11 +237,17 @@
     height 100vh
     padding var(--new-pad)
     background-color var(--secondary)
-    overflow hidden
+    // overflow hidden
     *
         padding 0
         margin 0
-
+.flex
+    display flex
+    &--col
+        flex-direction column
+    &--row
+        flex-direction row
+    
 .featured
 .playlists
     margin-left ml = calc(var(--sect-40-width)/2 - var(--pad))
@@ -259,7 +260,7 @@
     &__list
         position absolute
         left var(--twvh)
-        right var(--pad)
+        right calc(var(--pad) * 2)
         background-color var(--secondary)
         display grid
         grid-template-columns: repeat(3, minmax(140px, 1fr));
@@ -267,7 +268,7 @@
         grid-gap: var(--pad)
         grid-auto-flow: row
         .item
-            height 30vh
+            height 33vh
             display flex
             flex-direction column
             justify-content space-between
@@ -349,11 +350,15 @@
     position absolute
     width 100%
     height 100%
-    background url('../images/bg4.jpg') no-repeat
     background-size cover
-    filter brightness(10%) grayscale(100%)
+    background-image linear-gradient(
+        to bottom,
+        var(--secondary),
+        var(--primary)
+    )
+    // filter brightness(10%) grayscale(100%)
     z-index 0
-    opacity .9
+    // opacity .9
     &::before
        content ''
        position absolute
@@ -363,12 +368,13 @@
     position absolute
     z-index 2
     width calc(30% - var(--pad))
-    height 100%
+    height calc(100% - var(--pad) * 2)
     margin-top calc(var(--pad))
     margin-left calc(var(--pad))
     padding 0 var(--pad)
     padding-top 16px
     background-color var(--secondary)
+    box-shadow: 0 16px 0 0 var(--secondary);
     *
         color var(--gray)
     &__links
@@ -386,7 +392,7 @@
                     width 4px
                     height 100%
                     margin-left calc(var(--pad) * -1)
-                    background-color var(--gray)
+                    background-color var(--accent1)
                     // background-color red
             .underscore
                 position absolute
@@ -396,28 +402,56 @@
                 height 0
                 top calc(50% - 2px)
 .feed
-    position absolute
-    width calc(100% - 30% + var(--pad))
-    height 80%
-    left calc(34% - var(--pad))
-    margin-top var(--pad)
-    z-index 10
-    display grid
-    grid-template-columns: 400px 1fr
-    grid-gap: 2px
+    position: absolute;
+    width: calc(100% - 30% + var(--pad));
+    height: calc(100% - var(--pad) * 2);
+    left: calc(34% - var(--pad));
+    margin-top: calc(var(--pad));
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    transition: 0.4s all ease-out;
+    box-shadow: 0 16px 0 0 var(--secondary);
     &::before
         content ''
         position absolute
         width 100%
-        height 120%
+        height 100%
         background-color var(--secondary)
         border-bottom none
         border-right none
         background-size cover
-        filter grayscale(100%)
         z-index -1
     &__item
+        position relative
         background-color var(--gray)
+        overflow hidden
+        &:hover:nth-of-type(odd)
+            border 1px solid var(--accent1)
+        &:hover:nth-of-type(1)
+            border-top none
+        &:hover:nth-of-type(even)
+            border-top 1px solid var(--accent1)
+            border-bottom 1px solid var(--accent1)
+            border-left 1px solid var(--accent1)
+        &:hover:nth-of-type(2)
+            border-top none
+    &__img
+        width 100%
+        height 100%
+        object-fit: cover
+        filter: brightness(50%) blur(0px) grayscale(100%) contrast(110%);
+        transform scale(1)
+        transition .8s all ease-out
+        cursor pointer
+        &:hover
+            transform scale(1.05)
+            filter: grayscale(10%) brightness(90%)
+            transition .8s all ease-out
+            & ~ :not(:hover)
+                transition 1s all ease-out
+                filter: blur(1px)
+
 // .mid
 //     padding-left calc(var(--sect-40-width) / 2 - var(--pad))
 .calender-events
