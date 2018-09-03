@@ -4,3 +4,43 @@
 
 .logo
     font-family 'druk'
+    font-size 1.2em
+    font-weight 600
+
+.section__prehead
+  color var(--accent1)
+  &::after
+      content '___'
+.section__head
+  height 2em  
+  display flex
+.section__head::after
+  content ''
+  align-self: center
+  width .5em
+  height .5em
+  border-radius 50%
+  margin-left .5em
+  margin-top -.1em
+  background-image repeating-linear-gradient(
+    45deg,
+    var(--gray),
+    var(--gray) 2px,
+    var(--secondary) 2px,
+    var(--secondary) 4px
+  )
+.section__subhead
+  transform translateY(-1em)
+  font-size .9em
+  font-weight lighter
+.white-text
+  *
+    color var(--gray)
+.event__date
+  opacity .6
+.event__descr
+  font-weight 300
+  text-transform none
+
+.section__prehead
+  color var(--accent1) !important
