@@ -1134,7 +1134,6 @@ button {
   margin-bottom: 4px;
   padding: 0 8px;
   margin-left: -8px;
-  width: min-content;
 }
 .chead div:first-child {
   margin-left: 40%;
