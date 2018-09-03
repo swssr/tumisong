@@ -1,0 +1,14 @@
+{
+    "name": "tumisong",
+    "version": "1.0.0",
+    "description": "official website for tumisong dj",
+    "main": "assets/js/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "swssr",
+    "license": "ISC",
+    "devDependencies": {
+        "cssnano": "^4.1.0"
+    }
+}

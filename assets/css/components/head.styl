@@ -1,54 +1,62 @@
 .logo
     position relative
-    width 135px
-    height h = 2em
-    line-height h
-    background-color #000
-    color #fff
-    span
-        width 50%
-        height 3em
-        color #000
-        background-color #fff
+    display flex
+    padding 4px
+    color var(--gray)
+    background-color var(--secondary)
     &::before
-        content ''
-        position absolute
-        width 50%
-        height inherit
-        z-index -1
+                content ''
+                position absolute
+                width 100%
+                height 200%
+                margin-left -50%
+                margin-top -20%
+                z-index -1
+                background-image repeating-linear-gradient(
+                    45deg,
+                    var(--gray),
+                    var(--gray) 6px,
+                    var(--secondary) 6px,
+                    var(--secondary) 40px
+                )
+                background-position 0 0
+                background-repeat repeat-x
+                animation: movestripe 1s linear infinite;
 
+    span:first-child
+        position relative
+        color var(--gray)
+        text-shadow -2px -2px 0 var(--secondary)
 .bg
     position absolute
     width 100%
+    right 0px
     height 100%
     z-index -1
     background-repeat no-repeat
     object-fit: cover
-    filter grayscale(100%) blur(0px) brightness(20%)
-.stripe
-    position absolute
-    width 100vw
-    height var(--stripe-height)
-    background-color #000
-    bottom 0px
-    z-index -1
+    filter grayscale(100%) brightness(80%)
+    background-size 100px 100px
 .nav--left
-    position absolute
+    position fixed
     left 0
     width var(--side-nav-width)
     height 100%
-    background-color var(--test-1)
+    z-index 9999
+    background-color var(--secondary)
     text-transform uppercase
-    border-right 1px solid rgba(0,0,0,0.3)
-
+    *
+        color var(--gray)
 
 .split
     position absolute
     width 60px
-    height 3px
+    height 60px
+    border-radius 50%
     top calc(50vh - 9px)
     margin-left var(--pad)
-    box-shadow 0 -3px 0 0 var(--secondary), 0 3px 0 0 var(--secondary);
+    box-shadow 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
+    transform rotate(45deg)
 
 
 .main
@@ -57,24 +65,29 @@
     width var(--main-width)
     height 100%
 .head
-    height 100%
+    height 100vh
+.wide
+    width 100vw
+    background-color var(--test-2)
 
 .sect-40
-    width w = calc(var(--side-nav-width) * 2)
+    width var(--sect-40-width)
     height 100%
     display flex
-    // border-top var(--deco-bar) solid var(--secondary)
-    
     &::after
-        content ''
-        position absolute
-        left w
-        right var(--pad)
-        top calc(100% - var(--deco-bar))
-        bottom 0
-        background-color var(--secondary)
-        z-index 2
-        mix-blend-mode: screen
+        // content ''
+        // position absolute
+        // //looks nice but there's no achor 
+        // left calc(var(--sect-40-width))
+        // //anchored but I do not like it
+        // // left var(--after-left)
+        // right 0
+        // top var(--after-top)
+        // bottom 0
+        // background-color var(--secondary)
+        // z-index 2
+        // // outline 2px solid white
+        // // box-shadow -2px -2px 0 0 var(--accent1)
 .nav__span
     position absolute
     width 100%
@@ -94,10 +107,11 @@
     display flex
     flex-basis 50%
     padding-bottom var(--pad)
-
 .split ~ .bottom
-    background-color var(--primary)
-
+    background-image: repeating-linear-gradient(45deg, var(--gray), var(--gray) 6px, var(--secondary) 6px, var(--secondary) 50px);
+    height 500px
+    background-position 0 0
+    animation: movestripe 1s linear infinite;
 .pad--top
     margin-top 2.5em
     *
@@ -127,8 +141,10 @@
     display flex
     justify-content space-between
     flex-direction column
-    transform translateY(-1em)
-    mix-blend-mode: screen
+    transform translateY(-4em)
+    // mix-blend-mode: multiply
+
+    
     &__txt
         margin-bottom 1em
 
@@ -144,7 +160,6 @@
     position relative
     display flex
     align-items: center
-    mix-blend-mode: multiply
     .text
         font-weight 400
         color var(--primary)
@@ -157,7 +172,7 @@
         z-index -1
 .sect-60
     position absolute
-    width calc(100% - var(--sect-40-width) - var(--pad))
+    width var(--sect-60-width)
     top p = var(--pad)
     right p
     bottom p
@@ -183,3 +198,294 @@
     height 100px
     span
         transform translateX(-1.2em) rotate(-90deg)
+.social
+    --h: 100px
+    position absolute
+    width width = 20px
+    height var(--h)
+    right 0px
+    margin auto 0
+    display flex
+    flex-direction column
+    justify-content space-between
+    margin-top calc(50% - var(--h)/2)
+    &__icon
+        background-color var(--secondary)
+        width 100%
+        height 20%
+.email
+    background-color var(--secondary)
+    padding 4px
+    padding-left 24px
+    margin-left 12px
+    width 200px
+.blur
+    position absolute
+    width 100vw
+    height 60vh
+    background-color var(--primary)
+    margin 40vh 0 0 var(--twvh) 
+    margin-left -10vw
+    z-index -1
+    opacity .4
+    filter blur(1px)
+    overflow hidden
+.container
+    --new-pad: calc(var(--pad)* 2);
+    position relative
+    widows 100%
+    height 100vh
+    padding var(--new-pad)
+    background-color var(--secondary)
+    // overflow hidden
+    *
+        padding 0
+        margin 0
+.flex
+    display flex
+    &--col
+        flex-direction column
+    &--row
+        flex-direction row
+    
+.featured
+.playlists
+    margin-left ml = calc(var(--sect-40-width)/2 - var(--pad))
+    background-color var(--secondary)
+    height 100%
+    width calc(100% - var(--twvh) - var(--pad)* 2)
+    *
+        color var(--gray)
+        margin 8px 0
+    &__list
+        position absolute
+        left var(--twvh)
+        right calc(var(--pad) * 2)
+        background-color var(--secondary)
+        display grid
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
+        grid-template-rows: repeat(2, minmax(140px, 1fr));
+        grid-gap: var(--pad)
+        grid-auto-flow: row
+        .item
+            height 33vh
+            display flex
+            flex-direction column
+            justify-content space-between
+            * 
+                flex 1
+            &__image
+                flex 99999
+                border 1px solid var(--secondary)
+                background-image repeating-linear-gradient(
+                    45deg,
+                    var(--gray),
+                    var(--gray) 6px,
+                    var(--secondary) 6px,
+                    var(--secondary) 40px
+                )
+                background-position 0 0 
+                background-repeat repeat-x
+                animation: movestripe 1s linear infinite;
+
+            &__caption
+                height 1em
+                display flex
+                padding 0 4px
+                justify-content space-between
+                .text
+                    flex 99999
+                .actions
+                    flex 2
+                    position relative
+                    display flex
+
+                    .icon
+                        width 10px
+                        height 10px
+                        background-color var(--gray)
+                        &--play
+                            clip-path: polygon(
+                                0 0, 100% 50%, 0 100%
+                            )
+.playlist__list
+    width 100%
+    height var(--snug)
+    background-color var(--gray)
+
+.controls
+    position absolute
+    width 50px
+    height 150px
+    top calc(50% - 75px)
+    left var(--twvh)
+    display flex
+    flex-direction column
+    *
+        transition .2s all ease-out
+    .prev, .next
+        flex 1
+        background-color var(--gray)
+        display flex
+        justify-content: center
+        align-items: center
+        .icon
+            width 20px
+            height 20px
+    .prev:hover, .next:hover
+        opacity .9
+    .prev:hover
+        .icon
+            transform translateY(-.5em) 
+    .next:hover
+        .icon
+            transform translateY(.5em)
+
+.bg-gray
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+    position absolute
+    width 100%
+    height 100%
+    background-size cover
+    background-image linear-gradient(
+        to bottom,
+        var(--secondary),
+        var(--primary)
+    )
+    // filter brightness(10%) grayscale(100%)
+    z-index 0
+    // opacity .9
+    &::before
+       content ''
+       position absolute
+       width 100%
+       height 100%
+.connect
+    position absolute
+    z-index 2
+    width calc(30% - var(--pad))
+    height calc(100% - var(--pad) * 2)
+    margin-top calc(var(--pad))
+    margin-left calc(var(--pad))
+    padding 0 var(--pad)
+    padding-top 16px
+    background-color var(--secondary)
+    box-shadow: 0 16px 0 0 var(--secondary);
+    *
+        color var(--gray)
+    &__links
+        .l_item
+            align-items: center
+            position relative
+            .click
+                margin .8em 0
+                position relative
+                display flex
+                cursor pointer
+                &.active::before
+                    content ''
+                    position absolute
+                    width 4px
+                    height 100%
+                    margin-left calc(var(--pad) * -1)
+                    background-color var(--accent1)
+                    // background-color red
+            .underscore
+                position absolute
+                background-color var(--gray)
+                right -.5em
+                width 0
+                height 0
+                top calc(50% - 2px)
+.feed
+    position: absolute;
+    width: calc(100% - 30% + var(--pad));
+    height: calc(100% - var(--pad) * 2);
+    left: calc(34% - var(--pad));
+    margin-top: calc(var(--pad));
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    transition: 0.4s all ease-out;
+    box-shadow: 0 16px 0 0 var(--secondary);
+    &::before
+        content ''
+        position absolute
+        width 100%
+        height 100%
+        background-color var(--secondary)
+        border-bottom none
+        border-right none
+        background-size cover
+        z-index -1
+    &__item
+        position relative
+        background-color var(--gray)
+        overflow hidden
+        &:hover:nth-of-type(odd)
+            border 1px solid var(--accent1)
+        &:hover:nth-of-type(1)
+            border-top none
+        &:hover:nth-of-type(even)
+            border-top 1px solid var(--accent1)
+            border-bottom 1px solid var(--accent1)
+            border-left 1px solid var(--accent1)
+        &:hover:nth-of-type(2)
+            border-top none
+    &__img
+        width 100%
+        height 100%
+        object-fit: cover
+        filter: brightness(50%) blur(0px) grayscale(100%) contrast(110%);
+        transform scale(1)
+        transition .8s all ease-out
+        cursor pointer
+        &:hover
+            transform scale(1.05)
+            filter: grayscale(10%) brightness(90%)
+            transition .8s all ease-out
+            & ~ :not(:hover)
+                transition 1s all ease-out
+                filter: blur(1px)
+
+// .mid
+//     padding-left calc(var(--sect-40-width) / 2 - var(--pad))
+.calender-events
+    width 60%
+    margin-top 1em
+    display flex
+    flex-direction column
+    align-items: center
+    position absolute
+    .event
+        width 100%
+        padding 6px 16px
+        filter: brightness(90%) blur(0px)
+        display flex
+        flex-direction column
+        justify-content: center
+        cursor pointer
+        &:not(.active):hover
+            background-color #141414
+        *
+            color var(--gray)
+    .event:not(.active) > .event__descr
+        display none
+        height 100px
+    .active
+        height 200px
+        background-color var(--gray)
+        filter: brightness(100%) blur(0px)
+        & > *
+            color var(--secondary)
+            display block
+.click
+    transition .2s all ease-out
+    &:not(.active):hover
+        filter: brightness(120%) opacity(.7)
+        transform translateX(8px)
+//I'm pleased with myself
