@@ -222,10 +222,12 @@
 .blur
     position absolute
     width 100vw
-    height 60vh
-    background-color var(--primary)
-    margin 40vh 0 0 var(--twvh) 
-    margin-left -10vw
+    height 100vh
+    background-image linear-gradient(
+        to bottom,
+        transparent,
+        var(--primary)
+    );
     z-index -1
     opacity .4
     filter blur(1px)
@@ -322,7 +324,7 @@
     display flex
     flex-direction column
     *
-        transition .2s all ease-out
+        transition var(--prim-anim)
     .prev, .next
         flex 1
         background-color var(--gray)
@@ -410,7 +412,7 @@
     z-index: 10;
     display: grid;
     grid-template-columns: 400px 1fr;
-    transition: 0.4s all ease-out;
+    transition: var(--tspeed) all ease-out;
     box-shadow: 0 16px 0 0 var(--secondary);
     &::before
         content ''
@@ -442,14 +444,14 @@
         object-fit: cover
         filter: brightness(50%) blur(0px) grayscale(100%) contrast(110%);
         transform scale(1)
-        transition .8s all ease-out
+        transition var(--prim-anim)
         cursor pointer
         &:hover
             transform scale(1.05)
             filter: grayscale(10%) brightness(90%)
-            transition .8s all ease-out
+            transition var(--prim-anim)
             & ~ :not(:hover)
-                transition 1s all ease-out
+                transition var(--prim-anim)
                 filter: blur(1px)
 
 // .mid
@@ -484,7 +486,7 @@
             color var(--secondary)
             display block
 .click
-    transition .2s all ease-out
+    transition var(--prim-anim)
     &:not(.active):hover
         filter: brightness(120%) opacity(.7)
         transform translateX(8px)

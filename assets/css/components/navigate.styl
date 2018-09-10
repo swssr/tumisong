@@ -1,8 +1,23 @@
-
+.top-nav
+    position fixed
+    width calc(100% - var(--side-nav-width))
+    height 80px
+    top 0
+    right 0
+    padding 0 var(--pad);
+    z-index 9999
+    display flex
+    align-items: center
+    justify-content: flex-end
+.nav__link
+    display flex
+    width 100px
+    align-items: center
+    font-weight bold
 .btn
     position relative
-    width 200px
-    height 40px
+    width 204px
+    height 50px
     text-transform: uppercase;
     cursor: pointer;
     z-index: 99999;

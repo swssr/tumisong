@@ -13,5 +13,10 @@
 .hide{
     display none
 }
-.nav-up
-    --side-nav-width: 20vw
+.slide-up
+    transform translateY(calc(var(--bar) * -1))
+    transition var(--prim-anim)
+.accent
+    background-color var(--accent1) !important
+.blurred
+    filter: blur(1px) brightness(90%)

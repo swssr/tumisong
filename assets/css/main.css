@@ -21,6 +21,8 @@
   --pad: var(--deco-bar);
   --sect-40-width: calc(var(--side-nav-width) * 2);
   --sh: -1px 1px 10px 5px rgba(0,0,0,0.2);
+  --speed: 0.218s;
+  --prim-anim: var(--speed) all ease-out;
 }
 * {
   color: var(--secondary);
@@ -329,10 +331,8 @@ button {
 .blur {
   position: absolute;
   width: 100vw;
-  height: 60vh;
-  background-color: var(--primary);
-  margin: 40vh 0 0 var(--twvh);
-  margin-left: -10vw;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, transparent, var(--primary));
   z-index: -1;
   opacity: 0.4;
   filter: blur(1px);
@@ -445,7 +445,7 @@ button {
   flex-direction: column;
 }
 .controls * {
-  transition: 0.2s all ease-out;
+  transition: var(--prim-anim);
 }
 .controls .prev,
 .controls .next {
@@ -539,7 +539,7 @@ button {
   z-index: 10;
   display: grid;
   grid-template-columns: 400px 1fr;
-  transition: 0.4s all ease-out;
+  transition: var(--tspeed) all ease-out;
   box-shadow: 0 16px 0 0 var(--secondary);
 }
 .feed::before {
@@ -578,16 +578,16 @@ button {
   object-fit: cover;
   filter: brightness(50%) blur(0px) grayscale(100%) contrast(110%);
   transform: scale(1);
-  transition: 0.8s all ease-out;
+  transition: var(--prim-anim);
   cursor: pointer;
 }
 .feed__img:hover {
   transform: scale(1.05);
   filter: grayscale(10%) brightness(90%);
-  transition: 0.8s all ease-out;
+  transition: var(--prim-anim);
 }
 .feed__img:hover ~ :not(:hover) {
-  transition: 1s all ease-out;
+  transition: var(--prim-anim);
   filter: blur(1px);
 }
 .calender-events {
@@ -627,52 +627,11 @@ button {
   display: block;
 }
 .click {
-  transition: 0.2s all ease-out;
+  transition: var(--prim-anim);
 }
 .click:not(.active):hover {
   filter: brightness(120%) opacity(0.7);
   transform: translateX(8px);
-}
-.anim-on-click {
-  animation: mousestripe 1s infinite;
-}
-.hide {
-  display: none;
-}
-.nav-up {
-  --side-nav-width: 20vw;
-}
-@-moz-keyframes movestripe {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100 0;
-  }
-}
-@-webkit-keyframes movestripe {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100 0;
-  }
-}
-@-o-keyframes movestripe {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100 0;
-  }
-}
-@keyframes movestripe {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100 0;
-  }
 }
 @font-face {
   font-family: 'druk';
@@ -828,10 +787,10 @@ button {
   left: calc(50% - 190px);
   z-index: 1;
   opacity: 0;
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
 }
 .cover-art:hover::before {
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
   opacity: 1;
 }
 .cover-art:hover::before .play--icon {
@@ -841,7 +800,7 @@ button {
 .cover-art .icon {
   z-index: 999;
   cursor: pointer;
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
 }
 .cover-art .icon svg {
   width: 100%;
@@ -851,7 +810,7 @@ button {
   filter: grayscale(0%);
 }
 .cover-art .icon:hover {
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
 }
 .nprev,
 .cnext {
@@ -885,12 +844,12 @@ button {
   filter: blur(1px);
   transform: scale(0);
   box-shadow: -1px 1px 10px 1px rgba(255,255,255,0.1);
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
 }
 .nprev:hover::before,
 .cnext:hover::before {
   transform: scale(1.8);
-  transition: 0.4s all ease-out;
+  transition: var(--prim-anim);
 }
 .tags {
   border-top: 1px solid rgba(0,0,0,0.3);
@@ -980,10 +939,28 @@ button {
 .bw-filter {
   filter: grayscale(100%) contrast(120%);
 }
+.top-nav {
+  position: fixed;
+  width: calc(100% - var(--side-nav-width));
+  height: 80px;
+  top: 0;
+  right: 0;
+  padding: 0 var(--pad);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav__link {
+  display: flex;
+  width: 100px;
+  align-items: center;
+  font-weight: bold;
+}
 .btn {
   position: relative;
-  width: 200px;
-  height: 40px;
+  width: 204px;
+  height: 50px;
   text-transform: uppercase;
   cursor: pointer;
   z-index: 99999;
@@ -1162,4 +1139,198 @@ button {
   text-align: right;
   color: var(--secondary);
   font-family: Oswald;
+}
+.modal {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 999999;
+  transition: var(--prim-anim);
+}
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary);
+  filter: blur(2px) opacity(0.5);
+}
+.visible {
+  display: block;
+  animation: show var(--speed) ease-out forwards;
+}
+@-moz-keyframes show {
+  0% {
+    opacity: 0;
+    margin-right: 100vw;
+  }
+  100% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+    margin-right: 100vw;
+  }
+  100% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+}
+@-o-keyframes show {
+  0% {
+    opacity: 0;
+    margin-right: 100vw;
+  }
+  100% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+    margin-right: 100vw;
+  }
+  100% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes remove {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 100px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes remove {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 100px;
+    opacity: 0;
+  }
+}
+@-o-keyframes remove {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 100px;
+    opacity: 0;
+  }
+}
+@keyframes remove {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 100px;
+    opacity: 0;
+  }
+}
+.bridge {
+  background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+.bridge::before {
+  content: '';
+  position: absolute;
+  width: 242px;
+  height: 100%;
+  background-color: var(--secondary);
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.inner--bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background-color: var(--secondary);
+}
+.footer {
+  position: fixed;
+  bottom: calc(var(--bar) * -1);
+  height: var(--bar);
+  left: calc(var(--side-nav-width) + 40% + var(--pad));
+  right: 0;
+  background-color: var(--secondary);
+  z-index: 9999;
+  transform: translateY(-4px);
+  transition: var(--prim-anim);
+}
+.anim-on-click {
+  animation: mousestripe 1s infinite;
+}
+.hide {
+  display: none;
+}
+.slide-up {
+  transform: translateY(calc(var(--bar) * -1));
+  transition: var(--prim-anim);
+}
+.accent {
+  background-color: var(--accent1) !important;
+}
+.blurred {
+  filter: blur(1px) brightness(90%);
+}
+@-moz-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@-webkit-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@-o-keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@keyframes movestripe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  :root {
+    --main-width: 100%;
+  }
+  .nav--left {
+    display: none;
+  }
+  .hero {
+    margin-left: 0;
+  }
 }

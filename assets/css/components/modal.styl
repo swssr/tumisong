@@ -1,0 +1,34 @@
+.modal
+    position fixed
+    display none
+    width 100%
+    height 100vh
+    overflow hidden
+    z-index 999999
+    transition var(--prim-anim)
+    &::before
+        content ''
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background-color var(--secondary)
+        filter blur(2px) opacity(.5)
+.visible
+    display block
+    animation: show var(--speed) ease-out forwards;
+@keyframes show
+    0%
+        opacity 0
+        margin-right 100vw
+    100%
+        margin-right 0px
+        opacity 1
+@keyframes remove
+    0%
+        opacity 1
+        margin-top 0px
+    100%
+        margin-top 100px
+        opacity 0
