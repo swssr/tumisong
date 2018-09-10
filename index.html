@@ -12,8 +12,27 @@
 <body>
     <div class="modal">
         <div class="modal__inner">
-            
+            <button>exit</button>
+
+            <img src="assets/images/loader.gif" width="100%" height="100%" alt="" srcset="" class="img--bigger">
+            <div class="ctrls">
+                <button class="icon">
+                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <defs>
+                        </defs>
+                        <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
+                    </svg>
+                </button>
+                <button class="icon">
+                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <defs>
+                        </defs>
+                        <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
+                    </svg>
+                </button>
+            </div>
         </div>
+    </div>
     </div>
     <img src="assets/images/bg3.jpg" alt="background image" class="bg" data-src="assets/images/bg/bg1.jpg">
     <aside class="nav--left">
@@ -336,34 +355,9 @@
         </section>
         <footer class="footer"></footer>
     </main>
-    <script>
-        let observer;
-        let counter;
-        //Lazy load images
-        let feed = document.querySelector(".feed");
-        let imgs = document.querySelectorAll(".feed__img");
-        var options = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 1.0
-        };
-        observer = new IntersectionObserver(renderImgs, options);
-
-        function renderImgs(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    imgs.forEach((img) => {
-                        img.src = img.dataset.src;
-                    });
-                } else return
-                observer.unobserve(entry.target);
-            });
-        }
-
-        observer.observe(feed);
-        //End lazy load
-    </script>
+    <script src="assets/js/libs/lory.min.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/slide.js"></script>
 </body>
 
 </html>
