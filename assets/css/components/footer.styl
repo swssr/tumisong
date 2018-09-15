@@ -1,10 +1,13 @@
 .footer
     position fixed
     bottom calc(var(--bar) * -1)
-    height var(--bar)
-    left 0
-    right 0
     background-image var(--accent1-grad)
+    height var(--bar)
+    left var(--side-nav-width)
+    right 0
+    padding var(--pad)
     z-index 9999
     transform translateY(-4px)
     transition var(--prim-anim)
+    justify-content: flex-end;
+    align-items: center;
