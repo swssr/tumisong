@@ -94,7 +94,7 @@ function showFooter(entries) {
   });
 }
 fObserver = new IntersectionObserver(showFooter, fOptions);
-fObserver.observe(document.querySelector(`.bridge`));
+fObserver.observe(document.querySelector(`.marker`));
 
 //Image preview
 //Image scroller 

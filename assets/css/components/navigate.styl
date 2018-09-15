@@ -12,8 +12,15 @@
 .nav__link
     display flex
     width 100px
+    padding 4px 8px
     align-items: center
     font-weight bold
+.abs--right
+    position absolute
+    margin-right -1em
+    width 400px
+    box-sizing border-box
+    box-shadow 1em 0 0 0 var(--accent1)
 .btn
     position relative
     width 204px
@@ -39,7 +46,27 @@
         line-height 1em
         top calc(50% - .5em)
 
-
+.social
+    --h: 100px
+    position absolute
+    width width = 20px
+    height var(--h)
+    right 0px
+    margin auto 0
+    display flex
+    flex-direction column
+    justify-content space-between
+    margin-top calc(50% - var(--h)/2)
+    &__icon
+        background-color var(--secondary)
+        width 100%
+        height 20%
+.email
+    background-color var(--secondary)
+    padding 4px
+    padding-left 24px
+    margin-left 12px
+    width 200px
 
 .mid
     position absolute
@@ -79,3 +106,41 @@
                 transform translateY(8px)
             &::after
                 transform translateY(16px)
+.play--icon{
+  position absolute
+  width 50px
+  height 50px
+  display flex
+  top calc(50% - 25px)
+  left calc(50% - 25px)
+  border-radius 50%
+  border 4px solid var(--accent1)
+  border-bottom-color: var(--secondary)
+  z-index 999
+  transform rotateZ('45deg');
+  transition var(--prim-anim)
+}
+.play--icon::before{
+  content ''
+  position absolute
+  width 40px
+  height 40px
+  margin auto
+  clip-path: polygon(
+    0 0, 0 50%, 0 100%
+  )
+  background-image var(--accent1-grad)
+  transform scale(0) translateX(10px)
+  z-index 9999
+}
+.play--icon:hover::before{
+  transform scale(1) translateX(10px)  
+}
+.play--icon:hover{
+  transform scale(1.5)
+  border-color var(--accent)
+  border-bottom-color: var(--accent1)
+}
+.play--icon:hover ~ .img{
+    transition .8s all ease-out
+}

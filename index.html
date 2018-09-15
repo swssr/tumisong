@@ -57,7 +57,7 @@
         </div>
     </aside>
     <nav class="top-nav">
-        <a href="#" class="nav__link">
+        <a href="#" class="nav__link accent abs abs--right">
             <span class="">beatport</span>
             <svg class="icon" viewBox="0 0 80 80">
                 <path d="M67.9,11.1H23.4c-1.7,0-3,1.3-3,3V47c0,1.5,1.3,2.8,2.8,2.8c1.6,0,2.8-1.3,2.8-2.8V17c0-0.1,0.1-0.2,0.2-0.2h39.1v46.3
@@ -185,9 +185,11 @@
                 </div>
             </section>
             <section class="container white-text">
-                <h5 class="section__prehead">party with me</h5>
-                <h2 class="section__head">Event calender</h2>
-                <p class="section__subhead">I go places too</p>
+                <div class="he">
+                    <h5 class="section__prehead">party with me</h5>
+                    <h2 class="section__head">Event calender</h2>
+                    <p class="section__subhead">I go places too</p>
+                </div>
                 <div class="calender">
                     <div class="calender-events">
                         <div class="event">
@@ -264,27 +266,27 @@
                 </div>
                 <div class="feed">
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                     <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="feed__img">
+                        <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="feed__img thumbnail">
                         <figcaption class="feed__caption"></figcaption>
                     </figure>
                 </div>
@@ -328,7 +330,27 @@
                     </div>
                 </div>
             </section>
-            <section class="container gray white book-me">
+            <section class="container bridge">
+                <div class="player viewer">
+                    <div class="inner--bottom" style="--bgcolor: var(--primary)">
+                        <img src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="video thumbnail" width="100%" height="100%"
+                            class="thumbnail thumbnail--video img bw-filter" srcset="">
+                        <div class="player__controls">
+                            <div class="progress">
+                                <div class="progress__filled"></div>
+                            </div>
+                            <button class="player__button toggle" title="Toggle Play">►</button>
+                            <input name="volume" class="player__slider" min="0" max="1" step="0.05" value="1" type="range">
+                            <input name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1"
+                                type="range">
+                            <button data-skip="-10" class="player__button">« 10s</button>
+                            <button data-skip="25" class="player__button">25s »</button>
+                        </div>
+                    </div>
+                    <a href="#" class="icon  play--icon"></a>
+                </div>
+            </section>
+            <section class="container gray white book-me bridge">
                 <div class="almost-full">
                     <img src="assets/images/1e9c4163841269.5abe0530ab650.jpg" alt="tumi good sundae" class="img form-img">
                     <form class="contact-form">
@@ -350,9 +372,8 @@
                 </div>
             </section>
         </section>
-        <section class="container bridge">
-            <div class="inner--bottom"></div>
-        </section>
+        <section class="container"></section>
+        <div class="marker"></div>
         <footer class="footer"></footer>
     </main>
     <script src="assets/js/index.js"></script>
