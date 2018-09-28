@@ -5,6 +5,15 @@
     display flex
     align-items: center;
 }
+.book-me::after{
+    content ''
+    position absolute
+    width 100%
+    height 250px
+    bottom 0
+    left 0
+    background var(--secondary)
+}
 .almost-full{
     --padn: calc(42px + var(--pad));
     position absolute
@@ -12,7 +21,7 @@
     left var(--padn)
     right var(--padn)
     background-color var(--primary)
-    box-shadow var(--sh)
+    box-shadow var(--sh), 0 1px 40px 4px rgba(255,255,255,0.1);
     padding var(--pad)
     display flex
     margin auto
@@ -99,17 +108,4 @@
 }
 .contact__item b{
     margin-left .3em
-}
-.input{
-    outline none
-    border 3px solid var(--secondary)
-    width 300px
-    height 50px
-    margin 2em 0
-    padding 0.2em
-    text-indent .2em
-    text-align right
-    color var(--secondary)
-    font-family Oswald;
-    box-shadow -4px 4px 0 0 var(--accent1)
 }

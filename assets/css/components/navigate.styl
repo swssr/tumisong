@@ -26,6 +26,7 @@
     width 204px
     height 40px
     background-color transparent
+    border 4px solid var(--secondary)
     cursor: pointer;
     text-transform: uppercase;
     z-index: 99999;
@@ -34,11 +35,17 @@
     font-family Oswald
     display flex
     align-items: center;
+    background-color: var(--primary);
+    padding 4px 8px
+    box-shadow -4px 4px 0 0 var(--accent1)
+    margin-top 1em
+    span.right
+        color: var(--secondary);
+        right: 8px; 
+        position: absolute;
 
 .btn--primary 
-    background-color: var(--secondary);
     border: none;
-    padding 4px 8px
     box-shadow -4px 4px 0 0 var(--secondary)
     &::after
         content: ''
@@ -148,4 +155,13 @@
 }
 .play--icon:hover ~ .img{
     transition .8s all ease-out
+}
+.input{
+    outline none
+    border none
+    padding-left .5em
+    text-indent .2em
+    text-align left
+    color var(--secondary)
+    font-family Oswald;
 }

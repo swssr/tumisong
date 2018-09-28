@@ -6,7 +6,7 @@ let col = document.querySelector(".col");
 let calEvents = document.querySelectorAll(".event");
 let clck = document.querySelectorAll(".click");
 let modal = document.querySelector(".modal");
-var imgs = document.querySelectorAll('.feed__img');
+var imgs = document.querySelectorAll(".feed__img");
 
 var tempSrc;
 counter = 0;
@@ -29,7 +29,7 @@ clck.forEach((c, i) => {
 });
 
 //Open/close modal mechanism
-let modalImgs = document.querySelector('.img--bigger');
+let modalImgs = document.querySelector(".img--bigger");
 imgs.forEach((img, i) => {
   img.addEventListener("click", e => {
     modal.classList.add("visible");
@@ -41,8 +41,8 @@ imgs.forEach((img, i) => {
   });
 });
 
-document.querySelector(`.modal__inner button`).addEventListener('click', _ => {
-  modal.classList.remove('visible');
+document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
+  modal.classList.remove("visible");
   main.classList.remove(`blurred`);
   navleft.classList.remove(`blurred`);
 });
@@ -60,10 +60,10 @@ observer = new IntersectionObserver(renderImgs, options);
 function renderImgs(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      imgs.forEach((img) => {
+      imgs.forEach(img => {
         img.src = img.dataset.src;
       });
-    } else return
+    } else return;
     observer.unobserve(entry.target);
   });
 }
@@ -73,9 +73,9 @@ observer.observe(feed);
 //Show hide footer
 let fObserver;
 let fOptions = {
-  rootMargin: '0px',
+  rootMargin: "0px",
   treshold: 1.0
-}
+};
 let footer = document.querySelector(`.footer`);
 let navleft = document.querySelector(`.nav--left`);
 let main = document.querySelector(`.main`);
@@ -89,7 +89,6 @@ function showFooter(entries) {
     } else {
       console.log(`not`);
       footer.classList.remove(`slide-up`);
-      footer.classList.add(`accent`);
     }
   });
 }
@@ -97,7 +96,7 @@ fObserver = new IntersectionObserver(showFooter, fOptions);
 fObserver.observe(document.querySelector(`.marker`));
 
 //Image preview
-//Image scroller 
+//Image scroller
 // let slideCntrls = document.querySelectorAll(`.ctrls .icon`);
 // let slideLeft = slideCntrls[0];
 // let slideRight = slideCntrls[1];
