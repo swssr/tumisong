@@ -8,7 +8,7 @@ let clck = document.querySelectorAll(".click");
 let modal = document.querySelector(".modal");
 var imgs = document.querySelectorAll(".feed__img");
 
-var tempSrc;
+let tempSrc;
 counter = 0;
 calEvents.forEach((calEvent, i) => {
   calEvent.addEventListener("click", () => {
@@ -46,29 +46,6 @@ document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
   main.classList.remove(`blurred`);
   navleft.classList.remove(`blurred`);
 });
-
-let observer;
-//Lazy load images
-let feed = document.querySelector(".feed");
-var options = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 1.0
-};
-observer = new IntersectionObserver(renderImgs, options);
-
-function renderImgs(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      imgs.forEach(img => {
-        img.src = img.dataset.src;
-      });
-    } else return;
-    observer.unobserve(entry.target);
-  });
-}
-observer.observe(feed);
-//End lazy load
 
 //Show hide footer
 let fObserver;

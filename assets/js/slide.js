@@ -1,3 +1,4 @@
+// @ts-nocheck
 var imgs = document.querySelectorAll(".feed__img"),
   controls = document.querySelectorAll(".ctrls .icon"),
   slideLeft = controls[0],
@@ -9,14 +10,14 @@ let indexedSrc = currIndex => {
   return imgs[currIndex].src;
 };
 
-controls.forEach(_c => {
-  _c.addEventListener("click", _ => {
-    console.log(
-      `current image: src ${indexedSrc} \n currnt index: ${currentIndex}`
-    );
-  });
-});
-slideLeft.addEventListener("click", () => {
+// controls.forEach(_c => {
+//   _c.addEventListener("click", _ => {
+//     console.log(
+//       `current image: src ${indexedSrc} \n current index: ${currentIndex}`
+//     );
+//   });
+// });
+slideLeft.addEventListener("click", _ => {
   if (currentIndex >= -1 && currentIndex < lastIndex) {
     currentIndex--;
     modalImgs.src = indexedSrc(currentIndex);

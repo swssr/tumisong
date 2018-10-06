@@ -30,5 +30,4 @@ function any40() {
   });
   return arr;
 }
-
 console.log(any40());

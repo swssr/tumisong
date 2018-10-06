@@ -1,18 +1,19 @@
 .footer
+    $h = var(--bar);
     position fixed
     bottom calc(var(--bar) * -1)
     background var(--secondary)
-    height var(--bar)
-    left 0
+    height $h
+    left var(--side-nav-width)
     right 0
-    z-index 9999
     transform translateY(-4px)
     transition var(--prim-anim)
     display grid
+    justify-content end
     grid-auto-flow: column
     grid-gap: var(--pad)
-    justify-content end
     padding 0 var(--pad)
+    z-index 999
     &__link
         font-size .8em
         display flex

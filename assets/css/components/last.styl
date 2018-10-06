@@ -27,7 +27,7 @@ $sq = calc(var(--pad) *5);
         z-index 100
     }
     &__head{
-        color var(--primary) !important
+        color var(--gray) !important
     }
     &__item{
         position relative
@@ -35,6 +35,9 @@ $sq = calc(var(--pad) *5);
         height $sq
         text-align center
         overflow hidden
+        *{
+            transition .4 all ease-out
+            }
         &::before{
             content ''
             position absolute

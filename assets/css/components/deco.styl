@@ -1,6 +1,5 @@
 .abs
     position absolute
-    width 100px
 .img
     object-fit: cover
 .thumbnail
@@ -13,4 +12,40 @@
         transform scale(1.05)
 .black
     color #000
+.item__group
+    overflow hidden
+    transition var(--prim-anim)
+    border 1px solid #141414
+    box-shadow: 0 1px 40px 4px rgba(255,255,255,0.1)
+    *
+        transition var(--prim-anim)
+        transition-duration: 1s;
+    .item__image
+        filter: blur(0px) brightness(40%) grayscale(100%)
+    &:hover
+        .item__image
+            transition-duration: 8s;
+            transform scale(1.2)
+            filter: blur(0px) brightness(40%) grayscale(100%)
+    &::after
+        content: ''
+        position absolute
+        top 0
+        left -50%
+        width 200%
+        height 100%
+        background repeating-linear-gradient(
+            45deg,
+            var(--gray),
+            var(--gray) 6px,
+            rgba(0,0,0, 1) 6px,
+            rgba(0,0,0, 1) 40px
+            )
+        opacity 0
+        transition 1s all ease-out
+        z-index 0
+    &:hover::after
+        left 0
+        opacity 0
+        transition 1s all ease-out
 //https://mtn.co.ca/pages/lightyourfire.aspx
