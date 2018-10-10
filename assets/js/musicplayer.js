@@ -19,59 +19,40 @@ songs.forEach((song, i) => {
         console.log(`now playing: ${nowPlaying.song} by ${nowPlaying.artist}`);
     })
 })
-
+//Populate featured list
+const featuredList = document.querySelector('.featured__list');
 //Fetch and play music song json
-const audio = document.querySelector('audio');
-const SONGS_URL = `http://127.0.0.1:5500/db/songs.json`;
+const SONGS_URL = `../../db/songs.json`;
 const fetchSongs = fetch(SONGS_URL);
-let songSrcs = [];
-
-try {
-    fetchSongs
-    .then(res =>{
-        return res.json()
+var songList;
+fetch(SONGS_URL)
+    .then(res => res.json())
+    .then(json => {
+        const {root, songs} = json;
+        songList = songs.map(song => song);
+        songList.forEach((val) => {
+            featuredList.innerHTML += `
+            <figure class="item">
+                <div class="item__group">
+                    <img src="assets/images/cover-art/${val.imgUrl}" alt="_" class="item__image img">
+                    <span class="icon btn--play play--icon item__play">
+                        <svg class="svg--play" viewBox="0 0 77 76.1">
+                            <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
+                        </svg>
+                        <svg class="svg--pause" width="40px" height="40px" viewBox="0 0 33 40">
+                            <rect width="10" height="40" />
+                            <rect x="20" width="10" height="40" />
+                        </svg>
+                    </span>
+                </div>
+                <figcaption class="item__caption">
+                    <span class="text">${val.song}</span>
+                    <span class="actions">
+                        <i class="icon icon--play"></i>
+                    </span>
+                </figcaption>
+            </figure>
+            `;
+        });
     })
-    .then(
-        json => {
-            const { songs } = json;
-            songs.forEach(song => {
-                songSrcs.push(song.src)
-            });
-            console.log(songSrcs);
-        }
-    )
-    .catch(err => console.log(err))
-} catch (err) {
-    console.log(err);
-}
-//Pressing play button
-let playBtns = document.querySelectorAll(`.btn--play`),
-    svgPlay = document.querySelector('.svg--play'),
-    svgPause = document.querySelector('.svg--pause');
-let counter = 0;
-playBtns.forEach((btn, i) => {
-    btn.addEventListener('click', e => {
-        console.log(e.target.parentNode);
-        
-        audio.src = songSrcs[i];
-        audio.
-        //Play pause machanism
-        counter++;
-        if (counter === 1) {
-            console.log(`playing, ${audio.src}`);
-            audio.play();
-
-            //Show pause icon
-            svgPlay.style.display = 'none'
-            svgPause.style.display = 'block'
-        }else{
-            console.log(`paused`);
-            counter = 0;
-            audio.pause();
-
-            //Show play icon
-            svgPlay.style.display = 'block'
-            svgPause.style.display = 'none'
-        }
-    })
-});
+    .catch(res => console.log(res));

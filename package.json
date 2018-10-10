@@ -4,7 +4,8 @@
     "description": "official website for tumisong dj",
     "main": "assets/js/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "styl": "cd ./assets/css && stylus -w main.styl -o main.css"
     },
     "author": "swssr",
     "license": "ISC",

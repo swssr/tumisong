@@ -1,46 +1,52 @@
 {
+    "root": "http://127.0.0.1:14922/",
     "songs": [
         {
-            "id": "0",
-            "artist333": "Tumisong",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/01%20Call%20Out%20My%20Name.m4a"
-        },
-        {
             "id": "1",
-            "artist": "Drizzy",
+            "artist": "Tumisong",
             "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/02%20Try%20Me.m4a"
+            "src": "01%20Call%20Out%20My%20Name.m4a",
+            "imgUrl": "c1.jpg"
         },
         {
             "id": "2",
-            "artist": "Broting",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/05%20Hurt%20You%20(feat.%20Gesaffelstein).m4a"
+            "artist": "Tumisong.",
+            "song": "Submerged.",
+            "src": "02%20Try%20Me.m4a",
+            "imgUrl": "c2.jpg"
+            
         },
         {
-            "id": "1",
-            "artist": "Drizzy",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/02%20Try%20Me.m4a"
+            "id": "3",
+            "artist": "Tumisong",
+            "song": "Blood, sweat & beers",
+            "src": "05%20Hurt%20You%20(feat.%20Gesaffelstein).m4a",
+            "imgUrl": "c3.jpg"
+            
         },
         {
-            "id": "2",
-            "artist": "Broting",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/05%20Hurt%20You%20(feat.%20Gesaffelstein).m4a"
+            "id": "4",
+            "artist": "Tumisong",
+            "song": "Spring fiesta groove",
+            "src": "02%20Try%20Me.m4a",
+            "imgUrl": "c4.jpg"
+            
         },
         {
-            "id": "1",
-            "artist": "Drizzy",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/02%20Try%20Me.m4a"
+            "id": "5",
+            "artist": "Tumisong",
+            "song": "Loco safredo, no idea",
+            "src": "05%20Hurt%20You%20(feat.%20Gesaffelstein).m4a",
+            "imgUrl": "c5.jpg"
+            
         },
         {
-            "id": "2",
-            "artist": "Broting",
-            "song": "Axe Ibiza Top 10",
-            "src": "http://127.0.0.1:8080/05%20Hurt%20You%20(feat.%20Gesaffelstein).m4a"
+            "id": "6",
+            "artist": "Tumisong",
+            "song": "Deeper soul mix",
+            "src": "02%20Try%20Me.m4a",
+            "imgUrl": "c6.jpg"
+            
         }
     ]
 }

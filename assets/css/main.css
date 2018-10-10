@@ -1127,6 +1127,12 @@ height
 .svg--pause * {
   fill: var(--accent1);
 }
+.paused .svg--play {
+  display: none;
+}
+.paused .svg--pause {
+  display: block;
+}
 .white {
   background-color: var(--primary);
 }
@@ -1969,8 +1975,7 @@ li {
   grid-auto-flow: column;
   max-width: 40vw;
   height: 50px;
-  background-color: #f00;
-  border: 2px solid var(--accent1);
+  outline: 2px solid var(--accent1);
 }
 .email-submit {
   margin: 0;
@@ -1981,7 +1986,7 @@ li {
   height: 100%;
   font-family: Oswald;
   background-color: var(--accent1);
-  border-left: 2px solid var(--secondary);
+  outline: 2px solid var(--accent1);
 }
 .last__input {
   margin: 0;
