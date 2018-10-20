@@ -1,6 +1,6 @@
 //Fecth
 
-const HOST = 'http://127.0.0.1:5500/db/songs.json';
+const HOST = 'https://exp-server-uwconvmydu.now.sh/songs';
 let iLength = 0;
 
 let grid = document.querySelector('.grid');
@@ -8,9 +8,7 @@ let grid = document.querySelector('.grid');
 fetch(HOST)
   .then(res => res.json())
   .then(json => {
-    const {root, songs} = json;
-    const itemList = songs.map(song => song);
-    console.log(itemList);
+    const itemList = json;
     itemList.forEach(item => {
       grid.innerHTML += `
       <figure class="grid__item">

@@ -22,14 +22,13 @@ songs.forEach((song, i) => {
 //Populate featured list
 const featuredList = document.querySelector('.featured__list');
 //Fetch and play music song json
-const SONGS_URL = `../../db/songs.json`;
+const SONGS_URL = 'https://exp-server-uwconvmydu.now.sh/songs';
 const fetchSongs = fetch(SONGS_URL);
 var songList;
 fetch(SONGS_URL)
     .then(res => res.json())
     .then(json => {
-        const {root, songs} = json;
-        songList = songs.map(song => song);
+        songList = json;
         songList.forEach((val) => {
             featuredList.innerHTML += `
             <figure class="item">
@@ -55,4 +54,4 @@ fetch(SONGS_URL)
             `;
         });
     })
-    .catch(res => console.log(res));
+    // .catch(res => console.log(res));
