@@ -33,7 +33,6 @@ feed_observer = new IntersectionObserver(renderImgs, img__options);
 feed_observer.observe(feed__maker);
 
 //Other below-fold images
-console.log(other__images);
 let other__observer;
 
 const observeOtherFN = (entries) => {
