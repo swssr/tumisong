@@ -9,6 +9,7 @@ let modal = document.querySelector(".modal");
 var imgs = document.querySelectorAll(".feed__img");
 
 let tempSrc;
+
 counter = 0;
 calEvents.forEach((calEvent, i) => {
   calEvent.addEventListener("click", () => {
@@ -71,35 +72,3 @@ function showFooter(entries) {
 }
 fObserver = new IntersectionObserver(showFooter, fOptions);
 fObserver.observe(document.querySelector(`.marker`));
-
-//Image preview
-//Image scroller
-// let slideCntrls = document.querySelectorAll(`.ctrls .icon`);
-// let slideLeft = slideCntrls[0];
-// let slideRight = slideCntrls[1];
-// let imgsData = document.querySelectorAll(`[data-src]`);
-// let imgSources = [];
-// let currIndex;
-// let lastIndex;
-// //add ALL image url to preview modal list
-// imgsData.forEach(img => {
-//   imgSources.push(img.dataset.src);
-// });
-// // console.table(imgSources);s
-// lastIndex = imgSources.length - 1;
-// //Handle images click
-// newTempSrc = tempSrc.substr(tempSrc.search("assets", tempSrc.lenghth)).trim();
-// currIndex = imgSources.indexOf(parseInt(newTempSrc));
-
-// slideLeft.addEventListener('click', (e) => {
-//   //If button prev is clicked
-//   currIndex = currIndex - 1;
-//   //Controls
-//   console.log(`current index: ${currIndex}, last index: ${lastIndex}, tempSrc: ${tempSrc}`);
-// });
-// slideRight.addEventListener('click', (e) => {
-//   //If button prev is clicked
-//   currIndex++;
-//   //Controls
-//   console.log(`current index: ${currIndex}, last index: ${lastIndex}, tempSrc: ${tempSrc}`);
-// });
