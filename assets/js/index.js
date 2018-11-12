@@ -35,7 +35,7 @@ imgs.forEach((img, i) => {
   img.addEventListener("click", e => {
     modal.classList.add("visible");
     main.classList.add(`blurred`);
-    navleft.classList.add(`blurred`);
+    nav.classList.add(`blurred`);
     tempSrc = imgs[i].src.toString();
     console.log(tempSrc);
     modalImgs.src = tempSrc;
@@ -45,7 +45,7 @@ imgs.forEach((img, i) => {
 document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
   modal.classList.remove("visible");
   main.classList.remove(`blurred`);
-  navleft.classList.remove(`blurred`);
+  nav.classList.remove(`blurred`);
 });
 
 //Show hide footer
@@ -55,7 +55,6 @@ let fOptions = {
   treshold: 1.0
 };
 let footer = document.querySelector(`.footer`);
-let navleft = document.querySelector(`.nav--left`);
 let main = document.querySelector(`.main`);
 
 function showFooter(entries) {

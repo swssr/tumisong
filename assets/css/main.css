@@ -49,6 +49,9 @@ body {
 .debug:nth-of-type(even) * {
   border: 1px solid #ee82ee;
 }
+.fullwidth {
+  --side-nav-width: 100vw;
+}
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -150,9 +153,31 @@ button {
   z-index: 9999;
   background-color: var(--secondary);
   text-transform: uppercase;
+  transition: var(--prim-anim);
+  transition-duration: 0.8s;
 }
 .nav--left * {
   color: var(--gray);
+}
+.nav--left .nav--left__links {
+  display: none;
+}
+.nav--left.fullwidth .nav--left__links {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: calc(50vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav--left.fullwidth .nav--left__links .nav__link {
+  background-color: var(--accent1);
+  color: var(--secondary);
+  padding: 10px 10px;
+}
+.nav--left.fullwidth .nav--left__links + .nav__span {
+  transform: translateY(100px);
 }
 .split {
   position: absolute;

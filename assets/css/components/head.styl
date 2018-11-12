@@ -43,8 +43,29 @@
     z-index 9999
     background-color var(--secondary)
     text-transform uppercase
+    transition: var(--prim-anim)
+    transition-duration: .8s;
     *   
         color var(--gray)
+    .nav--left__links
+        display: none
+    &.fullwidth .nav--left__links
+        position absolute
+        width 100%
+        height 100px
+        // background-color orangered
+        top calc(50vh - 50px)
+        display flex
+        justify-content center
+        align-items: center
+
+        .nav__link
+            background-color var(--accent1)
+            color var(--secondary)
+            padding 10px 10px
+        & + .nav__span
+            transform: translateY(100px)
+
 
 .split
     position absolute

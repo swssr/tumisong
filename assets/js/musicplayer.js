@@ -24,6 +24,8 @@ const featuredList = document.querySelector('.featured__list');
 //Fetch and play music song json
 const SONGS_URL = 'https://exp-server-uwconvmydu.now.sh/songs';
 const fetchSongs = fetch(SONGS_URL);
+const featuredList.innerHTML = featuredList.innerHTML;
+
 var songList;
 fetch(SONGS_URL)
     .then(res => res.json())
@@ -54,4 +56,6 @@ fetch(SONGS_URL)
             `;
         });
     })
-    // .catch(res => console.log(res));
+    .catch(res => {
+        featuredList.innerHTML = `<h1 class='fetch__error'>${res}</h1>`
+    });
