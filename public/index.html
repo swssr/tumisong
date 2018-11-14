@@ -145,15 +145,16 @@
         </div>
         <div class="mid">
             <ul class="mid__links">
-                <li class="link"><a href="#" class="icon icon--menu"></a></li>
+                <li class="link"><span class="icon icon--menu"></span></li>
             </ul>
         </div>
         <ul class="nav--left__links">
-            <li class="nav__link">item 1</li>
-            <li class="nav__link">item 2</li>
-            <li class="nav__link">item 3</li>
-            <li class="nav__link">item 4</li>
-            <li class="nav__link">item 5</li>
+            <a href="#player" class="nav__link">MY MUSIC</a>
+            <a href="#events" class="nav__link">Events</a>
+            <a href="#moments" class="nav__link">Moments</a>
+            <a href="#newsong" class="nav__link">Latest</a>
+            <a href="#video" class="nav__link">Video</a>
+            <a href="#newsletter" class="nav__link">Newsletter</a>
         </ul>
         <div class="nav__span bottom">
             <div class="inner inner--flex">
@@ -163,7 +164,7 @@
         </div>
     </aside>
     <nav class="top-nav">
-        <a href="#" class="nav__link accent abs abs--right">
+        <a href="" class="nav__link accent abs abs--right">
             <span class="">beatport</span>
             <svg class="icon" viewBox="0 0 80 80">
                 <path d="M67.9,11.1H23.4c-1.7,0-3,1.3-3,3V47c0,1.5,1.3,2.8,2.8,2.8c1.6,0,2.8-1.3,2.8-2.8V17c0-0.1,0.1-0.2,0.2-0.2h39.1v46.3
@@ -185,7 +186,7 @@
                         <div class="hero__main">
                             <p class="pre">a dj and a half</p>
                             <h1 class="hero__head">beat deeper than sound</h1>
-                            <a href="#" class="btn btn--primary accent">
+                            <a href="" class="btn btn--primary accent">
                                 KNOW ME
                             </a>
                         </div>
@@ -211,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            <section class="container rhalf">
+            <section id="player" class="container rhalf">
                 <div class="controls">
                     <button name="previous" class="prev">
                         <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4"
@@ -314,7 +315,7 @@
                     </div>
                 </div>
             </section>
-            <section class="container white-text">
+            <section id="events" class="container white-text">
                 <div class="he">
                     <h5 class="section__prehead">party with me</h5>
                     <h2 class="section__head">Event calender</h2>
@@ -356,7 +357,7 @@
                     </div>
                 </div>
             </section>
-            <section class="container flex--row spill">
+            <section id="moments" class="container flex--row spill">
                 <div class="bg-gray"></div>
                 <div class="connect">
                     <h5 class="section__prehead">finna stalk me</h5>
@@ -422,7 +423,7 @@
                     </figure>
                 </div>
             </section>
-            <section class="container new white">
+            <section id="newsong" class="container new white">
                 <div class="context">
                     <p class="artist"><b>by</b> <span class="accent">tumisong</span></p>
                     <div class="song-name">
@@ -461,7 +462,7 @@
                             <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
                         </svg>
                     </div>
-                    <a href="#" class="icon play--icon"></a>
+                    <a href="" class="icon play--icon"></a>
                     <img src="assets/images/loader.gif" data-src="assets/images/1e2e5b61247247.5a6f4997c1aab.jpg" alt="cover art" class="bw-filter img">
                     <div class="icon cnext">
                         <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
@@ -472,7 +473,7 @@
                     </div>
                 </div>
             </section>
-            <section class="container bridge">
+            <section id="video" class="container bridge">
                 <div class="player viewer">
                     <div class="inner--bottom" style="--bgcolor: var(--primary)">
                         <img src="assets/images/loader.gif" data-src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="video thumbnail" width="100%" height="100%"
@@ -489,13 +490,13 @@
                             <button data-skip="25" class="player__button">25s »</button>
                         </div>
                     </div>
-                    <a href="#" class="icon btn--play play--icon"></a>
+                    <a href="" class="icon btn--play play--icon"></a>
                 </div>
             </section>
             <section class="container gray white book-me bridge">
                 <div class="almost-full">
                     <img src="assets/images/loader.gif" data-src="assets/images/1e9c4163841269.5abe0530ab650.jpg" alt="tumi good sundae" class="img form-img">
-                    <form class="contact-form">
+                    <form id="contacts" class="contact-form">
                         <p class="pre"><b>ok</b> <span class="accent">here's how to find me</span></p>
                         <div class="chead">
                             <div>bookings</div>
@@ -596,7 +597,7 @@
                             be the first get my new music, compilations and bro stuff
                         </p>
                     </div>
-                    <form class="last__email">
+                    <form id="newsletter" class="last__email">
                         <input type="text" for="email" name="email" id="email" placeholder="your email address" class="input last__input">
                         <button type="submit" class="email-submit">go!</button>
                     </form>
@@ -610,11 +611,11 @@
         <a href="http://tumisong.dj/privacy" class="footer__link">privacy</a>
         <a href="http://tumisong.dj/privacy" class="footer__link">copyright</a>
     </footer>
-    <script src="assets/js/musicplayer.js"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/slide.js"></script>
-    <script defer src="assets/js/defer.js"></script>
+    <script src="../src/js/musicplayer.js"></script>
+    <script src="../src/js/index.js"></script>
+    <script src="../src/js/navigation.js"></script>
+    <script src="../src/js/slide.js"></script>
+    <script defer src="../src/js/defer.js"></script>
 </body>
 
 </html>

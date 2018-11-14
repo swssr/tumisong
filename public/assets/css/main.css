@@ -51,6 +51,7 @@ body {
 }
 .fullwidth {
   --side-nav-width: 100vw;
+  background-color: rgba(0,0,0,0.8) !important;
 }
 * {
   box-sizing: border-box;
@@ -2024,6 +2025,19 @@ li {
 }
 .last__text .section__head {
   color: var(--gray);
+}
+.fetch__error {
+  position: absolute;
+  width: 30vw;
+  height: 20vh;
+  background-color: #ffa500;
+  margin: auto;
+  left: 10vw;
+  top: 20vh;
+  font-size: 0.9em;
+  color: var(--secondary);
+  padding: 2em 3em;
+  text-align: center;
 }
 @media screen and (max-width: 900px) {
   :root {
