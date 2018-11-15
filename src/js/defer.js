@@ -1,7 +1,7 @@
 //Lazy load images
 //Social grid images
 let feed__maker = document.querySelector('.feed__marker');
-let feed__imgs = document.querySelectorAll('.feed__item img');
+let feed__imgs = document.querySelectorAll('.feed__img');
 let c_art = document.querySelector('.cover-art img'),
     v_tumb = document.querySelector('.thumbnail--video'),
     last__bg = document.querySelector('.last__bg'),
@@ -23,8 +23,6 @@ const renderImgs = (entries) => {
         img.src = img.dataset.src;
       });
       feed_observer.unobserve(entry.target);
-    }else{
-      console.log(entry.isIntersecting);
     }
   });
 }

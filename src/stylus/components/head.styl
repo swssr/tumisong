@@ -47,25 +47,41 @@
     transition-duration: .8s;
     *   
         color var(--gray)
+        transition: var(--prim-anim)
+        transition-duration: .4s
+    &:hover
+        --side-nav-width: 20vw
+        box-shadow: 0 0 40px 0 rgba(255,255,255,.08)
+        transition: var(--prim-anim)
+        .nav__span
+            &:first-of-type
+                transform: translateY(-100px)
+            &:last-of-type
+                transform: translateY(100px)
+        .icon--menu
+            transform: translateX(50px)
+            opacity: 0
     .nav--left__links
-        display: none
-    &.fullwidth .nav--left__links
         position absolute
-        width 100%
+        display: grid
+        top calc(50% - 50px)
+        margin-left -200px
+    &.nav--opened .nav--left__links, &:hover .nav--left__links
+        position absolute
+        width 80%
         height 100px
         // background-color orangered
-        top calc(50vh - 50px)
-        display flex
+        top calc(50% - 50px)
+        // grid-auto-flow: column
         justify-content center
-        align-items: center
+        align-items: right
+        margin-left 0
 
         .nav__link
-            background-color var(--accent1)
-            color var(--secondary)
+            width 200px
             padding 10px 10px
-        & + .nav__span
-            transform: translateY(100px)
-
+            background-color var(--accent2)
+            color var(--secondary)
 
 .split
     position absolute
@@ -77,12 +93,21 @@
     box-shadow 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
     transform rotate(45deg)
 
-
 .main
     position absolute
     right 0
     width var(--main-width)
     height 100%
+.nav--left:hover ~ .main
+    transition: var(--prim-anim)
+    animation: defocus 1s linear forwards
+
+@keyframes defocus{
+    to{
+        filter: blur(2px) grayscale(100%) brightness(40%)
+        transform: translateX(5vh) translateZ(-100px)
+    }
+}
 .head
     height 100vh
 .wide
@@ -133,12 +158,6 @@
         font-size .9em
         margin-bottom 25vh
 
-.arrow
-        position relative
-        margin-left 1.3em
-        width 80px
-        height $h
-        background-color var(--secondary)
 .hero
     position absolute
     width 200%
@@ -309,12 +328,13 @@
 }
 .item__play{
     border none
-    &:hover
+    &:hover{
     border-width: 0px
     background-image var(--accent1-grad)
+    }
     svg{
         fill transparent
-        }
+    }
 }
 
 .playlist__list
