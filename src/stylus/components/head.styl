@@ -49,7 +49,7 @@
         color var(--gray)
         transition: var(--prim-anim)
         transition-duration: .4s
-    &:hover
+    &.nav--opened
         --side-nav-width: 20vw
         box-shadow: 0 0 40px 0 rgba(255,255,255,.08)
         transition: var(--prim-anim)
@@ -66,7 +66,7 @@
         display: grid
         top calc(50% - 50px)
         margin-left -200px
-    &.nav--opened .nav--left__links, &:hover .nav--left__links
+    &.nav--opened .nav--left__links, &.nav--opened .nav--left__links
         position absolute
         width 80%
         height 100px
@@ -98,13 +98,13 @@
     right 0
     width var(--main-width)
     height 100%
-.nav--left:hover ~ .main
+.nav--left.nav--opened ~ .main
     transition: var(--prim-anim)
     animation: defocus 1s linear forwards
 
 @keyframes defocus{
     to{
-        filter: blur(2px) grayscale(100%) brightness(40%)
+        filter: blur(1px) grayscale(100%) brightness(40%)
         transform: translateX(5vh) translateZ(-100px)
     }
 }

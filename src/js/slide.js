@@ -6,17 +6,8 @@ var imgs = document.querySelectorAll(".feed__img"),
   currentIndex = 0,
   lastIndex = imgs.length;
 
-let indexedSrc = currIndex => {
-  return imgs[currIndex].src;
-};
+let indexedSrc = currIndex => imgs[currIndex].src
 
-// controls.forEach(_c => {
-//   _c.addEventListener("click", _ => {
-//     console.log(
-//       `current image: src ${indexedSrc} \n current index: ${currentIndex}`
-//     );
-//   });
-// });
 slideLeft.addEventListener("click", _ => {
   if (currentIndex >= -1 && currentIndex < lastIndex) {
     currentIndex--;
@@ -33,3 +24,21 @@ slideRight.addEventListener("click", () => {
     currentIndex = 0;
   }
 });
+
+//Start navigation
+
+//Side menu toggle
+const menu__toggle = document.querySelector('.icon--menu');
+const nav_links = document.querySelectorAll('.nav__link');
+
+menu__toggle.addEventListener('click', () => {
+    nav.classList.toggle('nav--opened')
+    console.log(nav.classList);
+})  
+nav_links.forEach(link => {
+    link.addEventListener('click', (e) => {
+        nav.classList.remove('nav--opened')
+        console.log(`${e.target.id}`);
+        
+    })
+})

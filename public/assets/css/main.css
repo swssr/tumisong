@@ -16,7 +16,7 @@
   --side-nav-width: 4vw;
   --side-nav-width: 15vw;
   --stripe-height: 40vh;
-  --main-width: calc(100% - var(--side-nav-width));
+  --main-width: calc(100vw - var(--side-nav-width));
   --deco-bar: calc(var(--bar) / 3);
   --bar: 80px;
   --pad: var(--deco-bar);
@@ -161,18 +161,18 @@ button {
   transition: var(--prim-anim);
   transition-duration: 0.4s;
 }
-.nav--left:hover {
+.nav--left.nav--opened {
   --side-nav-width: 20vw;
   box-shadow: 0 0 40px 0 rgba(255,255,255,0.08);
   transition: var(--prim-anim);
 }
-.nav--left:hover .nav__span:first-of-type {
+.nav--left.nav--opened .nav__span:first-of-type {
   transform: translateY(-100px);
 }
-.nav--left:hover .nav__span:last-of-type {
+.nav--left.nav--opened .nav__span:last-of-type {
   transform: translateY(100px);
 }
-.nav--left:hover .icon--menu {
+.nav--left.nav--opened .icon--menu {
   transform: translateX(50px);
   opacity: 0;
 }
@@ -182,8 +182,7 @@ button {
   top: calc(50% - 50px);
   margin-left: -200px;
 }
-.nav--left.nav--opened .nav--left__links,
-.nav--left:hover .nav--left__links {
+.nav--left.nav--opened .nav--left__links {
   position: absolute;
   width: 80%;
   height: 100px;
@@ -192,8 +191,7 @@ button {
   align-items: right;
   margin-left: 0;
 }
-.nav--left.nav--opened .nav--left__links .nav__link,
-.nav--left:hover .nav--left__links .nav__link {
+.nav--left.nav--opened .nav--left__links .nav__link {
   width: 200px;
   padding: 10px 10px;
   background-color: var(--accent2);
@@ -215,7 +213,7 @@ button {
   width: var(--main-width);
   height: 100%;
 }
-.nav--left:hover ~ .main {
+.nav--left.nav--opened ~ .main {
   transition: var(--prim-anim);
   animation: defocus 1s linear forwards;
 }
@@ -678,25 +676,25 @@ button {
 }
 @-moz-keyframes defocus {
   to {
-    filter: blur(2px) grayscale(100%) brightness(40%);
+    filter: blur(1px) grayscale(100%) brightness(40%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @-webkit-keyframes defocus {
   to {
-    filter: blur(2px) grayscale(100%) brightness(40%);
+    filter: blur(1px) grayscale(100%) brightness(40%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @-o-keyframes defocus {
   to {
-    filter: blur(2px) grayscale(100%) brightness(40%);
+    filter: blur(1px) grayscale(100%) brightness(40%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @keyframes defocus {
   to {
-    filter: blur(2px) grayscale(100%) brightness(40%);
+    filter: blur(1px) grayscale(100%) brightness(40%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
@@ -1222,7 +1220,7 @@ button {
   left: var(--padn);
   right: var(--padn);
   background-color: var(--primary);
-  box-shadow: var(--sh), 0 1px 40px 4px rgba(255,255,255,0.1);
+  box-shadow: var(--sh), 0 1px 40px 4px rgba(255,255,255,0.2);
   padding: var(--pad);
   display: flex;
   margin: auto;
@@ -2066,18 +2064,43 @@ li {
 .last__text .section__head {
   color: var(--gray);
 }
-.fetch__error {
+.fetch__msg {
   position: absolute;
-  width: 30vw;
-  height: 20vh;
-  background-color: #ffa500;
+  width: 600px;
+  height: 400px;
   margin: auto;
-  left: 10vw;
-  top: 20vh;
-  font-size: 0.9em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--accent1);
   color: var(--secondary);
-  padding: 2em 3em;
+  font-size: 18px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.fetch__msg .msg__inner {
+  width: 350px;
+  height: 200px;
+  background-color: var(--accent1);
+  color: var(--secondary);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fetch__msg::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: calc(var(--main-width) * 2);
+  height: 100%;
+  background-image: repeating-linear-gradient(45deg, var(--accent1), var(--accent1) 6px, var(--secondary) 6px, var(--secondary) 40px);
+  background-position: 0 0;
+  z-index: -2;
+  animation: movestripe 1s linear forwards;
 }
 @media screen and (max-width: 900px) {
   :root {
