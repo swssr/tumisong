@@ -92,6 +92,7 @@ fetch(SONGS_URL)
     .then(res => res.json())
     .then(json => {
         songList = json;
+        featuredList.innerHTML = ``;
         songList.forEach((val) => {
             featuredList.innerHTML += `
             <figure class="item">

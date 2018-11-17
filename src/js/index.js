@@ -156,7 +156,7 @@ const events = [
 ]
 const DOMevents = document.querySelector('.calender-events')
 const popEvents = (_events) => {
-  DOMevents.innerHTML = events.map(event => {
+  DOMevents.innerHTML = events.slice(0, 5).map(event => {
     return `
     <div class="event">
         <h5 class="event__date">${event.date}</h5>
