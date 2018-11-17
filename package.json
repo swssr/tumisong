@@ -10,9 +10,7 @@
     "author": "swssr",
     "license": "ISC",
     "devDependencies": {
-        "cssnano": "^4.1.0",
-        "html-webpack-plugin": "^3.2.0",
-        "webpack": "^4.25.1",
-        "webpack-dev-server": "^3.1.10"
-    }
+        "cssnano": "^4.1.0"
+    },
+    "dependencies": {}
 }
