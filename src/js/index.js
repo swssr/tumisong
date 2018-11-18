@@ -15,21 +15,28 @@ counter = 0;
 let modalImgs = document.querySelector(".img--bigger");
 imgs.forEach((img, i) => {
   img.addEventListener("click", e => {
+    //Show modal
     modal.classList.add("visible");
     main.classList.add(`blurred`);
     nav.classList.add(`blurred`);
-    tempSrc = imgs[i].src.toString();
-    console.log(tempSrc);
+    //End show modal
+
+    tempSrc = img.src.toString();
+    // console.log(tempSrc);
     modalImgs.src = tempSrc;
   });
 });
-
-document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
+const dropModal = () => {
   modal.classList.remove("visible");
   main.classList.remove(`blurred`);
   nav.classList.remove(`blurred`);
+}
+document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
+  dropModal()
 });
-
+modal.addEventListener('click', (e) => {
+  e.target === modal ? dropModal() : ''
+})
 //Show hide footer
 let fObserver;
 let fOptions = {
@@ -46,7 +53,6 @@ function showFooter(entries) {
       footer.classList.add(`slide-up`);
       footer.classList.remove(`accent`);
     } else {
-      console.log(`not`);
       footer.classList.remove(`slide-up`);
     }
   });
@@ -107,52 +113,51 @@ other__observer = new IntersectionObserver(observeOtherFN, img__options);
 other__images.forEach(img => other__observer.observe(img));
 
 //Start events
-const events = [
-  {
-  date: '12.10.17',
-  name: 'Spring fiesta',
-  descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+const events = [{
+    date: '12.10.17',
+    name: 'Spring fiesta',
+    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
     odit voluptatum sunt asperiores!
     Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
     optio
     eaque harum tenetur quos?`
-},
+  },
   {
-  date: '12.10.17',
-  name: 'Jazz fiesta',
-  descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+    date: '12.10.17',
+    name: 'Jazz fiesta',
+    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
     odit voluptatum sunt asperiores!
     Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
     optio
     eaque harum tenetur quos?`
-},
+  },
   {
-  date: '12.10.17',
-  name: 'NYE explosive',
-  descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+    date: '12.10.17',
+    name: 'NYE explosive',
+    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
     odit voluptatum sunt asperiores!
     Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
     optio
     eaque harum tenetur quos?`
-},
+  },
   {
-  date: '12.10.17',
-  name: 'Dage whole thing',
-  descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+    date: '12.10.17',
+    name: 'Dage whole thing',
+    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
     odit voluptatum sunt asperiores!
     Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
     optio
     eaque harum tenetur quos?`
-},
+  },
   {
-  date: '12.10.17',
-  name: 'Ke December',
-  descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+    date: '12.10.17',
+    name: 'Ke December',
+    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
     odit voluptatum sunt asperiores!
     Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
     optio
     eaque harum tenetur quos?`
-},
+  },
 ]
 const DOMevents = document.querySelector('.calender-events')
 const popEvents = (_events) => {
@@ -183,12 +188,26 @@ calEvents.forEach((calEvent, i) => {
   });
 });
 
+//End Events
+
+//Social feed
+//Clicking social link
 clck.forEach((c, i) => {
   c.addEventListener("click", _ => {
-    clck.forEach(cl => {
-      cl.classList.remove("active");
-    });
-    c.classList.add("active");
+    
+    const makeActive = () => {
+      clck.forEach(cl => {
+        cl.classList.remove("active"); //Reset on every click
+      });
+      c.classList.add("active");
+    }
+
+    const focusFeed = () =>{
+      //Change contents of social feed grid
+      //1. Clear container grid then fill with cached API response
+      
+    }
+
+    makeActive()
   });
 });
-//End Events

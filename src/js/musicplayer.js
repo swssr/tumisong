@@ -55,8 +55,6 @@ mp__list.innerHTML = _songs.slice(0, MAXCOUNT).map(song => {
 
 populateMPList(getSongs)
 
-console.log(getSongs);
-
 //End mp-widget
 
 let songs = document.querySelectorAll('.mp__song');

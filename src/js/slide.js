@@ -6,23 +6,27 @@ var imgs = document.querySelectorAll(".feed__img"),
   currentIndex = 0,
   lastIndex = imgs.length;
 
+const  safeIndex = index => index % lastIndex;
+
 let indexedSrc = currIndex => imgs[currIndex].src
 
 slideLeft.addEventListener("click", _ => {
-  if (currentIndex >= -1 && currentIndex < lastIndex) {
+  if (currentIndex >= 0 && currentIndex < lastIndex) {
     currentIndex--;
-    modalImgs.src = indexedSrc(currentIndex);
   } else {
     currentIndex = lastIndex - 1;
   }
+  modalImgs.src = indexedSrc(safeIndex(currentIndex));
+  
 });
 slideRight.addEventListener("click", () => {
-  if (currentIndex >= -1 && currentIndex < lastIndex) {
+  if (currentIndex >= 0 && currentIndex < lastIndex) {
     currentIndex++;
-    modalImgs.src = indexedSrc(currentIndex);
+    modalImgs.src = indexedSrc(safeIndex(currentIndex));
   } else {
     currentIndex = 0;
   }
+  
 });
 
 //Start navigation
@@ -38,7 +42,7 @@ menu__toggle.addEventListener('click', () => {
 nav_links.forEach(link => {
     link.addEventListener('click', (e) => {
         nav.classList.remove('nav--opened')
-        console.log(`${e.target.id}`);
-        
     })
 })
+
+document.querySelector('.main').addEventListener('click', () => nav.classList.remove('nav--opened') )
