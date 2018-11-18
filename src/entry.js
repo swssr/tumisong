@@ -1,5 +1,4 @@
-require('./js/defer')
-require('./js/index')
-require('./js/musicplayer')
-require('./js/navigation')
-require('./js/slide')
+import './js/musicplayer';
+import './js/instafeed.min.js';
+import './js/index';
+import './js/slide';
