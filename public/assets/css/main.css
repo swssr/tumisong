@@ -2131,7 +2131,8 @@ li {
 }
 .feed__instagram {
   position: absolute;
-  display: block;
+  display: grid;
+  grid-template-columns: 400px 1fr;
   background-color: #008000;
   width: 100%;
   height: 100%;

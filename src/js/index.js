@@ -194,7 +194,7 @@ calEvents.forEach((calEvent, i) => {
 //Clicking social link
 clck.forEach((c, i) => {
   c.addEventListener("click", _ => {
-    
+
     const makeActive = () => {
       clck.forEach(cl => {
         cl.classList.remove("active"); //Reset on every click
@@ -202,12 +202,39 @@ clck.forEach((c, i) => {
       c.classList.add("active");
     }
 
-    const focusFeed = () =>{
-      //Change contents of social feed grid
-      //1. Clear container grid then fill with cached API response
-      
-    }
 
     makeActive()
   });
 });
+
+const focusFeed = () => {
+  //Change contents of social feed grid
+  //1. Clear container grid then fill with cached API response
+  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
+  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
+  let userURL;
+  const prequality = `standard_resolution`
+  // fetch(INIT)
+  //   .then(res => res.json())
+  //   .then(({
+  //     data
+  //   }) => {
+  //before: () => document.querySelector('.feed').innerHTML = ``,
+  //     console.log(
+  //       imgSrcList
+  //     );
+  //   })    
+    var feed = new Instafeed({
+      get: 'user',
+      userId: '1653183333',
+      accessToken,
+      limit: '6',
+      resolution: prequality,
+      template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>'
+  });
+  feed.run();
+}
+
+document.querySelector('#instagram').addEventListener('click', () => {
+  focusFeed()
+})
