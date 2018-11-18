@@ -1,48 +1,48 @@
 //Music player widget
 const getSongs = [{
-    "name": "Dessert of la femme",
-    "artist": "Koda",
-    "duration": "0:00"
-},
-{
-    "name": "After Life",
-    "artist": "Illenium",
-    "duration": "0:00"
-},
-{
-    "name": "Sixty six",
-    "artist": "Matt Lange",
-    "duration": "0:00"
-},
-{
-    "name": "Roses",
-    "artist": "Jeff Kaale",
-    "duration": "0:00"
-},
-{
-    "name": "Liam",
-    "artist": "Eric Orydz",
-    "duration": "0:00"
-},
-{
-    "name": "Rufus",
-    "artist": "Bloom",
-    "duration": "0:00"
-},
-{
-    "name": "Oceans",
-    "artist": "Flores",
-    "duration": "0:00"
-}
+        "name": "Dessert of la femme",
+        "artist": "Koda",
+        "duration": "0:00"
+    },
+    {
+        "name": "After Life",
+        "artist": "Illenium",
+        "duration": "0:00"
+    },
+    {
+        "name": "Sixty six",
+        "artist": "Matt Lange",
+        "duration": "0:00"
+    },
+    {
+        "name": "Roses",
+        "artist": "Jeff Kaale",
+        "duration": "0:00"
+    },
+    {
+        "name": "Liam",
+        "artist": "Eric Orydz",
+        "duration": "0:00"
+    },
+    {
+        "name": "Rufus",
+        "artist": "Bloom",
+        "duration": "0:00"
+    },
+    {
+        "name": "Oceans",
+        "artist": "Flores",
+        "duration": "0:00"
+    }
 ]
 //Add source links and move to exp server
 const mp__list = document.querySelector('.mp__songs')
 
 const populateMPList = (_songs) => {
-//Slice fetched songs to max of DOM link count
-const MAXCOUNT = 7;
-mp__list.innerHTML = _songs.slice(0, MAXCOUNT).map(song => {
-    return `
+    //Slice fetched songs to max of DOM link count
+    const MAXCOUNT = 7;
+    mp__list.innerHTML = _songs.slice(0, MAXCOUNT).map(song => {
+        return `
 <li class="mp__song">
     <span class="mp__icon btn--play"></span>
     <span class="song__name">${song.name}</span>
@@ -50,7 +50,7 @@ mp__list.innerHTML = _songs.slice(0, MAXCOUNT).map(song => {
     <span class="song__duration">${song.duration}</span>
 </li>
 `
-}).join('')
+    }).join('')
 }
 
 populateMPList(getSongs)
@@ -84,42 +84,75 @@ const featuredList = document.querySelector('.featured__list');
 const SONGS_URL = 'https://tumiserver.now.sh/songs';
 const fetchSongs = fetch(SONGS_URL);
 
-var songList;
-let isFetching = true;
-fetch(SONGS_URL, { cache: "force-cache" })
+var songList = JSON.parse(localStorage.getItem(`songs`));
+console.log(songList.length);
+
+if (songList.length >= 1) {
+    featuredList.innerHTML = ``;
+    songList.forEach((val) => {
+        featuredList.innerHTML += `
+        <figure class="item">
+            <div class="item__group">
+                <img src="assets/images/cover-art/${val.imgUrl}" alt="_" class="item__image img">
+                <span class="icon btn--play play--icon item__play">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                        <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
+                    </svg>
+                    <svg class="svg--pause" width="40px" height="40px" viewBox="0 0 33 40">
+                        <rect width="10" height="40" />
+                        <rect x="20" width="10" height="40" />
+                    </svg>
+                </span>
+            </div>
+            <figcaption class="item__caption">
+                <span class="text">${val.song}</span>
+                <span class="actions">
+                    <i class="icon icon--play"></i>
+                </span>
+            </figcaption>
+        </figure>
+        `;
+    });
+} else {
+    featuredList.innerHTML = ``;
+    fetch(SONGS_URL)
     .then(res => res.json())
     .then(json => {
-        songList = json;
-        featuredList.innerHTML = ``;
+        songList = json
         songList.forEach((val) => {
-            featuredList.innerHTML += `
-            <figure class="item">
-                <div class="item__group">
-                    <img src="assets/images/cover-art/${val.imgUrl}" alt="_" class="item__image img">
-                    <span class="icon btn--play play--icon item__play">
-                        <svg class="svg--play" viewBox="0 0 77 76.1">
-                            <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
-                        </svg>
-                        <svg class="svg--pause" width="40px" height="40px" viewBox="0 0 33 40">
-                            <rect width="10" height="40" />
-                            <rect x="20" width="10" height="40" />
-                        </svg>
-                    </span>
-                </div>
-                <figcaption class="item__caption">
-                    <span class="text">${val.song}</span>
-                    <span class="actions">
-                        <i class="icon icon--play"></i>
-                    </span>
-                </figcaption>
-            </figure>
-            `;
+            
+        featuredList.innerHTML += `                                
+        <figure class="item">
+            <div class="item__group">
+                <img src="assets/images/cover-art/${val.imgUrl}" alt="_" class="item__image img">
+                <span class="icon btn--play play--icon item__play">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                        <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
+                    </svg>
+                    <svg class="svg--pause" width="40px" height="40px" viewBox="0 0 33 40">
+                        <rect width="10" height="40" />
+                        <rect x="20" width="10" height="40" />
+                    </svg>
+                </span>
+            </div>
+            <figcaption class="item__caption">
+                <span class="text">${val.song}</span>
+                <span class="actions">
+                    <i class="icon icon--play"></i>
+                </span>
+            </figcaption>
+        </figure>
+        `;
+            });
+        })
+        .catch(res => {
+            featuredList.innerHTML = `<h1 class='fetch__msg error'>
+        <div class="msg__inner">
+            ${res}
+        <div>
+    </h1>`
         });
-    })
-    .catch(res => {
-        featuredList.innerHTML = `<h1 class='fetch__msg error'>
-            <div class="msg__inner">
-                ${res}
-            <div>
-        </h1>`
-    });
+}
+
+let isFetching = true;
+console.log(songList);
