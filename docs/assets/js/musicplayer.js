@@ -80,9 +80,19 @@ songs.forEach((song, i) => {
 })
 //Populate featured list
 const featuredList = document.querySelector('.featured__list');
+
 //Fetch and play music song json
 const SONGS_URL = 'https://tumiserver.now.sh/songs';
 const fetchSongs = fetch(SONGS_URL);
+
+var myHeaders = new Headers();
+myHeaders.append('cache-control', 'force-cache');
+myHeaders.append(`max-age`, 31536000)
+
+var myInit = {
+  method: 'GET',
+  headers: myHeaders,
+};
 
 var songList = JSON.parse(localStorage.getItem(`songs`));
 console.log(songList.length);
@@ -115,12 +125,11 @@ if (songList.length >= 1) {
     });
 } else {
     featuredList.innerHTML = ``;
-    fetch(SONGS_URL)
+    fetch(SONGS_URL, myInit)
     .then(res => res.json())
     .then(json => {
         songList = json
         songList.forEach((val) => {
-            
         featuredList.innerHTML += `                                
         <figure class="item">
             <div class="item__group">
