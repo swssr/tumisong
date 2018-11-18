@@ -1,0 +1,11 @@
+{
+  "name": "tumi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "instafeed.min.7b761f8d.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

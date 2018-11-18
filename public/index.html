@@ -14,7 +14,7 @@
     <div class="modal">
         <div class="modal__inner">
             <button class="toggle">exit</button>
-            <img src="assets/images/loader.gif" width="100%" height="100%" alt="" srcset="" class="img--bigger">
+            <img src="assets/images/loader.gif" alt="" class="img--bigger modal__image">
             <div class="ctrls">
                 <button class="icon">
                     <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
@@ -33,13 +33,12 @@
             </div>
         </div>
     </div>
-    </div>
     <img src="assets/images/bg3.jpg" alt="background image" class="bg" data-src="assets/images/bg/bg1.jpg">
     <aside class="nav--left">
         <div class="nav__span top">
             <div class="inner inner--flex">
                 <span class="logo">
-                    <svg version="1.1" " x=" 0px" y="0px" width="194.7px" height="20.8px" viewBox="0 0 194.7 20.8"
+                    <svg version="1.1" x="0px" y="0px" width="194.7px" height="20.8px" viewBox="0 0 194.7 20.8"
                         xml:space="preserve">
                         <style type="text/css">
                             .st0 {
@@ -149,14 +148,14 @@
                 <li class="link"><span class="icon icon--menu"></span></li>
             </ul>
         </div>
-        <ul class="nav--left__links">
+        <div class="nav--left__links">
             <a href="#player" class="nav__link">MY MUSIC</a>
             <a href="#events" class="nav__link">Events</a>
             <a href="#moments" class="nav__link">Moments</a>
             <a href="#newsong" class="nav__link">Latest</a>
             <a href="#video" class="nav__link">Video</a>
             <a href="#newsletter" class="nav__link">Newsletter</a>
-        </ul>
+        </div>
         <div class="nav__span bottom">
             <div class="inner inner--flex">
                 <h5 class="email">email me</h5>
@@ -209,291 +208,293 @@
                     <h2 class="section__head">featured playlists and compilations</h2>
                     <p class="section__subhead">submerge your soul into the best of house music</p>
                     <div class="featured__list">
-                        <h1 class="fetch__msg error">
-                            <div class="msg__inner">
+                        <div class="fetch__msg error">
+                            <h1 class="msg__inner">
                                 Still loading
-                            </div>
-                        </h1>
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
-            <section id="player" class="container rhalf">
-                <div class="controls">
-                    <button name="previous" class="prev">
-                        <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4"
-                            xml:space="preserve">
-                            <polygon points="9.5,0 9.5,0 9.5,0 7.9,0 7.9,0 7.9,0 0,7.9 1.6,9.4 8.7,2.3 15.8,9.4 17.3,7.9 	" />
-                        </svg>
-                    </button>
-                    <button name="next" class="next">
-                        <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4"
-                            xml:space="preserve">
-                            <defs>
-                            </defs>
-                            <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="playlists">
-                    <h5 class="section__prehead">my taste</h5>
-                    <h2 class="section__head">Oh! traxsource</h2>
-                    <p class="section__subhead">some of my favourite songs</p>
-                    <div class="player-container">
-                        <div class="mp__widget">
-                            <div class="overlay"></div>
-                            <img src="assets/images/2b6bf061247247.5a6f4997d27bf.jpg" class="mp__cover-art img bw-filter"></img>
-                            <div class="playing">
-                                <div class="mp__artist-name">Select song</div>
-                                <div class="mp__song-name"></div>
-                            </div>
-                            <div class="mp__center">
-                                <span class="icon volume"></span>
-                                <div class="mp__progress">
-                                    <span class="mp__progress mp__progress--fill"></span>
-                                </div>
-                                <span class="time time--current">0:00</span>
-                            </div>
-                            <span class="mp__icon-list">
-                                <span class="mp__icon"></span>
-                                <span class="mp__icon"></span>
-                                <span class="mp__icon"></span>
-                            </span>
+        </section>
+        <section id="player" class="container rhalf">
+            <div class="controls">
+                <button name="previous" class="prev">
+                    <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <polygon points="9.5,0 9.5,0 9.5,0 7.9,0 7.9,0 7.9,0 0,7.9 1.6,9.4 8.7,2.3 15.8,9.4 17.3,7.9 	" />
+                    </svg>
+                </button>
+                <button name="next" class="next">
+                    <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <defs>
+                        </defs>
+                        <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	" />
+                    </svg>
+                </button>
+            </div>
+            <div class="playlists">
+                <h5 class="section__prehead">my taste</h5>
+                <h2 class="section__head">Oh! traxsource</h2>
+                <p class="section__subhead">some of my favourite songs</p>
+                <div class="player-container">
+                    <div class="mp__widget">
+                        <div class="overlay"></div>
+                        <img src="assets/images/2b6bf061247247.5a6f4997d27bf.jpg" alt="some image" class="mp__cover-art img bw-filter">
+                        <div class="playing">
+                            <div class="mp__artist-name">Select song</div>
+                            <div class="mp__song-name"></div>
                         </div>
-                        <div class="mp">
-                            <ul class="mp__songs">
-                                <li class="mp__song">
-                                    <span class="mp__icon btn--play"></span>
-                                    <span class="song__name"></span>
-                                    <span class="song__artist"></span>
-                                    <span class="song__duration"></span>
-                                </li>
-                                <li class="mp__song">
-                                    <span class="mp__icon btn--play"></span>
-                                    <span class="song__name"></span>
-                                    <span class="song__artist"></span>
-                                    <span class="song__duration"></span>
-                                </li>
-                                <li class="mp__song">
-                                    <span class="mp__icon btn--play"></span>
-                                    <span class="song__name"></span>
-                                    <span class="song__artist"></span>
-                                    <span class="song__duration"></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="events" class="container white-text">
-                <div class="he">
-                    <h5 class="section__prehead">party with me</h5>
-                    <h2 class="section__head">Event calender</h2>
-                    <p class="section__subhead">I go places too</p>
-                </div>
-                <div class="calender">
-                    <div class="calender-events">
-                        <div class="event">
-                            <h5 class="event__date">12.10.17</h5>
-                            <h3 class="event__name">spring fiesta</h3>
-                            <p class="event__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                                odit voluptatum sunt asperiores!
-                                Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
-                                optio
-                                eaque harum tenetur quos?</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="moments" class="container flex--row spill">
-                <div class="bg-gray"></div>
-                <div class="connect">
-                    <h5 class="section__prehead">finna stalk me</h5>
-                    <h2 class="section__head">Lets connect</h2>
-                    <ul class="connect__links">
-                        <li class="l_item">
-                            <span id="all" class="click active">
-                                <svg class="icon underscore"></svg>
-                                <span class="text">all</span>
-                            </span>
-                        </li>
-                        <li class="l_item">
-                            <span class="click">
-                                <svg class="icon underscore"></svg>
-                                <span class="text">traxsource</span>
-                            </span>
-                        </li>
-                        <li class="l_item">
-                            <span class="click">
-                                <svg class="icon underscore"></svg>
-                                <span class="text">facebook</span>
-                            </span>
-                        </li>
-                        <li class="l_item">
-                            <span class="click">
-                                <svg class="icon underscore"></svg>
-                                <span class="text">twitter</span>
-                            </span>
-                        </li>
-                        <li class="l_item">
-                            <span id="instagram" class="click">
-                                <svg class="icon underscore"></svg>
-                                <span class="text">instagram</span>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <div id="instafeed" class="feed">
-                    <div style="position: absolute" class="feed__marker"></div>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <figure class="feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="feed__img thumbnail">
-                        <figcaption class="feed__caption"></figcaption>
-                    </figure>
-                    <div class="feed__instgram"></div>
-                    <div class="feed__facebook"></div>
-                    <div class="feed__twitter"></div>
-                </div>
-            </section>
-            <section id="newsong" class="container new white">
-                <div class="context">
-                    <p class="artist"><b>by</b> <span class="accent">tumisong</span></p>
-                    <div class="song-name">
-                        <div>blood sweat</div>
-                        <div>beers</div>
-                    </div>
-                    <p class="genre"><b>genre:</b> club house</p>
-                    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium
-                        ex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandae
-                        exercitationem eius quae quos sed! Provident debitis nobis itaque?</p>
-                    <div class="tags">
-                        <li class="tag__item"><b>format</b>
-                            <span class="tag__item">mp3, wav</span></li>
-                        <li class="tag__item"><b>labels</b>
-                            <span class="tag__item">mp3, wav</span></li>
-                    </div>
-                    <div class="mp__widget inline__widget">
                         <div class="mp__center">
-                            <span class="icon btn--play">
-                                <svg viewBox="0 0 33.1 35.6">
-                                    <path class="st0" d="M27.9,12.3L11.6,2.9C7.3,0.4,2,3.5,2,8.4v18.8c0,4.9,5.3,8,9.6,5.6l16.3-9.4C32.2,20.9,32.2,14.7,27.9,12.3z" />
-                                </svg>
-                            </span>
+                            <span class="icon volume"></span>
                             <div class="mp__progress">
                                 <span class="mp__progress mp__progress--fill"></span>
                             </div>
-                            <span class="time time--current">2:35</span>
+                            <span class="time time--current">0:00</span>
                         </div>
+                        <span class="mp__icon-list">
+                            <span class="mp__icon"></span>
+                            <span class="mp__icon"></span>
+                            <span class="mp__icon"></span>
+                        </span>
                     </div>
-                </div>
-                <div class="cover-art">
-                    <div class="icon nprev">
-                        <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                            <defs>
-                            </defs>
-                            <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
-                        </svg>
-                    </div>
-                    <a href="" class="icon play--icon"></a>
-                    <img src="assets/images/loader.gif" data-src="assets/images/1e2e5b61247247.5a6f4997c1aab.jpg" alt="cover art"
-                        class="bw-filter img">
-                    <div class="icon cnext">
-                        <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                            <defs>
-                            </defs>
-                            <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
-                        </svg>
-                    </div>
-                </div>
-            </section>
-            <section id="video" class="container bridge">
-                <div class="player viewer">
-                    <div class="inner--bottom" style="--bgcolor: var(--primary)">
-                        <img src="assets/images/loader.gif" data-src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="video thumbnail"
-                            width="100%" height="100%" class="thumbnail thumbnail--video img bw-filter" srcset="">
-                        <div class="player__controls">
-                            <div class="progress">
-                                <div class="progress__filled"></div>
-                            </div>
-                            <button class="player__button toggle" title="Toggle Play">►</button>
-                            <input name="volume" class="player__slider" min="0" max="1" step="0.05" value="1" type="range">
-                            <input name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1"
-                                type="range">
-                            <button data-skip="-10" class="player__button">« 10s</button>
-                            <button data-skip="25" class="player__button">25s »</button>
-                        </div>
-                    </div>
-                    <a href="" class="icon btn--play play--icon"></a>
-                </div>
-            </section>
-            <section class="container gray white book-me bridge">
-                <div class="almost-full">
-                    <img src="assets/images/loader.gif" data-src="assets/images/1e9c4163841269.5abe0530ab650.jpg" alt="tumi good sundae"
-                        class="img form-img">
-                    <form id="contacts" class="contact-form">
-                        <p class="pre"><b>ok</b> <span class="accent">here's how to find me</span></p>
-                        <div class="chead">
-                            <div>bookings</div>
-                            <div>fanmail you asked</div>
-                        </div>
-                        <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero
-                            reprehenderit animi ducimus
-                            nostrum et inventore ipsam amet! Quia!</p>
-                        <ul class="contacts">
-                            <li class="contact__item"><b>call</b><a href="tel:+">086 455 3389</a></li>
-                            <li class="contact__item"><b>email</b><a href="http://tumisong.com">bookings@tumisong.com</a></li>
+                    <div class="mp">
+                        <ul class="mp__songs">
+                            <li class="mp__song">
+                                <span class="mp__icon btn--play"></span>
+                                <span class="song__name"></span>
+                                <span class="song__artist"></span>
+                                <span class="song__duration"></span>
+                            </li>
+                            <li class="mp__song">
+                                <span class="mp__icon btn--play"></span>
+                                <span class="song__name"></span>
+                                <span class="song__artist"></span>
+                                <span class="song__duration"></span>
+                            </li>
+                            <li class="mp__song">
+                                <span class="mp__icon btn--play"></span>
+                                <span class="song__name"></span>
+                                <span class="song__artist"></span>
+                                <span class="song__duration"></span>
+                            </li>
                         </ul>
-                        <button class="btn">
-                            <span class="right">I'll call</span>
-                        </button>
-                    </form>
+                    </div>
                 </div>
-            </section>
-            <section class="quilt">
-                <div>
-                    <h5 class="section__prehead">stalkers welcome</h5>
-                    <h2 class="section__head quilt__head">FOLLOW me</h1>
+            </div>
+        </section>
+        <section id="events" class="container white-text">
+            <div class="he">
+                <h5 class="section__prehead">party with me</h5>
+                <h2 class="section__head">Event calender</h2>
+                <p class="section__subhead">I go places too</p>
+            </div>
+            <div class="calender">
+                <div class="calender-events">
+                    <div class="event">
+                        <h5 class="event__date">12.10.17</h5>
+                        <h3 class="event__name">spring fiesta</h3>
+                        <p class="event__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+                            odit voluptatum sunt asperiores!
+                            Cum voluptatum ducimus recusandae quod ratione, culpa explicabo in corrupti nisi sit
+                            optio
+                            eaque harum tenetur quos?</p>
+                    </div>
                 </div>
-                <a href="https://www.instgram.com/tumisong" target="_blank" class="quilt__item">
-                    <svg x="0px" y="0px" viewBox="0 0 551.034 551.034" xml:space="preserve">
-                        <g>
-                            <path d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
+            </div>
+        </section>
+        <section id="moments" class="container flex--row spill">
+            <div class="bg-gray"></div>
+            <div class="connect">
+                <h5 class="section__prehead">finna stalk me</h5>
+                <h2 class="section__head">Lets connect</h2>
+                <ul class="connect__links">
+                    <li class="l_item">
+                        <span id="all" class="click active">
+                            <svg class="icon underscore"></svg>
+                            <span class="text">all</span>
+                        </span>
+                    </li>
+                    <li class="l_item">
+                        <span class="click">
+                            <svg class="icon underscore"></svg>
+                            <span class="text">traxsource</span>
+                        </span>
+                    </li>
+                    <li class="l_item">
+                        <span class="click">
+                            <svg class="icon underscore"></svg>
+                            <span class="text">facebook</span>
+                        </span>
+                    </li>
+                    <li class="l_item">
+                        <span class="click">
+                            <svg class="icon underscore"></svg>
+                            <span class="text">twitter</span>
+                        </span>
+                    </li>
+                    <li class="l_item">
+                        <span id="instagram" class="click">
+                            <svg class="icon underscore"></svg>
+                            <span class="text">instagram</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div id="instafeed" class="feed">
+                <div style="position: absolute" class="feed__marker"></div>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <figure class="feed__item">
+                    <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="feed__img thumbnail">
+                    <figcaption class="feed__caption"></figcaption>
+                </figure>
+                <div class="feed__instgram"></div>
+                <div class="feed__facebook"></div>
+                <div class="feed__twitter"></div>
+            </div>
+        </section>
+        <section id="newsong" class="container new white">
+            <div class="context">
+                <p class="artist"><b>by</b> <span class="accent">tumisong</span></p>
+                <div class="song-name">
+                    <div>blood sweat</div>
+                    <div>beers</div>
+                </div>
+                <p class="genre"><b>genre:</b> club house</p>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium
+                    ex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandae
+                    exercitationem eius quae quos sed! Provident debitis nobis itaque?</p>
+                <ul class="tags">
+                    <li class="tag__item"><b>format</b>
+                        <span class="tag__item">mp3, wav</span></li>
+                    <li class="tag__item"><b>labels</b>
+                        <span class="tag__item">mp3, wav</span></li>
+                </ul>
+                <div class="mp__widget inline__widget">
+                    <div class="mp__center">
+                        <span class="icon btn--play">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;"
+                                xml:space="preserve">
+                                <g id="play-arrow">
+                                    <polygon points="38.25,0 38.25,357 318.75,178.5" />
+                                </g>
+                            </svg>
+
+                        </span>
+                        <div class="mp__progress">
+                            <span class="mp__progress mp__progress--fill"></span>
+                        </div>
+                        <span class="time time--current">2:35</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cover-art">
+                <div class="icon nprev">
+                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <defs>
+                        </defs>
+                        <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
+                    </svg>
+                </div>
+                <a href="" class="icon play--icon"></a>
+                <img src="assets/images/loader.gif" data-src="assets/images/1e2e5b61247247.5a6f4997c1aab.jpg" alt="cover art"
+                    class="bw-filter img">
+                <div class="icon cnext">
+                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
+                        <defs>
+                        </defs>
+                        <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section id="video" class="container bridge">
+            <div class="player viewer">
+                <div class="inner--bottom" style="--bgcolor: var(--primary)">
+                    <img src="assets/images/loader.gif" data-src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="video thumbnail"
+                        class="thumbnail thumbnail--video img bw-filter">
+                    <div class="player__controls">
+                        <div class="progress">
+                            <div class="progress__filled"></div>
+                        </div>
+                        <button class="player__button toggle" title="Toggle Play">►</button>
+                        <input name="volume" class="player__slider" min="0" max="1" step="0.05" value="1" type="range">
+                        <input name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1" type="range">
+                        <button data-skip="-10" class="player__button">« 10s</button>
+                        <button data-skip="25" class="player__button">25s »</button>
+                    </div>
+                </div>
+                <a href="" class="icon btn--play play--icon"></a>
+            </div>
+        </section>
+        <section class="container gray white book-me bridge">
+            <div class="almost-full">
+                <img src="assets/images/loader.gif" data-src="assets/images/1e9c4163841269.5abe0530ab650.jpg" alt="tumi good sundae"
+                    class="img form-img">
+                <form id="contacts" class="contact-form">
+                    <p class="pre"><b>ok</b> <span class="accent">here's how to find me</span></p>
+                    <div class="chead">
+                        <div>bookings</div>
+                        <div>fanmail you asked</div>
+                    </div>
+                    <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero
+                        reprehenderit animi ducimus
+                        nostrum et inventore ipsam amet! Quia!</p>
+                    <ul class="contacts">
+                        <li class="contact__item"><b>call</b><a href="tel:+">086 455 3389</a></li>
+                        <li class="contact__item"><b>email</b><a href="http://tumisong.com">bookings@tumisong.com</a></li>
+                    </ul>
+                    <button class="btn">
+                        <span class="right">I'll call</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="quilt">
+            <div>
+                <h5 class="section__prehead">stalkers welcome</h5>
+                <h2 class="section__head quilt__head">FOLLOW ME</h2>
+            </div>
+            <a href="https://www.instgram.com/tumisong" target="_blank" class="quilt__item">
+                <svg x="0px" y="0px" viewBox="0 0 551.034 551.034" xml:space="preserve">
+                    <g>
+                        <path d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
             		c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156
             		C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156
             		c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722
             		c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z" />
 
-                            <path d="M275.517,133C196.933,133,133,196.933,133,275.516s63.933,142.517,142.517,142.517
+                        <path d="M275.517,133C196.933,133,133,196.933,133,275.516s63.933,142.517,142.517,142.517
             		S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6c-48.095,0-87.083-38.988-87.083-87.083
             		s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083C362.6,323.611,323.611,362.6,275.517,362.6z" />
 
-                            <circle cx="418.31" cy="134.07" r="34.15" />
-                        </g>
-                    </svg>
-                </a>
-                <a href="https://audiomack.com/tumisong" class="quilt__item">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 429.709 429.709" style="enable-background:new 0 0 429.709 429.709;"
-                        xml:space="preserve">
-                        <path d="M429.709,196.618c0-29.803-24.16-53.962-53.963-53.962c-14.926,0-28.41,6.085-38.176,15.881
+                        <circle cx="418.31" cy="134.07" r="34.15" />
+                    </g>
+                </svg>
+            </a>
+            <a href="https://audiomack.com/tumisong" class="quilt__item">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 429.709 429.709" style="enable-background:new 0 0 429.709 429.709;" xml:space="preserve">
+                    <path d="M429.709,196.618c0-29.803-24.16-53.962-53.963-53.962c-14.926,0-28.41,6.085-38.176,15.881
             	c-30.177-19.463-68.73-31.866-111.072-33.801c0.026-17.978,8.078-34.737,22.104-45.989c14.051-11.271,32.198-15.492,49.775-11.588
             	l2.414,0.536c-0.024,0.605-0.091,1.198-0.091,1.809c0,24.878,20.168,45.046,45.046,45.046s45.046-20.168,45.046-45.046
             	c0-24.879-20.168-45.046-45.046-45.046c-15.997,0-30.01,8.362-38.002,20.929l-4.317-0.959c-24.51-5.446-49.807,0.442-69.395,16.156
@@ -508,20 +509,19 @@
             	c31.492-23.53,73.729-36.489,118.929-36.489s87.437,12.959,118.929,36.489c29.462,22.013,45.688,50.645,45.688,80.622
             	C379.471,294.832,363.246,323.464,333.784,345.477z M393.605,221.488c-7.891-18.17-20.596-34.716-37.005-48.794
             	c5.247-4.22,11.901-6.754,19.147-6.754c16.916,0,30.678,13.762,30.678,30.678C406.424,206.867,401.353,215.925,393.605,221.488z" />
-                        <g>
-                            <circle cx="146.22" cy="232.07" r="24.57" />
-                            <circle cx="283.48" cy="232.07" r="24.57" />
-                        </g>
-                        <path d="M273.079,291.773c-17.32,15.78-39.773,24.47-63.224,24.47c-26.332,0-50.729-10.612-68.696-29.881
+                    <g>
+                        <circle cx="146.22" cy="232.07" r="24.57" />
+                        <circle cx="283.48" cy="232.07" r="24.57" />
+                    </g>
+                    <path d="M273.079,291.773c-17.32,15.78-39.773,24.47-63.224,24.47c-26.332,0-50.729-10.612-68.696-29.881
             	c-4.384-4.704-11.751-4.96-16.454-0.575c-4.703,4.384-4.96,11.752-0.575,16.454c22.095,23.695,53.341,37.285,85.726,37.285
                 c29.266,0,57.288-10.847,78.905-30.543c4.752-4.33,5.096-11.694,0.765-16.446C285.197,287.788,277.838,287.44,273.079,291.773z" />
-                    </svg>
-                </a>
-                <a href="https://www.twitter.com/tumisong" class="quilt__item">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 410.155 410.155" style="enable-background:new 0 0 410.155 410.155;"
-                        xml:space="preserve">
-                        <path d="M403.632,74.18c-9.113,4.041-18.573,7.229-28.28,9.537c10.696-10.164,18.738-22.877,23.275-37.067
+                </svg>
+            </a>
+            <a href="https://www.twitter.com/tumisong" class="quilt__item">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 410.155 410.155" style="enable-background:new 0 0 410.155 410.155;" xml:space="preserve">
+                    <path d="M403.632,74.18c-9.113,4.041-18.573,7.229-28.28,9.537c10.696-10.164,18.738-22.877,23.275-37.067
                 	l0,0c1.295-4.051-3.105-7.554-6.763-5.385l0,0c-13.504,8.01-28.05,14.019-43.235,17.862c-0.881,0.223-1.79,0.336-2.702,0.336
                 	c-2.766,0-5.455-1.027-7.57-2.891c-16.156-14.239-36.935-22.081-58.508-22.081c-9.335,0-18.76,1.455-28.014,4.325
                 	c-28.672,8.893-50.795,32.544-57.736,61.724c-2.604,10.945-3.309,21.9-2.097,32.56c0.139,1.225-0.44,2.08-0.797,2.481
@@ -534,29 +534,28 @@
                 	c37.485,0,72.549-7.439,104.219-22.109c29.033-13.449,54.689-32.674,76.255-57.141c20.09-22.792,35.8-49.103,46.692-78.201
                 	c10.383-27.737,15.871-57.333,15.871-85.589v-1.346c-0.001-4.537,2.051-8.806,5.631-11.712c13.585-11.03,25.415-24.014,35.16-38.591
                 	l0,0C411.924,77.126,407.866,72.302,403.632,74.18L403.632,74.18z" />
-                    </svg>
-                </a>
-            </section>
-            <section class="container last">
-                <div class="last__overlay">
+                </svg>
+            </a>
+        </section>
+        <section class="container last">
+            <div class="last__overlay">
+            </div>
+            <img src="assets/images/loader.gif" data-src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="image" class="last__bg img">
+            <div class="last__inner">
+                <div class="last__text">
+                    <h5 class="section__prehead">yay! free stuff</h5>
+                    <h2 class="section__head">join the party</h2>
+                    <p class="paragraph">I heard you like free stuff. leave your email below <br>
+                        be the first get my new music, compilations and bro stuff
+                    </p>
                 </div>
-                <img src="assets/images/loader.gif" data-src="assets/images/axe_sa_BYefDkWhXRu.jpg" alt="image" srcset=""
-                    class="last__bg img">
-                <div class="last__inner">
-                    <div class="last__text">
-                        <h5 class="section__prehead">yay! free stuff</h5>
-                        <h2 class="section__head">join the party</h2>
-                        <p class="paragraph">I heard you like free stuff. leave your email below <br>
-                            be the first get my new music, compilations and bro stuff
-                        </p>
-                    </div>
-                    <form id="newsletter" class="last__email">
-                        <input type="text" for="email" name="email" id="email" placeholder="your email address" class="input last__input">
-                        <button type="submit" class="email-submit">go!</button>
-                    </form>
-                    <div class="marker"></div>
-                </div>
-            </section>
+                <form id="newsletter" class="last__email">
+                    <input type="text" name="email" id="email" placeholder="your email address" class="input last__input">
+                    <button type="submit" class="email-submit">go!</button>
+                </form>
+                <div class="marker"></div>
+            </div>
+        </section>
     </main>
     <audio></audio>
     <footer class="footer">

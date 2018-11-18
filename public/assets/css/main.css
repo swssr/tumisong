@@ -1309,6 +1309,8 @@ button {
   display: flex;
 }
 .modal__inner .img--bigger {
+  width: 100%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   object-fit: cover;
@@ -1729,6 +1731,10 @@ input[type=range]::-moz-range-thumb {
   padding: 0.5em 1em;
   font-family: var(--font);
   transition: var(--prim-anim);
+}
+.thumbnail--video {
+  width: 100%;
+  height: 100%;
 }
 :root {
   --secondary: #000;

@@ -56,15 +56,21 @@ const fromInsta = () => {
   //       imgSrcList
   //     );
   //   })    
-    var feed = new Instafeed({
-      get: 'user',
-      userId: '1653183333',
-      accessToken,
-      limit: '6',
-      resolution: prequality,
-      before: () => feedContainer.innerHTML = ``,
-      template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>',
-      error : (err) => console.log(err)
+  var feed = new Instafeed({
+    get: 'user',
+    userId: '1653183333',
+    accessToken,
+    limit: '6',
+    resolution: prequality,
+    before: () => feedContainer.innerHTML = `
+    <div class="fetch__msg error">
+        <h1 class="msg__inner">
+            Still loading
+        </h1>
+    </div>
+    `,
+    template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>',
+    error: (err) => console.log(err)
   });
   feed.run();
 }
