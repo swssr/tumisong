@@ -86,7 +86,7 @@ const fetchSongs = fetch(SONGS_URL);
 
 var songList;
 let isFetching = true;
-fetch(SONGS_URL)
+fetch(SONGS_URL, { cache: "force-cache" })
     .then(res => res.json())
     .then(json => {
         songList = json;
