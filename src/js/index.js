@@ -37,6 +37,50 @@ document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
 modal.addEventListener('click', (e) => {
   e.target === modal ? dropModal() : ''
 })
+//Instagram feed
+const feedContainer = document.querySelector('.feed');
+const fromInsta = () => {
+  //Change contents of social feed grid
+  //1. Clear container grid then fill with cached API response
+  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
+  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
+  let userURL;
+  const prequality = `low_resolution`
+  // fetch(INIT)
+  //   .then(res => res.json())
+  //   .then(({
+  //     data
+  //   }) => {
+  //before: () => document.querySelector('.feed').innerHTML = ``,
+  //     console.log(
+  //       imgSrcList
+  //     );
+  //   })    
+    var feed = new Instafeed({
+      get: 'user',
+      userId: '1653183333',
+      accessToken,
+      limit: '6',
+      resolution: prequality,
+      before: () => feedContainer.innerHTML = ``,
+      template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>',
+      error : (err) => console.log(err)
+  });
+  feed.run();
+}
+
+const fromOwn = () => {
+
+}
+
+document.querySelector('#instagram').addEventListener('click', () => {
+  fromInsta()
+})
+
+document.querySelector('#all').addEventListener('click', () => {
+  fromOwn()
+})
+//End instagram feed
 //Show hide footer
 let fObserver;
 let fOptions = {
@@ -63,7 +107,7 @@ fObserver.observe(document.querySelector(`.marker`));
 //Lazy load images
 //Social grid images
 let feed__maker = document.querySelector('.feed__marker');
-let feed__imgs = document.querySelectorAll('.feed__img');
+var feed__imgs = document.querySelectorAll('.feed__img');
 let c_art = document.querySelector('.cover-art img'),
   v_tumb = document.querySelector('.thumbnail--video'),
   last__bg = document.querySelector('.last__bg'),
@@ -206,35 +250,3 @@ clck.forEach((c, i) => {
     makeActive()
   });
 });
-
-const focusFeed = () => {
-  //Change contents of social feed grid
-  //1. Clear container grid then fill with cached API response
-  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
-  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
-  let userURL;
-  const prequality = `standard_resolution`
-  // fetch(INIT)
-  //   .then(res => res.json())
-  //   .then(({
-  //     data
-  //   }) => {
-  //before: () => document.querySelector('.feed').innerHTML = ``,
-  //     console.log(
-  //       imgSrcList
-  //     );
-  //   })    
-    var feed = new Instafeed({
-      get: 'user',
-      userId: '1653183333',
-      accessToken,
-      limit: '6',
-      resolution: prequality,
-      template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>'
-  });
-  feed.run();
-}
-
-document.querySelector('#instagram').addEventListener('click', () => {
-  focusFeed()
-})
