@@ -48,4 +48,45 @@
         left 0
         opacity 0
         transition 1s all ease-out
-//https://mtn.co.ca/pages/lightyourfire.aspx
+.paginate
+    position absolute
+    display: flex
+    width 100px
+    height 40px
+    bottom 0
+    right 0
+    z-index 1000
+    justify-content space-between
+    align-items: center
+    &__forward, &__backward
+        display: flex;
+        flex-basis: 50%;
+        height 100%
+        background-color: var(--accent1);
+        justify-content: center;
+        align-items: center;
+        cursor pointer
+        *    
+            transition: var(--prim-anim)
+        .icon
+            width 15px
+            height 15px
+    &__forward
+        .icon
+            transform: rotate(90deg)
+        &:hover
+            opacity .9
+            transition: var(--prim-anim)
+            .icon
+                transform: translateX(.5em) rotate(90deg)
+    &__backward
+        .icon
+            transform: rotate(-90deg)
+        &:hover
+            opacity .9
+            transition: var(--prim-anim)
+            .icon
+                 transform: translateX(-.5em) rotate(-90deg)
+//https://mtn.co.ca/pages/lightyourfire.aspx 
+
+// School lchoosay

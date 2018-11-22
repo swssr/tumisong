@@ -1,49 +1,80 @@
-.feed
-    position: absolute;
-    width: calc(100% - 30% + var(--pad));
-    height: calc(100% - var(--pad) * 2);
-    left: calc(34% - var(--pad));
-    margin-top: calc(var(--pad));
-    z-index: 10;
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    transition: var(--tspeed) all ease-out;
+.feed__marker
+    position absolute
+.moments
+    position relative
+    display: grid
+    grid-template-columns: 30% 70%
+    background pink
+    display: grid
+    width 100%
+    height: 100vh
+    padding 0
+    margin 0
+    *
+        color: var(--gray)
+.connect
+    position relative
+    padding 0 var(--pad)
+    padding-left calc(var(--pad) *3)
+    padding-top 16px
+    background-color var(--secondary)
     box-shadow: 0 16px 0 0 var(--secondary);
-    &::before
-        content ''
-        position absolute
-        width 100%
-        height 100%
-        background-color var(--secondary)
-        border-bottom none
-        border-right none
-        background-size cover
-        z-index -1
-    &__item
-        position relative
-        background-color var(--gray)
+.moments__grid
+    width 300%
+    height 100%
+    display: flex
+    background orangered
+    grid-auto-flow: column
+    .grid
+        width 0
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr 1fr
+        grid-auto-flow: column
+        border 1px solid purple
         overflow hidden
-        &:hover:nth-of-type(odd)
-            border 1px solid var(--accent1)
-        &:hover:nth-of-type(1)
-            border-top none
-        &:hover:nth-of-type(even)
-            border-top 1px solid var(--accent1)
-            border-bottom 1px solid var(--accent1)
-            border-left 1px solid var(--accent1)
-        &:hover:nth-of-type(2)
-            border-top none
-    &__img
-        width 100%
-        height 100%
-        object-fit: cover
-    
+        &__all
+            width 100%
+        &:nth-of-type(odd)
+            background green
+            border 1px solid red
+.normalize
+    width: calc(100vw - 30% - var(--side-nav-width))
+    background #000
+.feed__item
+    position relative
+    background-color var(--gray)
+    overflow hidden
+    &:hover:nth-of-type(odd)
+        border 1px solid var(--accent1)
+    &:hover:nth-of-type(1)
+        border-top none
+    &:hover:nth-of-type(even)
+        border-top 1px solid var(--accent1)
+        border-bottom 1px solid var(--accent1)
+        border-left 1px solid var(--accent1)
+    &:hover:nth-of-type(2)
+        border-top none
+.feed__img
+    width 100%
+    height 100%
+    object-fit: cover
 
-    &__instagram
-        position absolute
-        display grid
-        grid-template-columns: 400px 1fr;
-        background-color green
-        width 100%
-        height 100%
-        z-index 100
+.connect__links
+    .l_item
+        align-items: center
+        position relative
+        .click
+            position relative
+            height 2.4em
+            line-height: 2em
+            display flex
+            align-items: center
+            cursor pointer
+            &.active::before
+                content ''
+                position absolute
+                width 4px
+                height 100%
+                margin-left calc(var(--pad) * -1)
+                background-image var(--accent1-grad)

@@ -13,8 +13,8 @@ counter = 0;
 
 //Open/close modal mechanism
 let modalImgs = document.querySelector(".img--bigger");
-imgs.forEach((img, i) => {
-  img.addEventListener("click", e => {
+imgs.forEach((img, _i) => {
+  img.addEventListener("click", _e => {
     //Show modal
     modal.classList.add("visible");
     main.classList.add(`blurred`);
@@ -34,59 +34,10 @@ const dropModal = () => {
 document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
   dropModal()
 });
-modal.addEventListener('click', (e) => {
-  e.target === modal ? dropModal() : ''
-})
-//Instagram feed
-const feedContainer = document.querySelector('.feed');
-const fromInsta = () => {
-  //Change contents of social feed grid
-  //1. Clear container grid then fill with cached API response
-  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
-  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
-  let userURL;
-  const prequality = `low_resolution`
-  // fetch(INIT)
-  //   .then(res => res.json())
-  //   .then(({
-  //     data
-  //   }) => {
-  //before: () => document.querySelector('.feed').innerHTML = ``,
-  //     console.log(
-  //       imgSrcList
-  //     );
-  //   })    
-  var feed = new Instafeed({
-    get: 'user',
-    userId: '1653183333',
-    accessToken,
-    limit: '6',
-    resolution: prequality,
-    before: () => feedContainer.innerHTML = `
-    <div class="fetch__msg error">
-        <h1 class="msg__inner">
-            Still loading
-        </h1>
-    </div>
-    `,
-    template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>',
-    error: (err) => console.log(err)
-  });
-  feed.run();
-}
-
-const fromOwn = () => {
-
-}
-
-document.querySelector('#instagram').addEventListener('click', () => {
-  fromInsta()
+modal.addEventListener('click', _e => {
+  if (_e.target === modal) dropModal()
 })
 
-document.querySelector('#all').addEventListener('click', () => {
-  fromOwn()
-})
-//End instagram feed
 //Show hide footer
 let fObserver;
 let fOptions = {
@@ -112,7 +63,7 @@ fObserver.observe(document.querySelector(`.marker`));
 
 //Lazy load images
 //Social grid images
-let feed__maker = document.querySelector('.feed__marker');
+let feed__marker = document.querySelector('.feed__marker');
 var feed__imgs = document.querySelectorAll('.feed__img');
 let c_art = document.querySelector('.cover-art img'),
   v_tumb = document.querySelector('.thumbnail--video'),
@@ -140,7 +91,7 @@ const renderImgs = (entries) => {
 }
 feed_observer = new IntersectionObserver(renderImgs, img__options);
 
-feed_observer.observe(feed__maker);
+feed_observer.observe(feed__marker);
 
 //Other below-fold images
 let other__observer;
@@ -210,7 +161,7 @@ const events = [{
   },
 ]
 const DOMevents = document.querySelector('.calender-events')
-const popEvents = (_events) => {
+const popEvents = () => {
   DOMevents.innerHTML = events.slice(0, 5).map(event => {
     return `
     <div class="event">
@@ -232,7 +183,7 @@ calEvents[0].classList.add('active')
 calEvents.forEach((calEvent, i) => {
   calEvent.addEventListener("click", () => {
     calEvents.forEach(c => {
-      c.classList.remove("active");
+      c.classLists.remove("active");
     });
     calEvents[i].classList.add("active");
   });
@@ -240,19 +191,93 @@ calEvents.forEach((calEvent, i) => {
 
 //End Events
 
-//Social feed
-//Clicking social link
-clck.forEach((c, i) => {
-  c.addEventListener("click", _ => {
+//#REGION Social feeds
 
+//Clicking social link
+clck.forEach((c, _i) => {
+  c.addEventListener("click", _ => {
     const makeActive = () => {
       clck.forEach(cl => {
         cl.classList.remove("active"); //Reset on every click
       });
-      c.classList.add("active");
+      cl.classList.add("active");
     }
-
-
     makeActive()
   });
 });
+
+//Instagram feed
+const feedContainer = document.querySelector('.feed');
+const fromInsta = () => {
+  //Change contents of social feed grid
+  //1. Clear container grid then fill with cached API response
+  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
+  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
+  let userURL;
+  const prequality = `low_resolution`
+  const temp = '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>';
+  var feed = new Instafeed({
+    get: 'user',
+    userId: '1653183333',
+    accessToken,
+    limit: '6',
+    resolution: prequality,
+    before: () => feedContainer.innerHTML = `
+    <div class="fetch__msg error">
+        <h1 class="msg__inner">
+            Still loading
+        </h1>
+    </div>
+    `,
+    template: temp,
+    error: (error) => feedContainer.innerHTML = `
+    <div class="fetch__msg error">
+        <h1 class="msg__inner">
+            ${error}
+        </h1>
+    </div>
+    `,
+  });
+  feed.run();
+}
+//Show all images
+let activeIndex = 0
+
+const fromOwn = () => {
+  //Enable pagination
+  //Get pagination button, set 
+  document.querySelectorAll(`.paginate .pager`)
+    .forEach(btn => {
+      btn.addEventListener('click', _ => {
+        ++activeIndex
+        console.log(activeIndex);
+      })
+    })
+  //By default all feed containers  except the first in selection have a flex width of 0%
+  feedContainers = document.querySelectorAll(`.moments .grid`);
+  //
+  switchFeed(feedContainers, currentIndex);
+}
+
+document.querySelector('#instagram').addEventListener('click', () => {
+  // fromInsta()
+  fromOwn()
+  console.log('all');
+})
+
+document.querySelector('#all').addEventListener('click', () => {
+  fromOwn()
+  console.log('all');
+
+})
+
+
+function switchFeed(feedContainers, currentIndex) {
+  feedContainers.forEach(f => f.style.width = '0%')
+  feedContainers[currentIndex].style.width = '100%';
+  console.log('switching feeds', feedContainers[currentIndex])
+}
+//Add intersection observer at the far end of each group or on each img
+//Cache feed images 
+//End instagram feed
+//#ENDREGION social feeds

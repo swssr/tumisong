@@ -5,7 +5,7 @@
     "main": "assets/js/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "styl": "stylus -w ./src/stylus/main.styl -o ./public/assets/css/main.css"
+        "styl": "stylus -w ./src/stylus/main.styl -o ./docs/assets/css/main.css"
     },
     "author": "swssr",
     "license": "ISC",

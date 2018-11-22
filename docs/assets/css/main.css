@@ -13,7 +13,6 @@
   --snug: calc(100% - var(--pad) * 4 - 1em);
   --sect-40-width: calc(var(--side-nav-width) * 2);
   --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad));
-  --side-nav-width: 4vw;
   --side-nav-width: 15vw;
   --stripe-height: 40vh;
   --main-width: calc(100vw - var(--side-nav-width));
@@ -24,7 +23,7 @@
   --sh: -1px 1px 10px 5px rgba(0,0,0,0.2);
   --speed: 0.218s;
   --prim-anim: var(--speed) all ease-out;
-  --font: Oswald, arial;
+  --font: Oswald, "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system;
 }
 * {
   color: var(--secondary);
@@ -36,6 +35,7 @@ body {
   height: 100%;
   background-color: var(--secondary);
   cursor: crosshair;
+  font-size: 16px;
 }
 .hero__head {
   font-family: 'druk super';
@@ -536,42 +536,6 @@ button {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-.connect {
-  position: absolute;
-  left: 0;
-  z-index: 2;
-  max-width: calc(40% - var(--pad));
-  height: calc(100% - var(--pad) * 2);
-  margin-top: calc(var(--pad));
-  padding: 0 var(--pad);
-  padding-left: calc(var(--pad) * 3);
-  padding-top: 16px;
-  background-color: var(--secondary);
-  box-shadow: 0 16px 0 0 var(--secondary);
-}
-.connect * {
-  color: var(--gray);
-}
-.connect__links .l_item {
-  align-items: center;
-  position: relative;
-}
-.connect__links .l_item .click {
-  position: relative;
-  height: 2.4em;
-  line-height: 2em;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.connect__links .l_item .click.active::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  margin-left: calc(var(--pad) * -1);
-  background-image: var(--accent1-grad);
 }
 .he {
   margin-left: calc(var(--sect-40-width) / 4 - var(--pad));
@@ -1600,6 +1564,56 @@ button {
   opacity: 0;
   transition: 1s all ease-out;
 }
+.paginate {
+  position: absolute;
+  display: flex;
+  width: 100px;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
+}
+.paginate__forward,
+.paginate__backward {
+  display: flex;
+  flex-basis: 50%;
+  height: 100%;
+  background-color: var(--accent1);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.paginate__forward *,
+.paginate__backward * {
+  transition: var(--prim-anim);
+}
+.paginate__forward .icon,
+.paginate__backward .icon {
+  width: 15px;
+  height: 15px;
+}
+.paginate__forward .icon {
+  transform: rotate(90deg);
+}
+.paginate__forward:hover {
+  opacity: 0.9;
+  transition: var(--prim-anim);
+}
+.paginate__forward:hover .icon {
+  transform: translateX(0.5em) rotate(90deg);
+}
+.paginate__backward .icon {
+  transform: rotate(-90deg);
+}
+.paginate__backward:hover {
+  opacity: 0.9;
+  transition: var(--prim-anim);
+}
+.paginate__backward:hover .icon {
+  transform: translateX(-0.5em) rotate(-90deg);
+}
 .player {
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   background-color: #f00;
@@ -2088,28 +2102,57 @@ li {
   z-index: -2;
   animation: movestripe 1s linear forwards;
 }
-.feed {
+.feed__marker {
   position: absolute;
-  width: calc(100% - 30% + var(--pad));
-  height: calc(100% - var(--pad) * 2);
-  left: calc(34% - var(--pad));
-  margin-top: calc(var(--pad));
-  z-index: 10;
+}
+.moments {
+  position: relative;
   display: grid;
-  grid-template-columns: 400px 1fr;
-  transition: var(--tspeed) all ease-out;
+  grid-template-columns: 30% 70%;
+  background: #ffc0cb;
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.moments * {
+  color: var(--gray);
+}
+.connect {
+  position: relative;
+  padding: 0 var(--pad);
+  padding-left: calc(var(--pad) * 3);
+  padding-top: 16px;
+  background-color: var(--secondary);
   box-shadow: 0 16px 0 0 var(--secondary);
 }
-.feed::before {
-  content: '';
-  position: absolute;
-  width: 100%;
+.moments__grid {
+  width: 300%;
   height: 100%;
-  background-color: var(--secondary);
-  border-bottom: none;
-  border-right: none;
-  background-size: cover;
-  z-index: -1;
+  display: flex;
+  background: #ff4500;
+  grid-auto-flow: column;
+}
+.moments__grid .grid {
+  width: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  border: 1px solid #800080;
+  overflow: hidden;
+}
+.moments__grid .grid__all {
+  width: 100%;
+}
+.moments__grid .grid:nth-of-type(odd) {
+  background: #008000;
+  border: 1px solid #f00;
+}
+.normalize {
+  width: calc(100vw - 30% - var(--side-nav-width));
+  background: #000;
 }
 .feed__item {
   position: relative;
@@ -2135,14 +2178,25 @@ li {
   height: 100%;
   object-fit: cover;
 }
-.feed__instagram {
+.connect__links .l_item {
+  align-items: center;
+  position: relative;
+}
+.connect__links .l_item .click {
+  position: relative;
+  height: 2.4em;
+  line-height: 2em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.connect__links .l_item .click.active::before {
+  content: '';
   position: absolute;
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  background-color: #008000;
-  width: 100%;
+  width: 4px;
   height: 100%;
-  z-index: 100;
+  margin-left: calc(var(--pad) * -1);
+  background-image: var(--accent1-grad);
 }
 @media screen and (max-width: 900px) {
   :root {

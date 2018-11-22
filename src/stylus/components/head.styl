@@ -395,41 +395,6 @@
        position absolute
        width 100%
        height 100%
-.connect
-    position absolute
-    left 0
-    z-index 2
-    max-width calc(40% - var(--pad))
-    height calc(100% - var(--pad) * 2)
-    margin-top calc(var(--pad))
-    // margin-left calc(var(--pad))
-    padding 0 var(--pad)
-    padding-left calc(var(--pad) *3)
-
-    padding-top 16px
-    background-color var(--secondary)
-    box-shadow: 0 16px 0 0 var(--secondary);
-    *
-        color var(--gray)
-    &__links
-        .l_item
-            align-items: center
-            position relative
-            .click
-                position relative
-                height 2.4em
-                line-height: 2em
-                display flex
-                align-items: center
-                cursor pointer
-                &.active::before
-                    content ''
-                    position absolute
-                    width 4px
-                    height 100%
-                    margin-left calc(var(--pad) * -1)
-                    background-image var(--accent1-grad)
-
 .he
     margin-left calc(var(--sect-40-width) / 4 - var(--pad))
     background-color: var(--secondary);

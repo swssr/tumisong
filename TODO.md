@@ -8,13 +8,12 @@
 * [✔] Add error handling for failed fetch requests
     * Show loading during fetch
 * [✔] Fetch calender events from express server
-* [] Double the footer as music widget
-* [] Cache fetch json result for playlists
+* [✔] Cache fetch json result for playlists
 * [] Add social network specific social feed
+* [] Double the footer as music widget
 * [] Update video player
     * fetch video from server and player on click
 * [] Add newsletter
-
 * [] Play songs from external source
 
 ## F37 Bella Stencil
