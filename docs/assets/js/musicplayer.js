@@ -95,9 +95,9 @@ var myInit = {
 };
 
 var songList = JSON.parse(localStorage.getItem(`songs`));
-console.log(songList.length);
+console.log(songList);
 
-if (songList.length >= 1) {
+if (songList) {
     featuredList.innerHTML = ``;
     songList.forEach((val) => {
         featuredList.innerHTML += `
@@ -128,8 +128,9 @@ if (songList.length >= 1) {
     fetch(SONGS_URL, myInit)
     .then(res => res.json())
     .then(json => {
-        songList = json
-        songList.forEach((val) => {
+        console.log(json);
+        songList = localStorage.setItem(`songs`, JSON.stringify(json))
+        json.forEach((val) => {
         featuredList.innerHTML += `                                
         <figure class="item">
             <div class="item__group">
