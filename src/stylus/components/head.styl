@@ -106,7 +106,7 @@
 
 @keyframes defocus{
     to{
-        filter: blur(1px) grayscale(100%) brightness(40%)
+        filter: blur(1px) brightness(90%) grayscale(100%)
         transform: translateX(5vh) translateZ(-100px)
     }
 }
@@ -331,11 +331,9 @@
 .item__play{
     border none
     &:hover{
-    border-width: 0px
+    border-width: 2px
+    border-color: var(--secondary)
     background-image var(--accent1-grad)
-    }
-    svg{
-        fill transparent
     }
 }
 

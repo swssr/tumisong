@@ -5,12 +5,13 @@
     "main": "assets/js/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "styl": "stylus -w ./src/stylus/main.styl -o ./public/assets/css/main.css"
+        "styl": "stylus -w ./src/stylus/main.styl -o ./docs/assets/css/main.css"
     },
     "author": "swssr",
     "license": "ISC",
     "devDependencies": {
-        "cssnano": "^4.1.0"
+        "cssnano": "^4.1.0",
+        "stylus": "^0.54.5"
     },
     "dependencies": {}
 }

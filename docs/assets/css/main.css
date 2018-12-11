@@ -472,11 +472,9 @@ button {
   border: none;
 }
 .item__play:hover {
-  border-width: 0px;
+  border-width: 2px;
+  border-color: var(--secondary);
   background-image: var(--accent1-grad);
-}
-.item__play svg {
-  fill: transparent;
 }
 .playlist__list {
   width: 100%;
@@ -628,25 +626,25 @@ button {
 }
 @-moz-keyframes defocus {
   to {
-    filter: blur(1px) grayscale(100%) brightness(40%);
+    filter: blur(1px) brightness(90%) grayscale(100%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @-webkit-keyframes defocus {
   to {
-    filter: blur(1px) grayscale(100%) brightness(40%);
+    filter: blur(1px) brightness(90%) grayscale(100%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @-o-keyframes defocus {
   to {
-    filter: blur(1px) grayscale(100%) brightness(40%);
+    filter: blur(1px) brightness(90%) grayscale(100%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
 @keyframes defocus {
   to {
-    filter: blur(1px) grayscale(100%) brightness(40%);
+    filter: blur(1px) brightness(90%) grayscale(100%);
     transform: translateX(5vh) translateZ(-100px);
   }
 }
@@ -1164,18 +1162,6 @@ button {
 .inline__btn--play {
   width: 25px;
   height: 25px;
-}
-.svg--pause {
-  display: none;
-}
-.svg--pause * {
-  fill: var(--accent1);
-}
-.paused .svg--play {
-  display: none;
-}
-.paused .svg--pause {
-  display: block;
 }
 .white {
   background-color: var(--primary);
@@ -1901,6 +1887,39 @@ li {
   margin-left: -10px;
   border: 4px solid var(--secondary);
   box-shadow: -4px 4px 0 0 var(--accent1);
+}
+.svg--pause {
+  padding: 6px !important;
+  padding-left: 8px !important;
+  display: none;
+}
+.svg--play,
+.svg--pause {
+  padding: 4px;
+  stroke: var(--secondary);
+  stroke-width: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.svg--play:hover,
+.svg--pause:hover {
+  stroke: var(--accent1);
+}
+.svg--play:hover *,
+.svg--pause:hover * {
+  fill: #000;
+}
+.isPlaying {
+  border: none;
+  background-color: var(--accent1);
+}
+.isPlaying .svg--play {
+  display: none;
+}
+.isPlaying .svg--pause {
+  display: flex;
+  stroke: none;
+  fill: var(--secondary);
 }
 @-moz-keyframes playing {
   to {

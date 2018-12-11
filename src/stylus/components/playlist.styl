@@ -180,3 +180,35 @@ li {
   border 4px solid var(--secondary)
   box-shadow -4px 4px 0 0 var(--accent1)
 }
+
+//Featured music player grid
+.svg--pause{
+    padding: 6px !important
+    padding-left: 8px !important
+    display none
+}
+.svg--play, .svg--pause{
+    padding 4px
+    stroke: var(--secondary);
+    stroke-width: 4px;
+    justify-content: center
+    align-items: center
+    &:hover{
+        stroke: var(--accent1);
+        *{
+            fill: black;
+        }
+    }
+}
+.isPlaying{
+    border: none
+    background-color var(--accent1)
+    .svg--play{
+        display none
+    }
+    .svg--pause{
+        display flex
+        stroke: none
+        fill: var(--secondary)
+    }
+}
