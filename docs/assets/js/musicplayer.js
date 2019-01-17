@@ -64,13 +64,13 @@ let nowPlaying = {
     artist: null,
     song: null
 }
-let inc = 0;
+let npSong = document.querySelector(`.playing .song__name`);
+let npArtist = document.querySelector(`.playing .song__artist`);
+
 songs.forEach((song, _i) => {
     song.addEventListener('click', _e => {
         songs.forEach(s => s.classList.remove('playing'))
         song.classList.toggle('playing');
-        let npSong = document.querySelector(`.playing .song__name`);
-        let npArtist = document.querySelector(`.playing .song__artist`);
         nowPlaying.artist = npArtist.textContent;
         nowPlaying.song = npSong.textContent;
         wArtist.textContent = nowPlaying.artist;
@@ -114,13 +114,14 @@ function toggleState(_state) {
 
 //Play pause machanism
 const audio = document.getElementsByTagName('audio')[0];
+
 const playPause = (_event, _index) => {
-    let isPlaying = false;
+    let isPlaying = false
     const currentSong = songList[_index];
 
     const svgPause = document.querySelector('.svg--pause');
 
-    audio.src = `LOBEL - Together (Official Video) (128kbit_AAC).m4a`;
+    audio.src = `https://firebasestorage.googleapis.com/v0/b/tumi-e5bfd.appspot.com/o/R%C3%9CF%C3%9CS%20-%20Innerbloom%20(152kbit_Opus).ogg?alt=media&token=8c386a85-a6e8-4e8a-bea1-5f610ae77a4f`;
     if (toggleState(isPlaying)) {
         audio.play();
     } else {
@@ -128,7 +129,7 @@ const playPause = (_event, _index) => {
     };
     const btn = _event.target.closest(`span`);
     btn.classList.toggle('isPlaying')
-    console.log({ _index, target: _event.target.closest(`span`) });
+    console.log({ _index, target: _event.target.closest(`span`), currentSong: currentSong.src });
 }
 
 try {
@@ -156,11 +157,11 @@ catch (err) {
             </h1>`
         });
 }
-function templateItem(_parent, _val, _index) {
+function templateItem(_parent, _self, _index) {
     return _parent.innerHTML += `
         <figure class="item">
             <div class="item__group">
-                <img src="assets/images/cover-art/${_val.imgUrl}" alt="_" class="item__image img">
+                <img src="assets/images/cover-art/${_self.imgUrl}" alt="_" class="item__image img">
                 <span class="icon btn--play play--icon item__play">
                     <svg class="svg--play" viewBox="0 0     77 76.1">
                         <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
@@ -173,7 +174,7 @@ function templateItem(_parent, _val, _index) {
                 <span></span>
             </div>
             <figcaption class="item__caption">
-                <span class="text">${_val.song}</span>
+                <span class="text">${_self.song}</span>
                 <span class="actions">
                     <i class="icon icon--play"></i>
                 </span>

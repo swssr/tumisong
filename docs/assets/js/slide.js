@@ -4,11 +4,9 @@ var imgs = document.querySelectorAll(".feed__img"),
   slideLeft = controls[0],
   slideRight = controls[1],
   currentIndex = 0,
-  lastIndex = imgs.length;
-
-const  safeIndex = index => index % lastIndex;
-
-let indexedSrc = currIndex => imgs[currIndex].src
+  lastIndex = imgs.length,
+  safeIndex = index => index % lastIndex,
+  indexedSrc = currIndex => imgs[currIndex].src
 
 slideLeft.addEventListener("click", _ => {
   if (currentIndex >= 0 && currentIndex < lastIndex) {
