@@ -82,7 +82,7 @@ const featuredList = document.querySelector('.featured__list');
 
 //Fetch and play music song json
 const SONGS_URL = 'https://tumiserver.now.sh/songs';
-const fetchSongs = fetch(SONGS_URL);
+const fetchSongs = fetch(SONGS_URL); 
 
 var myHeaders = new Headers();
 myHeaders.append('cache-control', 'force-cache');
@@ -113,15 +113,17 @@ function toggleState(_state) {
 
 
 //Play pause machanism
+
 const audio = document.getElementsByTagName('audio')[0];
 
 const playPause = (_event, _index) => {
     let isPlaying = false
+
     const currentSong = songList[_index];
 
     const svgPause = document.querySelector('.svg--pause');
 
-    audio.src = `https://firebasestorage.googleapis.com/v0/b/tumi-e5bfd.appspot.com/o/R%C3%9CF%C3%9CS%20-%20Innerbloom%20(152kbit_Opus).ogg?alt=media&token=8c386a85-a6e8-4e8a-bea1-5f610ae77a4f`;
+    audio.src = currentSong.src;
     if (toggleState(isPlaying)) {
         audio.play();
     } else {
@@ -133,7 +135,7 @@ const playPause = (_event, _index) => {
 }
 
 try {
-    featuredList.innerHTML = ``;
+    featuredList.innerHTML =  ``;
     songList.forEach((val, index) => {
         templateItem(featuredList, val, index);
     });
@@ -143,16 +145,17 @@ catch (err) {
     fetchJson(SONGS_URL, myInit)
         .then(json => {
             //TODO: add local cache version, use indexed Datetime or something better
+            localStorage.clear()
             songList = localStorage.setItem(`songs`, JSON.stringify(json))
             json.forEach((val, index) => {
                 templateItem(featuredList, val, index);
             });
         })
-        .catch(res => {
+        .catch(error => {
             featuredList.innerHTML = `
             <h1 class='fetch__msg error'>
                 <div class="msg__inner">
-                    ${res}
+                    ${error}
                 <div>
             </h1>`
         });
@@ -183,8 +186,6 @@ function templateItem(_parent, _self, _index) {
         `;
 }
 
-const playBtns = document.querySelectorAll('.item__play');
-
-playBtns.forEach((btn, index) => {
+document.querySelectorAll('.item__play').forEach((btn, index) => {
     btn.addEventListener('click', e => playPause(e, index))
 })
