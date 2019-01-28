@@ -9,9 +9,10 @@
   * Show loading during fetch
 * [✔] Fetch calender events from express server
 * [✔] Cache fetch json result for playlists
-* [] Update tumiserver schema
+* [✔] Update tumiserver schema
 * [] Make songs play
-* [] Double the footer as music widget
+  * Implement howler js
+* [] Double the footer as music widget2
 * [] Add social network specific social feed
 * [] Update video player
   * fetch video from server and player on click
