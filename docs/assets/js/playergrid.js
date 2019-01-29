@@ -25,9 +25,6 @@ function templateItem(json) {
 
 const featuredList_div = document.getElementsByClassName('featured__list')[0]
 
-const URL = 'http://localhost:3000/songs'
-
-
 const popGrid = (x) => {
     return `
     <figure class="item">
@@ -57,6 +54,7 @@ const popGrid = (x) => {
 
 window.onload = function () {
     const btnPlay_spans = document.querySelectorAll('.grd__btn')
+    const URL = 'http://localhost:3000/songs'
     const fetchError = (err) => {
         featuredList_div.innerHTML = ``
         featuredList_div.innerHTML = `
@@ -67,32 +65,34 @@ window.onload = function () {
                 </div>
                 `
     }
+    const options = {
+        method: 'GET',
+        params: {},
+        responseType: 'arraybuffer'
+    }
+    
 
-
-    fetch(URL)
+        fetch(URL, options)
         .then(res => res.json())
         .then(json => {
             featuredList_div.innerHTML = ``
             featuredList_div.innerHTML =
                 json.map(popGrid).join('')
 
-                const btns = document.querySelectorAll('.grd__btn')
-                btns.forEach((btn_play, index) => {
-                    btn_play.addEventListener('click', (e) => {
+            const btns = document.querySelectorAll('.grd__btn')
+            const isPlaying = false
+            btns.forEach((btn_play, index) => {
 
-                        const currSong = json[index]
-                        const URi = currSong.src_local
-                        const audio = new Audio(URi)
-                        
-                        audio.play()
-                        console.log(URi);
-
-                        //Change btn appearence
-                        btns.forEach(b => b.classList.remove('isPlaying'))
-                        btn_play.classList.toggle('isPlaying')
-                        
-                    })
+                const currSong = json[index]
+                const URi = currSong.src_local
+                
+                const togglePlay = () => audio.paused ? audio.play() : audio.pause()
+                btn_play.addEventListener('click', (e) => {
+                    const audio = new Audio(URi)
+                    togglePlay()
+                    btn_play.classList.toggle('isPlaying')
                 })
+            })
         })
         .catch(fetchError)
 
