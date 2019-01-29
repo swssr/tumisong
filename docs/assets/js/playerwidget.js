@@ -28,7 +28,7 @@ const populateMPList = (_maxcount) => {
 
   }
 
-  fetch('http://localhost:3000/playlist')
+  fetch('https://tumiserver.now.sh/playlist')
     .then(res => res.json())
     .then(json => {
       template(json, _maxcount)

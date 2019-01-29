@@ -54,7 +54,7 @@ const popGrid = (x) => {
 
 window.onload = function () {
     const btnPlay_spans = document.querySelectorAll('.grd__btn')
-    const URL = 'http://localhost:3000/songs'
+    const URL = 'https://tumiserver.now.sh/songs' || 'http://localhost:3000/songs'
     const fetchError = (err) => {
         featuredList_div.innerHTML = ``
         featuredList_div.innerHTML = `
@@ -71,7 +71,7 @@ window.onload = function () {
         responseType: 'arraybuffer'
     }
 
-    document.addEventListener('play', e => {
+    document.addEventListener('playing', e => {
         const audio = new Audio()
         if(audio !== e.target) audio.pause()
         console.log('something is playing')
@@ -97,6 +97,7 @@ window.onload = function () {
                 }
                 btn_play.addEventListener('click', (e) => {
                     togglePlay()
+                    btns.forEach(b => b.classList.remove('isPlaying'))
                     btn_play.classList.toggle('isPlaying')
                 })
             })
