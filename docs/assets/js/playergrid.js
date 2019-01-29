@@ -70,9 +70,14 @@ window.onload = function () {
         params: {},
         responseType: 'arraybuffer'
     }
-    
 
-        fetch(URL, options)
+    document.addEventListener('play', e => {
+        const audio = new Audio()
+        if(audio !== e.target) audio.pause()
+        console.log('something is playing')
+    }, true)
+
+    fetch(URL, options)
         .then(res => res.json())
         .then(json => {
             featuredList_div.innerHTML = ``
@@ -85,10 +90,12 @@ window.onload = function () {
 
                 const currSong = json[index]
                 const URi = currSong.src_local
-                
-                const togglePlay = () => audio.paused ? audio.play() : audio.pause()
+                const audio = new Audio(URi)
+
+                const togglePlay = () => {
+                    audio.paused ? audio.play() : audio.pause()
+                }
                 btn_play.addEventListener('click', (e) => {
-                    const audio = new Audio(URi)
                     togglePlay()
                     btn_play.classList.toggle('isPlaying')
                 })
