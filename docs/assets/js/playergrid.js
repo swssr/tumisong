@@ -54,7 +54,7 @@ const popGrid = (x) => {
 
 window.onload = function () {
     const btnPlay_spans = document.querySelectorAll('.grd__btn')
-    const URL = 'https://tumiserver.now.sh/songs' || 'http://localhost:3000/songs'
+    const URL = 'https://tumiserver.now.sh/songs'
     const fetchError = (err) => {
         featuredList_div.innerHTML = ``
         featuredList_div.innerHTML = `
