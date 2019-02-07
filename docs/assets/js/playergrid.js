@@ -6,6 +6,8 @@ const item__audio = document.querySelectorAll('.item audio')
 //Utility definitions
 const sessionStore = []
 
+let sibling = n => [...n.parentNode.children].filter(x => x.nodeType == 1 && c != n)
+
 function templateItem(json) {
 
     console.log(json);
@@ -38,16 +40,16 @@ const popGrid = (x) => {
                     <rect y="5" width="10" height="30" />
                     <rect y="5" x="20" width="10" height="30" />
                 </svg>
-            </span>
-            <span></span>
-        </div>
-        <figcaption class="item__caption">
-            <span class="text">${x.song_name}</span>
-            <span class="actions">
+                </span>
+                <span></span>
+                </div>
+                <figcaption class="item__caption">
+                <span class="text">${x.song_name}</span>
+                <span class="actions">
                 <i class="icon icon--play"></i>
-            </span>
+                </span>
+                <audio class="grd-aud" id="${x.id}" src="${x.song_url}"></audio>
     </figcaption>
-        <audio src="${x.song_url}"></audio>
     </figure>
     `
 }
@@ -73,7 +75,7 @@ window.onload = function () {
 
     document.addEventListener('playing', e => {
         const audio = new Audio()
-        if(audio !== e.target) audio.pause()
+        if (audio !== e.target) audio.pause()
         console.log('something is playing')
     }, true)
 
@@ -90,18 +92,35 @@ window.onload = function () {
 
                 const currSong = json[index]
                 const URi = currSong.src_local
-                const audio = new Audio(URi)
 
-                const togglePlay = () => {
-                    audio.paused ? audio.play() : audio.pause()
+                // const audio = new Audio(URi)
+                const audio_el = document.querySelectorAll('audio.grd-aud')
+
+                const togglePlay = (_audio) => {
+                    _audio.paused ? _audio.play() : _audio.pause()
                 }
                 btn_play.addEventListener('click', (e) => {
-                    togglePlay()
                     btns.forEach(b => b.classList.remove('isPlaying'))
                     btn_play.classList.toggle('isPlaying')
+
+                    audio_el.forEach(aud => {
+                        aud.pause
+                        aud.currentTime = 0
+                        const isSame = aud.id == json[index].id
+                        if(isSame){
+                            togglePlay(aud)
+                            console.log(`
+                            Audio should play
+                            Audio src: ${aud.src}
+                            `)
+                        }
+                    })
                 })
             })
         })
         .catch(fetchError)
 
 }
+//New Song
+
+const newSong_sect = document.getElementById('newsong')

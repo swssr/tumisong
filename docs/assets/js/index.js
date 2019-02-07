@@ -116,7 +116,7 @@ let c_art = document.querySelector('.cover-art img'),
   v_tumb = document.querySelector('.thumbnail--video'),
   last__bg = document.querySelector('.last__bg'),
   b_art = document.querySelector('.form-img')
-let other__images = [c_art, v_tumb, b_art, last__bg]
+let other__images = document.querySelectorAll('img')
 
 let feed_observer
 
@@ -157,7 +157,6 @@ const observeOtherFN = (entries) => {
 }
 
 other__observer = new IntersectionObserver(observeOtherFN, img__options)
-
 other__images.forEach(img => other__observer.observe(img))
 
 //Start events
@@ -249,8 +248,7 @@ clck.forEach((c, i) => {
       })
       c.classList.add("active")
     }
-
-
+  
     makeActive()
   })
 })

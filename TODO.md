@@ -10,15 +10,15 @@
 * [✔] Fetch calender events from express server
 * [✔] Cache fetch json result for playlists
 * [✔] Update tumiserver schema
-* [] Make songs play
+* [✔] Make songs play
   * Implement howler js
+* [✔] Play songs from external source
 * [] Double the footer as music widget2
 * [] Add social network specific social feed
 * [] Update video player
   * fetch video from server and player on click
 * [] Add newsletter
 
-* [] Play songs from external source
 
 * [] Start work on the Dage Wonderland website.
 
