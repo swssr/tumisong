@@ -110,17 +110,16 @@ fObserver.observe(document.querySelector(`.marker`))
 
 //Lazy load images
 //Social grid images
-let feed__maker = document.querySelector('.feed__marker')
 var feed__imgs = document.querySelectorAll('.feed__img')
 let c_art = document.querySelector('.cover-art img'),
   v_tumb = document.querySelector('.thumbnail--video'),
   last__bg = document.querySelector('.last__bg'),
   b_art = document.querySelector('.form-img')
-let other__images = document.querySelectorAll('img')
+let imgs_tag = document.querySelectorAll('img')
 
-let feed_observer
+let IO
 
-var img__options = {
+var IOoptions = {
   root: null,
   rootMargin: "0px",
   threshold: 1.0
@@ -129,35 +128,16 @@ var img__options = {
 const renderImgs = (entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      feed__imgs.forEach(img => {
-        img.src = img.dataset.src
-      })
-      feed_observer.unobserve(entry.target)
-    }
-  })
-}
-feed_observer = new IntersectionObserver(renderImgs, img__options)
+      entry.target.src = entry.target.dataset.src
+      IO.unobserve(entry.target)
 
-feed_observer.observe(feed__maker)
-
-//Other below-fold images
-let other__observer
-
-const observeOtherFN = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      other__images.forEach(image => {
-        image.src = image.dataset.src
-      })
-      other__observer.unobserve(entry.target)
-    } else {
-      return
+      console.log(`${entry.target} is intersecting`)
     }
   })
 }
 
-other__observer = new IntersectionObserver(observeOtherFN, img__options)
-other__images.forEach(img => other__observer.observe(img))
+IO = new IntersectionObserver(renderImgs, IOoptions)
+imgs_tag.forEach(img => IO.observe(img))
 
 //Start events
 const events = [{
@@ -248,7 +228,7 @@ clck.forEach((c, i) => {
       })
       c.classList.add("active")
     }
-  
+
     makeActive()
   })
 })

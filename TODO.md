@@ -19,7 +19,6 @@
   * fetch video from server and player on click
 * [] Add newsletter
 
-
 * [] Start work on the Dage Wonderland website.
 
 ## F37 Bella Stencil
