@@ -2,10 +2,9 @@
 
 let nav = document.querySelector(".nav--left")
 
-let col = document.querySelector(".col")
 let clck = document.querySelectorAll(".click")
 let modal = document.querySelector(".modal")
-var imgs = document.querySelectorAll(".feed__img")
+var imgs = document.querySelectorAll(".sc-feed__img")
 
 let tempSrc
 
@@ -78,11 +77,12 @@ const fromOwn = () => {
 
 }
 
-document.querySelector('#instagram').addEventListener('click', () => {
+const instaFeedContainer = document.querySelector('.sc-feed__instagram')
+instaFeedContainer.addEventListener('click', () => {
   fromInsta()
 })
 
-document.querySelector('#all').addEventListener('click', () => {
+document.querySelector('.sc-feed__all').addEventListener('click', () => {
   fromOwn()
 })
 //End instagram feed
@@ -115,7 +115,7 @@ let c_art = document.querySelector('.cover-art img'),
   v_tumb = document.querySelector('.thumbnail--video'),
   last__bg = document.querySelector('.last__bg'),
   b_art = document.querySelector('.form-img')
-let imgs_tag = document.querySelectorAll('img')
+let imgs_tag = document.querySelectorAll('.img')
 
 let IO
 
@@ -126,11 +126,9 @@ var IOoptions = {
 }
 
 const renderImgs = (entries) => {
-  entries.forEach(entry => {
+  entries.forEach(entry => {1
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src
-      IO.unobserve(entry.target)
-
       console.log(`${entry.target} is intersecting`)
     }
   })
@@ -228,7 +226,7 @@ clck.forEach((c, i) => {
       })
       c.classList.add("active")
     }
-
     makeActive()
   })
 })
+

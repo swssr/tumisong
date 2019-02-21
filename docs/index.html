@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet"> -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon">
     <title>TUMISONG || HOME</title>
+    <style>
+        .debug * {
+            outline: 1px solid black
+        }
+    </style>
 </head>
 
 <body>
@@ -286,73 +291,202 @@
                 </div>
             </div>
         </section>
-        <section id="moments" class="container flex--row spill">
-            <div class="bg-gray"></div>
-            <div class="connect">
+        <style>
+        :root {
+            --section-height: 100vh;
+            --num--rows: 3;
+        }
+        .sc-feed{
+            position: relative;
+            height: var(--section-height);
+            background-color: var(--secondary);
+            display: grid;
+            grid-template-columns: minmax(200px, 320px) minmax(400px, 1fr);
+            text-transform: uppercase;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        .sc-feed__buttons{
+            /* background-color: orange; */
+            padding: 30px;
+            margin-left: 20px;
+        }
+        .sc-feed__buttons .section__head{
+            color: var(--gray)
+        }
+        .sc-links{
+            position: relative;
+            display: grid;
+            padding-top: 30px;
+            padding-left: 70px;
+            width: 320px;
+            overflow: hidden;
+            /* background-color: #fff; */
+            margin-left: -30px;
+            margin-top: 30px;
+        }
+        .sc-links__item{
+            position: relative;
+            color: var(--gray) !important;
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: .4s ease-out all;
+
+            z-index: 1;
+        }
+
+        
+        .sc-links__item:hover {
+            transform: translateX(5px);
+        }
+
+        .sc-links__item::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 100%;
+
+            margin-left: -85px;
+            background-color: var(--accent1);
+        }
+
+        .sc-links__item:not(.active)::before {
+            transform: translateX(-5px)
+        }
+
+        .sc-links__item.active::before {
+            transform: translateX(10px)
+        }
+        
+        .sc-links__item::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            /* background-color: rgba(184, 184, 184, 0.438); */
+            z-index: -1;
+            transform: translateX(-50%)
+        }
+        .sc-links__item .text{
+            color: var(--gray);
+            transition: var(--prim-anim)
+        }
+        .sc-links__item:hover .text{
+            color: var(--secondary)
+        }
+        .sc-links__item:hover::after {
+            background-color: rgba(200, 195, 185, 0.507);
+        }
+        
+        .sc-feed {
+        width: 100%;
+        height: inherit;
+        padding: 0;
+        }
+        .sc__feed *{
+            color: var(--gray)
+        }
+
+
+        .sc-feed__inner {
+        position: absolute;
+        height: 100%;
+        opacity: 0;
+        filter: blur(1px) grayscale(100%);
+        transform: translateZ(-200px) rotateX(45deg);
+        z-index: 9999;
+
+        transition: var(--prim-anim);
+        transition-duration: .8s;
+        }
+
+        .sc-feed__inner.active {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        filter: blur(0px) grayscale(0%);
+        transform: translateZ(0px) rotateX(0deg);
+        display: grid;
+        grid-template: repeat(var(--num--rows), 1fr) / repeat(2, 1fr)
+        }
+
+        .sc-feed__inner .sc-feed__item,
+        .sc-feed__item .sc-feed__img {
+        position: relative;
+        width: 100%;
+        height: calc(var(--section-height) / var(--num--rows));
+        overflow: hidden;
+        object-fit: cover;
+        }
+        .sc-feed__all{
+            background-color: #fff;
+        }
+
+        .sc-feed__instagram {
+        background-color: purple !important;
+        }
+
+        .sc-feed__twitter {
+        background-color: powderblue !important;
+        }
+
+        .sc-feed__facebook {
+        background-color: blue !important;
+        }
+
+        </style>
+        <section class="container sc-feed">
+            <div class="sc-feed__buttons">
                 <h5 class="section__prehead">finna stalk me</h5>
                 <h2 class="section__head">Lets connect</h2>
-                <ul class="connect__links">
-                    <li class="l_item">
-                        <span id="all" class="click active">
-                            <svg class="icon underscore"></svg>
-                            <span class="text">all</span>
-                        </span>
+                <ul class="sc-links">
+                    <li class="sc-links__item active">
+                        <span class="text">all</span>
                     </li>
-                    <li class="l_item">
-                        <span class="click">
-                            <svg class="icon underscore"></svg>
-                            <span class="text">traxsource</span>
-                        </span>
+                    <li class="sc-links__item">
+                        <span class="text">twitter</span>
                     </li>
-                    <li class="l_item">
-                        <span class="click">
-                            <svg class="icon underscore"></svg>
-                            <span class="text">facebook</span>
-                        </span>
+                    <li class="sc-links__item">
+                        <span class="text">facebook</span>
                     </li>
-                    <li class="l_item">
-                        <span class="click">
-                            <svg class="icon underscore"></svg>
-                            <span class="text">twitter</span>
-                        </span>
-                    </li>
-                    <li class="l_item">
-                        <span id="instagram" class="click">
-                            <svg class="icon underscore"></svg>
-                            <span class="text">instagram</span>
-                        </span>
+                    <li class="sc-links__item">
+                        <span class="text">instagram</span>
                     </li>
                 </ul>
             </div>
-            <div id="instafeed" class="feed">
-                <div style="position: absolute" class="feed__marker"></div>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <figure class="feed__item">
-                    <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="feed__img thumbnail">
-                    <figcaption class="feed__caption"></figcaption>
-                </figure>
-                <div class="feed__instgram"></div>
-                <div class="feed__facebook"></div>
-                <div class="feed__twitter"></div>
+            <div class="sc-feed__grid-container">
+                <div class="sc-feed__inner sc-feed__all active">
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-feed__caption"></figcaption>
+                    </figure>
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-feed__caption"></figcaption>
+                    </figure>
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-feed__caption"></figcaption>
+                    </figure>
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-feed__caption"></figcaption>
+                    </figure>
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-sc-feed__caption"></figcaption>
+                    </figure>
+                    <figure class="sc-feed__item">
+                        <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="" class="sc-feed__img thumbnail">
+                        <figcaption class="sc-feed__caption"></figcaption>
+                    </figure>
+                </div>
+                <div class="sc-feed__inner sc-feed__twitter"></div>
+                <div class="sc-feed__inner sc-feed__facebook"></div>
+                <div class="sc-feed__inner sc-feed__instagram"></div>
             </div>
         </section>
         <section id="newsong" class="container new white">
@@ -554,6 +688,54 @@
     </footer>
     <div class="now-playing"></div>
     <script src="assets/js/instafeed.min.js"></script>
+    <script>
+            const sc_links = document.querySelectorAll('.sc-links__item')
+            const feed__inners = document.querySelectorAll('.sc-feed__inner')
+        
+            sc_links.forEach((link, index) => {
+              link.addEventListener('click', e => {
+                sc_links.forEach(x => x.classList.remove('active'))
+                link.classList.add('active')
+        
+                if (feed__inners[index]) {
+                  feed__inners.forEach(x => x.classList.remove('active'))
+                  feed__inners[index].classList.add('active')
+        
+                }
+                console.log(feed__inners);
+        
+              })
+            })
+            const img_els = document.querySelectorAll('img')
+        
+            let io
+        
+            const io_options = {
+              root: null,
+              rootMargin: '0px',
+              threshold: 1.0
+            }
+        
+            const io_cb = entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  const {
+                    target
+                  } = entry
+                  target.src = target.dataset.src
+        
+                  io.unobserve(entry.target)
+                  console.log('intersecting')
+                }
+              })
+            }
+        
+            io = new IntersectionObserver(io_cb, io_options)
+        
+            for (const img of img_els) {
+              io.observe(img)
+            }
+          </script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/slide.js"></script>
     <script defer src="assets/js/playerwidget.js"></script>

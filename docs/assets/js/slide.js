@@ -1,6 +1,5 @@
 // @ts-nocheck
-var imgs = document.querySelectorAll(".feed__img"),
-  controls = document.querySelectorAll(".ctrls .icon"),
+var controls = document.querySelectorAll(".ctrls .icon"),
   slideLeft = controls[0],
   slideRight = controls[1],
   currentIndex = 0,
@@ -24,7 +23,6 @@ slideRight.addEventListener("click", () => {
   } else {
     currentIndex = 0;
   }
-  
 });
 
 //Start navigation

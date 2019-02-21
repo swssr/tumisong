@@ -1,49 +1,101 @@
-.feed
-    position: absolute;
-    width: calc(100% - 30% + var(--pad));
-    height: calc(100% - var(--pad) * 2);
-    left: calc(34% - var(--pad));
-    margin-top: calc(var(--pad));
-    z-index: 10;
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    transition: var(--tspeed) all ease-out;
-    box-shadow: 0 16px 0 0 var(--secondary);
-    &::before
-        content ''
-        position absolute
-        width 100%
-        height 100%
-        background-color var(--secondary)
-        border-bottom none
-        border-right none
-        background-size cover
-        z-index -1
-    &__item
-        position relative
-        background-color var(--gray)
-        overflow hidden
-        &:hover:nth-of-type(odd)
-            border 1px solid var(--accent1)
-        &:hover:nth-of-type(1)
-            border-top none
-        &:hover:nth-of-type(even)
-            border-top 1px solid var(--accent1)
-            border-bottom 1px solid var(--accent1)
-            border-left 1px solid var(--accent1)
-        &:hover:nth-of-type(2)
-            border-top none
-    &__img
-        width 100%
-        height 100%
-        object-fit: cover
-    
-
-    &__instagram
-        position absolute
-        display grid
-        grid-template-columns: 400px 1fr;
-        background-color green
-        width 100%
-        height 100%
-        z-index 100
+:root{
+    --section-height: 90vh
+    --num--rows: 3
+}
+#clean{
+    position: relative
+    width: 90vw
+    height: var(--section-height)
+    background-color: var(--secondary)
+    display: grid
+    grid-template-columns: minmax(200px, 320px) minmax(400px, 1fr)
+    text-transform: uppercase
+    color: var(--gray)
+    overflow: hidden
+    perspective: 1000px
+}
+#clean .connect{
+    padding: 30px 60px
+    padding-right: 0
+}
+#clean .connect .connect__links {
+    position: relative
+    display: grid
+}
+.l_item{
+    position: relative
+    color: var(--gray)
+    padding: 12px 0
+    display: flex
+    align-items: center
+    cursor: pointer
+    transition: .4s ease-out all
+    z-index: 1
+}
+.l_item:hover{
+    transform: translateX(5px)
+}
+.l_item::before{ 
+    content: ''
+    position: absolute
+    width: 10px
+    height: 100%
+    margin-left: -70px
+    background-color: var(--accent1)
+}
+.l_item:not(.active)::before{
+    transform: translateX(-5px)
+}
+.l_item.active::before{
+    transform: translateX(5px)
+}
+.section__prehead{
+    display: flex
+    color: var(--accent1)
+}
+.section__head{
+    margin-bottom: 20px
+    font-size: 1.5em
+    height: 2.5em
+    font-family: 'Druk'
+}
+.l_item::after{
+    content: ''
+    position: absolute
+    width: 200%
+    height: 100%
+    z-index: -1
+    transform: translateX(-50%)
+}
+.l_item:hover::after{
+    background-color: rgba(200, 195, 185, 0.507)
+}
+.feed{
+    width: 100%
+    height: inherit
+}
+.feed__inner{
+    position: absolute
+    height: 100%
+    opacity: 0
+    filter: blur(1px) grayscale(100%)
+    transform: translateZ(-200px) rotateX(45deg)
+}
+.feed__inner.active {
+    position: relative
+    width: 100%
+    opacity: 1
+    filter: blur(0px) grayscale(0%)
+    transform: translateZ(0px) rotateX(0deg)
+    height: inherit
+    display: grid
+    grid-template: repeat(var(--num--rows), 1fr) / repeat(2, 1fr)
+}
+.feed__inner .feed__item, .feed__item .feed__img{
+    position: relative
+    width: 100%
+    height: calc(var(--section-height) / var(--num--rows))
+}
+.feed__instagram{
+    background-color: purple
+}
