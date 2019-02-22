@@ -36,7 +36,7 @@ modal.addEventListener('click', (e) => {
   e.target === modal ? dropModal() : ''
 })
 //Instagram feed
-const feedContainer = document.querySelector('.feed')
+const feedContainer = document.querySelector('.sc-feed')
 const fromInsta = () => {
   //Change contents of social feed grid
   //1. Clear container grid then fill with cached API response
@@ -67,7 +67,12 @@ const fromInsta = () => {
         </h1>
     </div>
     `,
-    template: '<figure class="feed__item"><img src={{image}} class="feed__img thumbnail"></figure>',
+    template: `
+    <figure class="sc-feed__item">
+        <img src="{{image}}" data-src="{{image}}" alt="" class="sc-feed__img thumbnail">
+        <figcaption class="sc-feed__caption"></figcaption>
+    </figure>
+    `,
     error: (err) => console.log(err)
   })
   feed.run()
@@ -77,9 +82,12 @@ const fromOwn = () => {
 
 }
 
-const instaFeedContainer = document.querySelector('.sc-feed__instagram')
-instaFeedContainer.addEventListener('click', () => {
-  fromInsta()
+//FIXME: populate instagram feed
+
+const instaBtn = document.getElementById('btnInsta')
+instaBtn.addEventListener('click', () => {
+  console.log('hello world');
+  
 })
 
 document.querySelector('.sc-feed__all').addEventListener('click', () => {
