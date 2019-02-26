@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon">
     <title>TUMISONG || HOME</title>
@@ -426,7 +426,7 @@
         }
 
         .sc-feed__instagram {
-        background-color: purple !important;
+        background-color: var(--secondary) !important;
         }
 
         .sc-feed__twitter {
@@ -486,7 +486,8 @@
                 </div>
                 <div class="sc-feed__inner sc-feed__twitter"></div>
                 <div class="sc-feed__inner sc-feed__facebook"></div>
-                <div id="instafeed" class="sc-feed__inner sc-feed__instagram"></div>
+                <div id="instafeed" class="sc-feed__inner sc-feed__instagram">
+                </div>
             </div>
         </section>
         <section id="newsong" class="container new white">
@@ -545,8 +546,6 @@
                     class="bw-filter img">
                 <div class="icon cnext">
                     <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                        <defs>
-                        </defs>
                         <polygon points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"></polygon>
                     </svg>
                 </div>
@@ -702,8 +701,6 @@
                   feed__inners[index].classList.add('active')
         
                 }
-                console.log(feed__inners);
-        
               })
             })
             const img_els = document.querySelectorAll('img')

@@ -36,28 +36,16 @@ modal.addEventListener('click', (e) => {
   e.target === modal ? dropModal() : ''
 })
 //Instagram feed
-const feedContainer = document.querySelector('.sc-feed')
+const feedContainer = document.querySelector('.sc-feed__instagram')
 const fromInsta = () => {
   //Change contents of social feed grid
   //1. Clear container grid then fill with cached API response
-  const accessToken = `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`
-  const INIT = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`
-  let userURL
   const prequality = `low_resolution`
-  // fetch(INIT)
-  //   .then(res => res.json())
-  //   .then(({
-  //     data
-  //   }) => {
-  //before: () => document.querySelector('.feed').innerHTML = ``,
-  //     console.log(
-  //       imgSrcList
-  //     )
-  //   })    
   var feed = new Instafeed({
     get: 'user',
+    clientId: '8f3711841be74b09ad206b25c84c7cd7',
     userId: '1653183333',
-    accessToken,
+    accessToken: `1653183333.8f37118.51b347ac8c074d7a954f9db1dd2fb931`,
     limit: '6',
     resolution: prequality,
     before: () => feedContainer.innerHTML = `
@@ -67,13 +55,20 @@ const fromInsta = () => {
         </h1>
     </div>
     `,
+    target: 'instafeed',
     template: `
     <figure class="sc-feed__item">
         <img src="{{image}}" data-src="{{image}}" alt="" class="sc-feed__img thumbnail">
         <figcaption class="sc-feed__caption"></figcaption>
     </figure>
     `,
-    error: (err) => console.log(err)
+    error: (err) => feedContainer.innerHTML = `
+    <div class="fetch__msg error">
+        <h1 class="msg__inner">
+          ${err}
+        </h1>
+    </div>
+    `
   })
   feed.run()
 }
@@ -82,12 +77,12 @@ const fromOwn = () => {
 
 }
 
-//FIXME: populate instagram feed
-
 const instaBtn = document.getElementById('btnInsta')
+let instC = 0;
 instaBtn.addEventListener('click', () => {
-  console.log('hello world');
-  
+  instC == 0 ? fromInsta() : null
+  instC++
+  console.log(instC)
 })
 
 document.querySelector('.sc-feed__all').addEventListener('click', () => {
@@ -137,7 +132,7 @@ const renderImgs = (entries) => {
   entries.forEach(entry => {1
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src
-      console.log(`${entry.target} is intersecting`)
+      // console.log(`${entry.target} is intersecting`)
     }
   })
 }
