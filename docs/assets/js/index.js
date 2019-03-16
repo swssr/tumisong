@@ -129,7 +129,7 @@ var IOoptions = {
 }
 
 const renderImgs = (entries) => {
-  entries.forEach(entry => {1
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src
       // console.log(`${entry.target} is intersecting`)

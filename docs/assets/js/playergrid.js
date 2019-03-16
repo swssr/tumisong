@@ -48,7 +48,6 @@ const popGrid = (x) => {
                 <span class="actions">
                 <i class="icon icon--play"></i>
                 </span>
-                <audio class="grd-aud" id="${x.id}" src="${x.song_url}"></audio>
     </figcaption>
     </figure>
     `
@@ -73,52 +72,63 @@ window.onload = function () {
         responseType: 'arraybuffer'
     }
 
-    document.addEventListener('playing', e => {
-        const audio = new Audio()
+    const audio = document.querySelector('audio')
+
+    audio.addEventListener('playing', e => {
         if (audio !== e.target) audio.pause()
         console.log('something is playing')
     }, true)
+//TODO: Remove all other implementaions if this works
 
-    fetch(URL, options)
-        .then(res => res.json())
-        .then(json => {
-            featuredList_div.innerHTML = ``
-            featuredList_div.innerHTML =
-                json.map(popGrid).join('')
+    async function fetchSongs(_url){
+        const response = await fetch(_url)
+        const data = await response.json()
+        const songs = []
+        for (const song of data) {
+            songs.push(song)
+        }
+        return songs
+    }
 
-            const btns = document.querySelectorAll('.grd__btn')
-            const isPlaying = false
-            btns.forEach((btn_play, index) => {
+    function templateHTML(_container){
+        const result = fetchSongs(URL)
+        _container.innerHTML = result.map(popGrid).join('')
+    }
 
-                const currSong = json[index]
-                const URi = currSong.src_local
+    templateHTML(featuredList_div)
 
-                // const audio = new Audio(URi)
-                const audio_el = document.querySelectorAll('audio.grd-aud')
+    // fetch(URL, options)
+    //     .then(res => res.json())
+    //     .then(json => {
+    //         featuredList_div.innerHTML = ``
+    //         featuredList_div.innerHTML = json.map(popGrid).join('')
 
-                const togglePlay = (_audio) => {
-                    _audio.paused ? _audio.play() : _audio.pause()
-                }
-                btn_play.addEventListener('click', (e) => {
-                    btns.forEach(b => b.classList.remove('isPlaying'))
-                    btn_play.classList.toggle('isPlaying')
+    //         const btns = document.querySelectorAll('.grd__btn')
+    //         const isPlaying = false
+    //         btns.forEach((btn_play, index) => {
 
-                    audio_el.forEach(aud => {
-                        aud.pause
-                        aud.currentTime = 0
-                        const isSame = aud.id == json[index].id
-                        if (isSame) {
-                            togglePlay(aud)
-                            console.log(`
-                                Audio should play
-                                Audio src: ${aud.src}
-                            `)
-                        }
-                    })
-                })
-            })
-        })
-        .catch(fetchError)
+    //             const currSong = json[index]
+    //             const URi = currSong.src_local
+
+    //             // const audio = new Audio(URi)
+    //             const audio_el = document.querySelector('audio')
+
+    //             const togglePlay = (_audio) => {
+    //                 _audio.paused ? _audio.play() : _audio.pause()
+    //             }
+    //             btn_play.addEventListener('click', (e) => {
+                    
+    //                 btns.forEach(b => b.classList.remove('isPlaying'))
+    //                 btn_play.classList.toggle('isPlaying')
+
+    //                 audio_el.id = currSong.id
+    //                 audio_el.src = currSong.song_url
+
+    //                 console.log(audio_el.paused)
+    //             })
+    //         })
+    //     })
+    //     .catch(fetchError)
 
 }
 //New Song
