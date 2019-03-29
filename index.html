@@ -11,6 +11,7 @@
     :root {
       --section-height: 90vh;
       --num--rows: 3;
+      --c: 0;
 
       --accent1: #feae01;
       --gray: #b9b9b9;
@@ -184,6 +185,21 @@
       height: 100%;
       background-color: black;
     }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--c), 1fr);
+      grid-gap: 14px;
+    }
+
+    #target {
+      background-color: pink !important;
+    }
+
+    .song {
+      background-color: violet;
+      outline: 1px solid black;
+    }
   </style>
 </head>
 
@@ -194,7 +210,8 @@
   <main class="main">
     <div class="clean"></div>
     <div class="clean"></div>
-    <div class="clean"></div>
+    <div id="target" style="--c: 3" class="clean grid">
+    </div>
     <div class="clean">
       <div class="connect">
         <h5 class="section__prehead">finna stalk me</h5>
@@ -217,27 +234,33 @@
       <div class="feed">
         <div class="feed__inner feed__all active">
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/img1.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/img1.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg4.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg4.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg3.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg3.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg2.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg2.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg1.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/bg1.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
           <figure class="feed__item">
-            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/img2.jpg" alt="" class="feed__img thumbnail">
+            <img src="docs/assets/images/loader.gif" data-src="docs/assets/images/img2.jpg" alt=""
+              class="feed__img thumbnail">
             <figcaption class="feed__caption"></figcaption>
           </figure>
         </div>
@@ -247,6 +270,45 @@
       </div>
     </div>
   </main>
+  <script>
+
+    
+Node.prototype.appendChildren = function () {
+  let children = [...arguments];
+
+  if (
+    children.length == 1 &&
+    Object.prototype.toString.call(children[0]) === "[object Array]"
+  ) {
+    children = children[0];
+  }
+
+  const documentFragment = document.createDocumentFragment();
+  children.forEach(c => documentFragment.appendChild(c));
+  this.appendChild(documentFragment);
+};
+
+    const target = document.getElementById('target')
+
+    const URi = "http://127.0.0.1:55049/assets/songs.json"
+
+    const div = document.createElement('div')
+    div.classList.add('song')
+  
+    fetch(URi).then(res => res.json())
+      .then(data => {
+        console.log()
+        data.forEach((item) => {
+          // target.innerHTML += `<figure class="song"></figure>`
+          
+          // const btn = document.createElement('button')
+          // const fig = document.querySelectorAll('.song')
+          // btn.innerHTML = 'Hello World'
+          // btn.addEventListener('click', e => console.log('Clicking'))
+          // fig.forEach(x => x.appendChild(btn))
+        })
+      })
+  </script>
   <script>
     const feed__link = document.querySelectorAll('.l_item')
     const feed__inners = document.querySelectorAll('.feed__inner')
@@ -316,7 +378,7 @@
 
 
     imgs.forEach((img, i) => {
-      
+
       let tempSrc
       img.addEventListener("click", e => {
         //Show modal

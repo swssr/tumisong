@@ -23,6 +23,28 @@ function sum_pairs(arr, sum){
 
 }
 
-const ans = sum_pairs([11, 3, 7, 5], 10)
+// const ans = sum_pairs([11, 3, 7, 5], 10)
 
-console.log();
+// console.log();
+const fetch = require('node-fetch')
+const fetchSongs = async (_url) => {
+  const response = await fetch(_url)
+  const data = await response.json()
+  const songs = []
+  for (const song of data) {
+    songs.push(song)
+  }
+  return [...songs]
+}
+
+const result = fetchSongs('https://tumiserver.now.sh/songs')
+
+const popGrid = async (prom) => {
+  const arr = await prom
+  arr.forEach(x => {
+    console.log(x)
+  })
+}
+
+popGrid(result)
+console.log(typeof result)
