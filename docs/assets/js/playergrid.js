@@ -116,6 +116,7 @@ const featuredList_div = document.getElementsByClassName("featured__list")[0];
 const btnPlay_spans = document.querySelectorAll(".grd__btn");
 const audio_tags = document.querySelectorAll(".item__group audio");
 const bar = document.querySelector(".bar");
+let featIO;
 
 const URL = "https://tumiserver.now.sh/songs";
 
@@ -129,6 +130,7 @@ const fetchError = err => {
     </div>
     `;
 };
+bar.addEventListener("click", muteSound);
 
 fetch(URL)
   .then(res => res.json())
@@ -143,9 +145,6 @@ fetch(URL)
   });
 // .catch(fetchError);
 
-bar.addEventListener("click", muteSound);
-
-let featIO;
 
 //Functions
 
@@ -174,7 +173,7 @@ function hideMsg() {
 function playPause(event) {
   const btn = event.target.closest("span");
   const audio = last_sibling(btn);
-
+  
   bar.classList.add("bar--active");
 
   btnPlay_spans.forEach(b =>

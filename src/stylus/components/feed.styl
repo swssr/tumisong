@@ -1,101 +1,121 @@
-:root{
-    --section-height: 90vh
-    --num--rows: 3
-}
-#clean{
-    position: relative
-    width: 90vw
-    height: var(--section-height)
-    background-color: var(--secondary)
-    display: grid
-    grid-template-columns: minmax(200px, 320px) minmax(400px, 1fr)
-    text-transform: uppercase
+.sc-feed
+    position: relative;
+    height: var(--section-height);
+    background-color: var(--secondary);
+    display: grid;
+    grid-template-columns: minmax(200px, 320px) minmax(400px, 1fr);
+    text-transform: uppercase;
+    overflow: hidden;
+    perspective: 1000px;
+
+.sc-feed__buttons
+    padding: 30px;
+    margin-left: 20px;
+
+.sc-feed__buttons .section__head
     color: var(--gray)
-    overflow: hidden
-    perspective: 1000px
-}
-#clean .connect{
-    padding: 30px 60px
-    padding-right: 0
-}
-#clean .connect .connect__links {
-    position: relative
-    display: grid
-}
-.l_item{
-    position: relative
-    color: var(--gray)
-    padding: 12px 0
-    display: flex
-    align-items: center
-    cursor: pointer
-    transition: .4s ease-out all
-    z-index: 1
-}
-.l_item:hover{
-    transform: translateX(5px)
-}
-.l_item::before{ 
-    content: ''
-    position: absolute
-    width: 10px
-    height: 100%
-    margin-left: -70px
-    background-color: var(--accent1)
-}
-.l_item:not(.active)::before{
+
+.sc-links
+    position: relative;
+    display: grid;
+    padding-top: 30px;
+    padding-left: 70px;
+    width: 320px;
+    overflow: hidden;
+    margin-left: -30px;
+    margin-top: 30px;
+
+.sc-links__item
+    position: relative;
+    color: var(--gray) !important;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s ease-out all;
+
+    z-index: 1;
+
+.sc-links__item:hover
+    transform: translateX(5px);
+
+.sc-links__item::before
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    margin-left: -85px;
+    background-color: var(--accent1);
+
+.sc-links__item:not(.active)::before
     transform: translateX(-5px)
-}
-.l_item.active::before{
-    transform: translateX(5px)
-}
-.section__prehead{
-    display: flex
-    color: var(--accent1)
-}
-.section__head{
-    margin-bottom: 20px
-    font-size: 1.5em
-    height: 2.5em
-    font-family: 'Druk'
-}
-.l_item::after{
-    content: ''
-    position: absolute
-    width: 200%
-    height: 100%
-    z-index: -1
+
+.sc-links__item.active::before
+    transform: translateX(10px)
+
+.sc-links__item::after
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    z-index: -1;
     transform: translateX(-50%)
-}
-.l_item:hover::after{
-    background-color: rgba(200, 195, 185, 0.507)
-}
-.feed{
-    width: 100%
-    height: inherit
-}
-.feed__inner{
-    position: absolute
-    height: 100%
-    opacity: 0
-    filter: blur(1px) grayscale(100%)
-    transform: translateZ(-200px) rotateX(45deg)
-}
-.feed__inner.active {
-    position: relative
-    width: 100%
-    opacity: 1
-    filter: blur(0px) grayscale(0%)
-    transform: translateZ(0px) rotateX(0deg)
-    height: inherit
-    display: grid
-    grid-template: repeat(var(--num--rows), 1fr) / repeat(2, 1fr)
-}
-.feed__inner .feed__item, .feed__item .feed__img{
-    position: relative
-    width: 100%
-    height: calc(var(--section-height) / var(--num--rows))
-}
-.feed__instagram{
-    background-color: purple
-}
+
+.sc-links__item .text
+    color: var(--gray);
+    transition: var(--prim-anim)
+
+.sc-links__item:hover .text
+    color: var(--secondary)
+
+.sc-links__item:hover::after
+    background-color: rgba(200, 195, 185, 0.507);
+
+.sc-feed
+    width: 100%;
+    height: inherit;
+    padding: 0;
+
+.sc__feed *
+    color: var(--gray)
+
+.sc-feed__inner
+    position: absolute;
+    height: 100%;
+    opacity: 0;
+    filter: blur(1px) grayscale(100%);
+    transform: translateZ(-200px) rotateX(45deg);
+    z-index: 9999;
+    transition: var(--prim-anim);
+    transition-duration: .8s;
+
+.sc-feed__inner.active
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    filter: blur(0px) grayscale(0%);
+    transform: translateZ(0px) rotateX(0deg);
+    display: grid;
+    grid-template-rows: repeat(var(--num--rows), 1fr)
+    grid-template-columns: repeat(2, 1fr)
+
+.sc-feed__inner .sc-feed__item,
+.sc-feed__item .sc-feed__img
+    position: relative;
+    width: 100%;
+    height: calc(var(--section-height) / var(--num--rows));
+    overflow: hidden;
+    object-fit: cover;
+
+.sc-feed__all
+    background-color: #fff;
+
+.sc-feed__instagram
+    background-color: var(--secondary) !important;
+
+.sc-feed__twitter
+    background-color: powderblue !important;
+
+.sc-feed__facebook
+    background-color: blue !important;

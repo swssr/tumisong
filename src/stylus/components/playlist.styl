@@ -212,3 +212,40 @@ li {
         fill: var(--secondary)
     }
 }
+
+.bar{
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    bottom: var(--pad);
+    right: calc(var(--pad) * -2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background-color: var(--accent1);
+    border-radius: 50%;
+    box-shadow: 0 0 1px 2px var(--secondary);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 9999;
+    transition: .4s all;
+}
+.bar--active{
+    right: var(--pad);
+}
+.mute::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg);
+    background-color: var(--secondary);
+}
+.bar:hover{
+    transform: scale(1.5);
+    transition: .4s transform;
+}
