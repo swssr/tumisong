@@ -1,14 +1,122 @@
 //Utility definitions
 const sessionStore = [];
-
-let sibling = n =>
-  [...n.parentNode.children].filter(x => x.nodeType == 1 && c != n);
-
+const SongsLocal = [
+  {
+    artist: "Koda",
+    title: "In the dessert of La Femme",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Illenium",
+    title: "After life",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c2.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Matt Lange",
+    title: "Sixy six",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c3.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Jeff Kaale",
+    title: "rose",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c4.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Eric Prydz",
+    title: "Liam",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c5.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Rufus",
+    title: "Bloom",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c6.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Flores",
+    title: "Oceans",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/img1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Axe Ibiza Top 10",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong.",
+    title: "Submerged.",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b2.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Blood, sweat & beers",
+    song_url:
+      "https://res.cloudinary.com/tumi/video/upload/v1548171894/music/Blood_Sweat_Beers_mixed_by_Tumisong.mp3",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/1e2e5b61247247.5a6f4997c1abb.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Spring fiesta groove",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b4.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Loco safredo, no idea",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b5.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Deeper soul mix",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b6.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  }
+];
+const figCaptions = document.querySelectorAll(".item__caption .text");
+const item_imgs = document.querySelectorAll(".item__image");
+const fetchMsg = document.querySelector(".fetch__msg");
 const featuredList_div = document.getElementsByClassName("featured__list")[0];
-
 const btnPlay_spans = document.querySelectorAll(".grd__btn");
+const audio_tags = document.querySelectorAll(".item__group audio");
+
 const URL = "https://tumiserver.now.sh/songs";
-const API_TEST_URL = `http://127.0.0.1:63639/assets/songs.json`;
+
 const fetchError = err => {
   featuredList_div.innerHTML = ``;
   featuredList_div.innerHTML = `
@@ -19,31 +127,74 @@ const fetchError = err => {
     </div>
     `;
 };
-const options = {
-  method: "GET",
-  responseType: "arraybuffer"
-};
-//TODO: Revert to
-const figCaptions = document.querySelectorAll(".item__caption .text");
-const item_imgs = document.querySelectorAll('.item__image')
-const fetchMsg = document.querySelector(".fetch__msg");
 
-fetch(API_TEST_URL, options)
+fetch(URL)
   .then(res => res.json())
   .then(json => {
-    fetchMsg.style.opacity = 0;
-    fetchMsg.style.display = "none";
-    console.log(json)
-    const songs = json.slice(0, 6);
-    for (let i = 0; i <= songs.length; i++) {
-      const {song_name, img_url} = songs[i];
-      item_imgs[i].src = img_url
-      figCaptions[i].textContent = song_name;
+    templateGrid(json, false);
+  })
+  //TODO: remove for production build
+  .catch(err => {
+    console.log(`caught fetch error /n ${err}`);
+    //Revert to local store
+    templateGrid(SongsLocal, true);
+  });
+// .catch(fetchError);
+
+//Function
+
+function templateGrid(data, isLocal) {
+  hideMsg();
+  const songs = data.slice(0, 6);
+  for (let i = 0; i <= songs.length; i++) {
+    const currSong = songs[i];
+    const currBtn = btnPlay_spans[i];
+
+    const { title, img_url, src_local } = currSong;
+
+    btnPlay_spans[i].id = currSong.title;
+    audio_tags[i].id = currSong.title;
+    item_imgs[i].src = img_url;
+    figCaptions[i].textContent = title;
+    audio_tags[i].src = src_local;
+    currBtn.addEventListener("click", e => playPause(e));
+  }
+}
+
+function hideMsg() {
+  fetchMsg.style.opacity = 0;
+  fetchMsg.style.display = "none";
+}
+
+function playPause(event) {
+  const btn = event.target.closest("span");
+  const audio = last_sibling(btn);
+  const targets = [];
+
+  btnPlay_spans.forEach(b =>
+    b !== btn
+      ? b.classList.remove("isPlaying")
+      : btn.classList.toggle("isPlaying")
+  );
+  audio_tags.forEach(a => {
+    if (a.id !== btn.id) {
+      a.load();
+    } else {
+      audio.paused ? audio.play() : audio.pause();
     }
   });
-// .catch(fetchError)
 
-console.clear();
+  // console.log(btn.dataset);
+  // targets.push(btn.id)
 
-const pBtns = document.querySelectorAll(".item__play");
-const clicks = [];
+  // if(targets.length > 1){
+  //   for (let i = 0; i < targets.length; i++) {
+  //     const prev = targets[i - 1];
+  //     if(prev.id !== btn.id){
+  //       audio.pause()
+  //     }
+  //   }
+  //   console.log(targets);
+}
+
+let last_sibling = n => [...n.parentNode.children].pop();
