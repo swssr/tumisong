@@ -861,7 +861,7 @@
         <section class="container last">
             <div class="last__overlay">
             </div>
-            <img src="assets/images/loader.gif" data-src="assets/images/img3.jpg" alt="image" class="last__bg img">
+            <img src="assets/images/img3.jpg" data-src="assets/images/img3.jpg" alt="image" class="last__bg img">
             <div class="last__inner">
                 <div class="last__text">
                     <h5 class="section__prehead">yay! free stuff</h5>
@@ -885,12 +885,59 @@
         <a href="http://tumisong.dj/privacy" class="footer__link">privacy</a>
         <a href="http://tumisong.dj/privacy" class="footer__link">copyright</a>
     </footer>
-    <div class="now-playing"></div>
+    <style>
+    .bar{
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        bottom: var(--pad);
+        right: calc(var(--pad) * -2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+        background-color: var(--accent1);
+        border-radius: 50%;
+        box-shadow: 0 0 1px 2px var(--secondary);
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 9999;
+        transition: .4s all;
+    }
+    .bar--active{
+        right: var(--pad);
+    }
+    .mute::before{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 24px;
+        top: 0;
+        left: 0;
+        transform-origin: top left;
+        transform: rotate(-45deg);
+        background-color: var(--secondary);
+    }
+    .bar:hover{
+        transform: scale(1.5);
+        transition: .4s transform;
+    }
+    </style>
+    <div class="bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 56"><title>music</title><g id="Layer_2" data-name="Layer 2"><g id="icon"><path d="M42,4a4,4,0,0,1-4,4H24V43h0c0,.33,0,.66,0,1a12,12,0,1,1-6-10.4V4a4,4,0,0,1,4-4H38A4,4,0,0,1,42,4Z"/></g></g></svg>
+    </div>
     <audio data-ispaused="true"></audio>
     <script defer src="assets/js/instafeed.min.js"></script>
     <script>
         const sc_links = document.querySelectorAll('.sc-links__item')
         const feed__inners = document.querySelectorAll('.sc-feed__inner')
+        const img_els = document.querySelectorAll('img')
+        let io
+        const io_options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 1.0
+        }
 
         sc_links.forEach((link, index) => {
             link.addEventListener('click', e => {
@@ -904,15 +951,6 @@
                 }
             })
         })
-        const img_els = document.querySelectorAll('img')
-
-        let io
-
-        const io_options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 1.0
-        }
 
         const io_cb = entries => {
             entries.forEach(entry => {
@@ -923,13 +961,11 @@
                     target.src = target.dataset.src
 
                     io.unobserve(entry.target)
-                    console.log('intersecting')
                 }
             })
         }
 
         io = new IntersectionObserver(io_cb, io_options)
-
         for (const img of img_els) {
             io.observe(img)
         }

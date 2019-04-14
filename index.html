@@ -297,9 +297,7 @@ Node.prototype.appendChildren = function () {
   
     fetch(URi).then(res => res.json())
       .then(data => {
-        console.log()
         data.forEach((item) => {
-          // target.innerHTML += `<figure class="song"></figure>`
           
           const btn = document.createElement('button')
           const fig = document.querySelectorAll('.song')

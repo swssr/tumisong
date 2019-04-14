@@ -82,7 +82,6 @@ let instC = 0;
 instaBtn.addEventListener('click', () => {
   instC == 0 ? fromInsta() : null
   instC++
-  console.log(instC)
 })
 
 document.querySelector('.sc-feed__all').addEventListener('click', () => {
@@ -132,7 +131,6 @@ const renderImgs = (entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src
-      // console.log(`${entry.target} is intersecting`)
     }
   })
 }

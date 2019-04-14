@@ -111,9 +111,11 @@ const SongsLocal = [
 const figCaptions = document.querySelectorAll(".item__caption .text");
 const item_imgs = document.querySelectorAll(".item__image");
 const fetchMsg = document.querySelector(".fetch__msg");
+const featuredSect = document.querySelector(".featured");
 const featuredList_div = document.getElementsByClassName("featured__list")[0];
 const btnPlay_spans = document.querySelectorAll(".grd__btn");
 const audio_tags = document.querySelectorAll(".item__group audio");
+const bar = document.querySelector(".bar");
 
 const URL = "https://tumiserver.now.sh/songs";
 
@@ -135,13 +137,17 @@ fetch(URL)
   })
   //TODO: remove for production build
   .catch(err => {
-    console.log(`caught fetch error /n ${err}`);
+    console.log(`caught fetch error: ${err}`);
     //Revert to local store
     templateGrid(SongsLocal, true);
   });
 // .catch(fetchError);
 
-//Function
+bar.addEventListener("click", muteSound);
+
+let featIO;
+
+//Functions
 
 function templateGrid(data, isLocal) {
   hideMsg();
@@ -152,24 +158,24 @@ function templateGrid(data, isLocal) {
 
     const { title, img_url, src_local } = currSong;
 
-    btnPlay_spans[i].id = currSong.title;
-    audio_tags[i].id = currSong.title;
-    item_imgs[i].src = img_url;
+    btnPlay_spans[i].id = title;
+    audio_tags[i].id = title;
+    item_imgs[i].dataset.src = img_url;
     figCaptions[i].textContent = title;
     audio_tags[i].src = src_local;
+
     currBtn.addEventListener("click", e => playPause(e));
   }
 }
-
 function hideMsg() {
   fetchMsg.style.opacity = 0;
   fetchMsg.style.display = "none";
 }
-
 function playPause(event) {
   const btn = event.target.closest("span");
   const audio = last_sibling(btn);
-  const targets = [];
+
+  bar.classList.add("bar--active");
 
   btnPlay_spans.forEach(b =>
     b !== btn
@@ -183,18 +189,16 @@ function playPause(event) {
       audio.paused ? audio.play() : audio.pause();
     }
   });
-
-  // console.log(btn.dataset);
-  // targets.push(btn.id)
-
-  // if(targets.length > 1){
-  //   for (let i = 0; i < targets.length; i++) {
-  //     const prev = targets[i - 1];
-  //     if(prev.id !== btn.id){
-  //       audio.pause()
-  //     }
-  //   }
-  //   console.log(targets);
+}
+function muteSound() {
+  bar.classList.toggle("mute");
+  audio_tags.forEach(audio => {
+    if (audio.volume > 0) {
+      audio.volume = 0;
+    } else if (audio.volume == 0) {
+      audio.volume = 1;
+    }
+  });
 }
 
 let last_sibling = n => [...n.parentNode.children].pop();
