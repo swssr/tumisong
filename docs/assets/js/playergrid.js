@@ -1,126 +1,203 @@
-//
-const item_imgs = document.querySelectorAll('.item__image')
-const song_names = document.querySelectorAll('.item__caption text')
-const item__audio = document.querySelectorAll('.item audio')
-
 //Utility definitions
-const sessionStore = []
+const sessionStore = [];
+const SongsLocal = [
+  {
+    artist: "Koda",
+    title: "In the dessert of La Femme",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Illenium",
+    title: "After life",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c2.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Matt Lange",
+    title: "Sixy six",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c3.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Jeff Kaale",
+    title: "rose",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c4.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Eric Prydz",
+    title: "Liam",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c5.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Rufus",
+    title: "Bloom",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/c6.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Flores",
+    title: "Oceans",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/img1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Axe Ibiza Top 10",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b1.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong.",
+    title: "Submerged.",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b2.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Blood, sweat & beers",
+    song_url:
+      "https://res.cloudinary.com/tumi/video/upload/v1548171894/music/Blood_Sweat_Beers_mixed_by_Tumisong.mp3",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/1e2e5b61247247.5a6f4997c1abb.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Spring fiesta groove",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b4.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Loco safredo, no idea",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b5.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  },
+  {
+    artist: "Tumisong",
+    title: "Deeper soul mix",
+    src_local: "assets/songs/15. KJm.mp3",
+    img_url: "assets/images/cover-art/b6.jpg",
+    desciption:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantiumex nisi commodi, a reiciendis dolore consectetur laboriosam voluptates aliquid, repudiandaeexercitationem eius quae quos sed! Provident debitis nobis itaque?"
+  }
+];
+const figCaptions = document.querySelectorAll(".item__caption .text");
+const item_imgs = document.querySelectorAll(".item__image");
+const fetchMsg = document.querySelector(".fetch__msg");
+const featuredSect = document.querySelector(".featured");
+const featuredList_div = document.getElementsByClassName("featured__list")[0];
+const btnPlay_spans = document.querySelectorAll(".grd__btn");
+const audio_tags = document.querySelectorAll(".item__group audio");
+const bar = document.querySelector(".bar");
+let featIO;
 
-let sibling = n => [...n.parentNode.children].filter(x => x.nodeType == 1 && c != n)
+const URL = "https://tumiserver.now.sh/songs";
 
-function templateItem(json) {
+const fetchError = err => {
+  featuredList_div.innerHTML = ``;
+  featuredList_div.innerHTML = `
+    <div class="fetch__msg error">
+    <h3 class="msg__inner">
+    ${err}
+    </h3>
+    </div>
+    `;
+};
+bar.addEventListener("click", muteSound);
 
-    console.log(json);
+fetch(URL)
+  .then(res => res.json())
+  .then(json => {
+    templateGrid(json, false);
+  })
+  //TODO: remove for production build
+  .catch(err => {
+    console.log(`caught fetch error: ${err}`);
+    //Revert to local store
+    templateGrid(SongsLocal, true);
+  });
+// .catch(fetchError);
 
-    const indexDataPair = json.map(function (song, index) {
-        return {
-            index,
-            data: {
-                imgurl: song.imgUrl,
-                songUrl: song.src
-            }
-        }
-    })
-    json.forEach(song)
-    console.log(indexDataPair);
+
+//Functions
+
+function templateGrid(data, isLocal) {
+  hideMsg();
+  const songs = data.slice(0, 6);
+  for (let i = 0; i <= songs.length; i++) {
+    const currSong = songs[i];
+    const currBtn = btnPlay_spans[i];
+
+    const { title, img_url, src_local } = currSong;
+
+    btnPlay_spans[i].id = title;
+    audio_tags[i].id = title;
+    item_imgs[i].dataset.src = img_url;
+    figCaptions[i].textContent = title;
+    audio_tags[i].src = src_local;
+
+    currBtn.addEventListener("click", e => playPause(e));
+  }
 }
-
-const featuredList_div = document.getElementsByClassName('featured__list')[0]
-
-const popGrid = (x) => {
-    return `
-    <figure class="item">
-        <div class="item__group">
-            <img src="${x.img_url}" alt="_" class="item__image img">
-            <span class="icon btn--play play--icon item__play grd__btn">
-                <svg class="svg--play" viewBox="0 0 77 76.1">
-                    <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z" />
-                </svg>
-                <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                    <rect y="5" width="10" height="30" />
-                    <rect y="5" x="20" width="10" height="30" />
-                </svg>
-                </span>
-                <span></span>
-                </div>
-                <figcaption class="item__caption">
-                <span class="text">${x.song_name}</span>
-                <span class="actions">
-                <i class="icon icon--play"></i>
-                </span>
-                <audio class="grd-aud" id="${x.id}" src="${x.song_url}"></audio>
-    </figcaption>
-    </figure>
-    `
+function hideMsg() {
+  fetchMsg.style.opacity = 0;
+  fetchMsg.style.display = "none";
 }
+function playPause(event) {
+  const btn = event.target.closest("span");
+  const audio = last_sibling(btn);
+  
+  bar.classList.add("bar--active");
 
-window.onload = function () {
-    const btnPlay_spans = document.querySelectorAll('.grd__btn')
-    const URL = 'https://tumiserver.now.sh/songs'
-    const fetchError = (err) => {
-        featuredList_div.innerHTML = ``
-        featuredList_div.innerHTML = `
-                <div class="fetch__msg error">
-                    <h1 class="msg__inner">
-                        ${err}
-                    </h1>
-                </div>
-                `
+  btnPlay_spans.forEach(b =>
+    b !== btn
+      ? b.classList.remove("isPlaying")
+      : btn.classList.toggle("isPlaying")
+  );
+  audio_tags.forEach(a => {
+    if (a.id !== btn.id) {
+      a.load();
+    } else {
+      audio.paused ? audio.play() : audio.pause();
     }
-    const options = {
-        method: 'GET',
-        params: {},
-        responseType: 'arraybuffer'
-    }
-
-    document.addEventListener('playing', e => {
-        const audio = new Audio()
-        if (audio !== e.target) audio.pause()
-        console.log('something is playing')
-    }, true)
-
-    fetch(URL, options)
-        .then(res => res.json())
-        .then(json => {
-            featuredList_div.innerHTML = ``
-            featuredList_div.innerHTML =
-                json.map(popGrid).join('')
-
-            const btns = document.querySelectorAll('.grd__btn')
-            const isPlaying = false
-            btns.forEach((btn_play, index) => {
-
-                const currSong = json[index]
-                const URi = currSong.src_local
-
-                // const audio = new Audio(URi)
-                const audio_el = document.querySelectorAll('audio.grd-aud')
-
-                const togglePlay = (_audio) => {
-                    _audio.paused ? _audio.play() : _audio.pause()
-                }
-                btn_play.addEventListener('click', (e) => {
-                    btns.forEach(b => b.classList.remove('isPlaying'))
-                    btn_play.classList.toggle('isPlaying')
-
-                    audio_el.forEach(aud => {
-                        aud.pause
-                        aud.currentTime = 0
-                        const isSame = aud.id == json[index].id
-                        if(isSame){
-                            togglePlay(aud)
-                            console.log(`
-                            Audio should play
-                            Audio src: ${aud.src}
-                            `)
-                        }
-                    })
-                })
-            })
-        })
-        .catch(fetchError)
-
+  });
 }
-//New Song
+function muteSound() {
+  bar.classList.toggle("mute");
+  audio_tags.forEach(audio => {
+    if (audio.volume > 0) {
+      audio.volume = 0;
+    } else if (audio.volume == 0) {
+      audio.volume = 1;
+    }
+  });
+}
 
-const newSong_sect = document.getElementById('newsong')
+let last_sibling = n => [...n.parentNode.children].pop();

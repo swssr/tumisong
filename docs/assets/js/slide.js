@@ -1,12 +1,14 @@
 // @ts-nocheck
-var imgs = document.querySelectorAll(".feed__img"),
-  controls = document.querySelectorAll(".ctrls .icon"),
+var controls = document.querySelectorAll(".ctrls .icon"),
   slideLeft = controls[0],
   slideRight = controls[1],
   currentIndex = 0,
   lastIndex = imgs.length,
   safeIndex = index => index % lastIndex,
-  indexedSrc = currIndex => imgs[currIndex].src
+  indexedSrc = currIndex => imgs[currIndex].src;
+
+const menu__toggle = document.querySelector(".icon--menu");
+const nav_links = document.querySelectorAll(".nav__link");
 
 slideLeft.addEventListener("click", _ => {
   if (currentIndex >= 0 && currentIndex < lastIndex) {
@@ -15,7 +17,6 @@ slideLeft.addEventListener("click", _ => {
     currentIndex = lastIndex - 1;
   }
   modalImgs.src = indexedSrc(safeIndex(currentIndex));
-  
 });
 slideRight.addEventListener("click", () => {
   if (currentIndex >= 0 && currentIndex < lastIndex) {
@@ -24,23 +25,21 @@ slideRight.addEventListener("click", () => {
   } else {
     currentIndex = 0;
   }
-  
 });
 
 //Start navigation
 
 //Side menu toggle
-const menu__toggle = document.querySelector('.icon--menu');
-const nav_links = document.querySelectorAll('.nav__link');
 
-menu__toggle.addEventListener('click', () => {
-    nav.classList.toggle('nav--opened')
-    console.log(nav.classList);
-})  
+menu__toggle.addEventListener("click", () => {
+  nav.classList.toggle("nav--opened");
+});
 nav_links.forEach(link => {
-    link.addEventListener('click', (e) => {
-        nav.classList.remove('nav--opened')
-    })
-})
+  link.addEventListener("click", e => {
+    nav.classList.remove("nav--opened");
+  });
+});
 
-document.querySelector('.main').addEventListener('click', () => nav.classList.remove('nav--opened') )
+document
+  .querySelector(".main")
+  .addEventListener("click", () => nav.classList.remove("nav--opened"));

@@ -13,5 +13,8 @@
         "cssnano": "^4.1.0",
         "stylus": "^0.54.5"
     },
-    "dependencies": {}
+    "dependencies": {
+        "node-fetch": "^2.3.0",
+        "vue": "^2.6.10"
+    }
 }

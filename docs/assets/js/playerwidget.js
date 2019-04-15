@@ -8,8 +8,8 @@ let nowPlaying = {
 //Add source links and move to exp server
 const songitem_ul = document.querySelector('.mp__songs')
 const songitem_li = document.querySelectorAll('.mp__song')
-let playingSongName_tag = document.querySelector(`.playing .song__name`)
-let playingSongArtist_tag = document.querySelector(`.playing .song__artist`)
+let playingSongName_tag = document.querySelector('.playing .song__name')
+let playingSongArtist_tag = document.querySelector('.playing .song__artist')
 
 const populateMPList = (_maxcount) => {
   //Slice fetched songs to max of DOM link count
@@ -23,9 +23,6 @@ const populateMPList = (_maxcount) => {
           <span class="song__duration">0.00</span>
       </li>
       `)).join('')
-
-    songitem_li.forEach(song => console.log(song))
-
   }
 
   fetch('https://tumiserver.now.sh/playlist')
