@@ -59,9 +59,9 @@
                 transform: translateY(-100px)
             &:last-of-type
                 transform: translateY(100px)
-        .icon--menu
-            transform: translateX(50px)
-            opacity: 0
+        .icon
+            opacity 0
+            transform translateX(50px)
     .nav--left__links
         position absolute
         display: grid
@@ -78,6 +78,7 @@
         align-items: right
         margin-left 0
         .nav__link
+            color: var(--secondary)
             width var(--side-nav-width)
             padding 10px 10px
             color var(--gray)
@@ -110,7 +111,7 @@
         transform: translateX(5vh) translateZ(-100px)
     }
 }
-.head
+.header
     height 100vh
 .wide
     width 100vw
@@ -134,7 +135,16 @@
     width var(--deco-bar)
     height var(--deco-bar)
     cursor pointer
-    
+.icon--menu
+    background none !important
+    width 50px
+    display flex
+    flex-direction column
+    justify-content space-between
+    span
+        width inherit
+        height 4px
+        background-color var(--accent1)
 .col
     position relative
     display flex
@@ -246,9 +256,8 @@
     height 115vh
     padding var(--new-pad)
     background-color var(--secondary)
-    *
-        padding 0
-        margin 0
+    overflow: hidden;
+    perspective 1000px
 .flex
     display flex
     &--col
@@ -432,45 +441,6 @@
     margin-left calc(var(--sect-40-width) / 4 - var(--pad))
     background-color: var(--secondary);
     width: calc(100% - var(--twvh) - var(--pad) * 2);
-
-.calender-events
-    width 60%
-    margin-top 1em
-    display flex
-    flex-direction column
-    align-items: center
-    position absolute
-    margin-left: calc(var(--pad) * 2);
-    background-color: var(--secondary);
-    height: 100%;
-    .event
-        width 100%
-        height 50px
-        padding 6px 16px
-        filter: brightness(90%) blur(0px)
-        display flex
-        flex-direction column
-        justify-content: center
-        cursor pointer
-        border-bottom 1px solid #141414
-        &:not(.active):hover
-            background-color #141414
-        *
-            color var(--gray)
-    .event:not(.active) > .event__descr
-        display none
-        height 100px
-    .active
-        height 100px
-        background-color var(--gray)
-        animation active calc(var(--speed) *2) ease-out  forwards
-        & > *
-            color var(--secondary)
-            display block
-@keyframes active
-    to
-        height 200px
-        filter: brightness(100%) blur(0px)
 .click
     transition var(--prim-anim)
     padding 1em

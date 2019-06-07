@@ -1,13 +1,12 @@
 :root
     --primary: #fff;
-    --secondary: #193549;
-    --secondary: rgb(6, 7, 9);
+    --secondary: rgb(0, 0, 0);
     --gray: #b9b9b9;
     --accent1: rgb(254, 174, 1);
     --accent1-grad: linear-gradient(
         to right,
-        rgb(254, 174, 1),
-        rgb(254, 174, .1)
+        var(--accent1),
+        rgb(254, 174, 1)
     )
     --accent2:  red;
     //alternate header
@@ -23,7 +22,7 @@
     --stripe-height: 40vh;
     --main-width: calc(100vw - var(--side-nav-width))
     --deco-bar: calc(var(--bar)/3);
-    --bar: 80px
+    --bar: 10vh
     --pad: var(--deco-bar);
     --sect-40-width: calc(var(--side-nav-width) * 2);
     //decorative tings
@@ -35,8 +34,6 @@
     --section-height: 100vh;
     --num--rows: 3;
 
-*
-    color var(--secondary)
 html
     scroll-behavior: smooth
 body

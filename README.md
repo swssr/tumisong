@@ -5,7 +5,7 @@
 -------------
 
 This is the offical website of **DJ Tumisong**, click [here](https://tumi.now.sh) to view it.<br>
-It's my current flagship portfolio website. I design and coded everthing from scratch.<br>
+It's my current flagship portfolio website. I designed and coded everthing from scratch.<br>
 Click [here](https://github.com/swssr/exp-server) to view the node server code.<br>
 There's a .NET Core version too [here](https://github.com/swssr/dotnet-songs-api).
 

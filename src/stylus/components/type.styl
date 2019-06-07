@@ -4,7 +4,11 @@
 @font-face
   font-family: 'druk super'
   src: url("../fonts/DrukTextWide-SuperItalic.ttf") format('truetype')
-
+.text
+  color: var(--secondary)
+.text--light
+  color var(--primary)
+  line-height: 1.8rem !important
 .logo
     font-family 'druk'
     font-size 1.2em
@@ -15,10 +19,13 @@
   &::after
       content '___'
 .section__head
+  width 100%
+.head
   font-family 'druk super'
   font-size 1.5em
   height 2.5em  
   display flex
+  color var(--gray)
 .section__head::after
   content ''
   align-self: center
@@ -38,17 +45,23 @@
   transform translateY(-1em)
   font-size .9em
   font-weight lighter
-.white-text
-  *
-    color var(--gray)
-.event__date
-  opacity .6
-.event__descr
-  font-weight 300
-  text-transform none
-
+  color var(--gray)
 .section__prehead
   color var(--accent1) !important
 .paragraph, .description
-  font-size 0.9em
-  color #565656
+  font-weight 300 !important
+  text-transform none
+  font-size: 16px
+  line-height: 1.5rem
+  opacity: 0.76 
+  text-transform none
+  font-weight 400
+
+.btn
+  color: var(--secondary)
+  text-transform: uppercase;
+  font-weight bold
+  font-size 1.2em
+  font-family var(--font)
+.accent
+  color var(--secondary)

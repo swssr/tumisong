@@ -1,21 +1,17 @@
-$sq = calc(var(--pad) *5);
+$sq = 10vw;
 
 .quilt{
-    height 400px
+    height 52vh
     background-color var(--secondary)
-    display grid
-    grid-auto-flow: column
-    grid-gap: calc(var(--pad))
-    padding calc(var(--pad) * 2 + 100px)
-    justify-content: end
+    padding 0 calc(var(--pad) * 2 + 7vw)
+    display flex
     align-items: center
-    z-index 10
     &::after{
         content ''
         position absolute
         display none
-        width 100px
-        height 100px
+        width 7vw
+        height 7vw
         right 0
         background repeating-linear-gradient(
             45deg,
@@ -27,7 +23,15 @@ $sq = calc(var(--pad) *5);
         z-index 100
     }
     &__head{
+        flex 1
         color var(--gray) !important
+    }
+    &__items{
+        flex 999
+        height 100%
+        display flex
+        justify-content space-evenly
+        align-items center
     }
     &__item{
         position relative
@@ -35,9 +39,6 @@ $sq = calc(var(--pad) *5);
         height $sq
         text-align center
         overflow hidden
-        *{
-            transition .4 all ease-out
-            }
         &::before{
             content ''
             position absolute
@@ -52,7 +53,7 @@ $sq = calc(var(--pad) *5);
             var(--secondary) 30px
         )
         }
-        svg{
+        .icon{
             $a = 75px;
             position absolute
             width $a
@@ -68,14 +69,12 @@ $sq = calc(var(--pad) *5);
             transition 8s all
             left 1px
         }
-        &:hover svg{
+        &:hover .icon{
             transition .4s all ease-out
             transform translate(-50%, -50%) scale(1.2)
         }
     }
-    *{
-        display block
-    }
+    
 }
 .last{
     display grid
