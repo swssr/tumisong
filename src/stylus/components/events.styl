@@ -15,6 +15,7 @@
     overflow: hidden;
     overflow-x: scroll;
 
+    scrollbar-width: thin;
     scrollbar-track-color: black;
     scroll-snap-y: mandatory;
 
@@ -37,26 +38,65 @@
     position: relative;
     width: 20vw;
     height: 20vw;
-    background-color: green;
 
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 0 6px 4px rgba(black, .16);
+    box-shadow: 0 0 6px rgba(white, .16);
     transition: var(--prim-anim);
+    filter: brightness(70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: var(--pad);
+
+    z-index: 1;
+    
     &:not(:nth-child(1)){
         margin-left: -2rem;
     }
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(from bottom, red, transparent);
+        z-index: -1
+    }
+    &__bg{
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: 101%
+        height: 101%
+        object-fit: cover;
+        filter: brightness(20%) grayscale(100%);
+
+        z-index: -1;
+    }
+    &__name{
+        color: var(--gray);
+    }
+
     // --dim-value: .7;
     // &:nth-child(4) ~ .event:not(.event--active){
     //     filter: blur(1px) brightness(var(--dim-value));
     // }
 }
 .event--active,
-.event:focus-within {
-    transform: scale(1.1);
-    z-index: 1;
+.event:focus-within, .event:hover {
+    transform: scale(1.06) translateY(-.5rem);
+    filter: brightness(100%);
+    
+    z-index: 5;
 
     background-color: #fff;
+    .event__bg{
+        filter: brightness(40%) grayscale(0%);
+        transform: scale(1.06);
+    }
     & ~ *{
         filter: brightness(.8);
     }
@@ -64,4 +104,7 @@
 
 .event:nth-child(4).event--active{
     margin-left: -10vw;
+}
+.event:nth-child(5).event--active{
+    margin-left: -30vw;
 }
