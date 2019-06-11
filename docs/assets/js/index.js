@@ -140,37 +140,39 @@ imgs_tag.forEach(img => IO.observe(img));
 //Start events
 const events = [
   {
-    date: "12.10.17",
+    date: "14.06.19",
     name: "Ultra South Africa",
-    img_url: "https://images.unsplash.com/photo-1505842465776-3b4953ca4f44?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    descr: `Lorem ipsum
-    eaque harum tenetur quos?`
+    img_url:
+      "https://images.unsplash.com/photo-1505842465776-3b4953ca4f44?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    descr: `Why are tickets so expensive. What do you have against Durban?`
   },
   {
-    date: "12.10.17",
+    date: "14.06.19",
     name: "Cape Town International Jazz Festival",
-    img_url: 	"https://images.unsplash.com/13/unsplash_523b1f5aafc42_1.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=754&q=80",
-    descr: `Landae q?`
+    img_url:
+      "https://images.unsplash.com/13/unsplash_523b1f5aafc42_1.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=754&q=80",
+    descr: `Some call it Pretentious Coconut fest? I love jazz.`
   },
   {
-    date: "12.10.17",
+    date: "14.06.19",
     name: "AfrikaBurn",
-    img_url: 	"https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
-    descr: `
-    Cum voluptatum duci quos?`
+    img_url:
+      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
+    descr: `This is cool. I've actually dreamt of attending it.`
   },
   {
-    date: "12.10.17",
+    date: "14.07.19",
     name: "Vodacom Durban July",
-    img_url: 	"https://images.unsplash.com/photo-1526094798790-1df6f28275cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    descr: `Lorem ipsum dandae quod ratione, culpa explicabo in corruptur quos?`
+    img_url:
+      "https://images.unsplash.com/photo-1526094798790-1df6f28275cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    descr: `Queue Jame Blunt, 'Goodbye My Lover'!`
   },
   {
-    date: "12.10.17",
+    date: "14.06.19",
     name: "Umuzi Week of Festivals",
-    img_url: "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-    descr: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-    odit voluptatur quos?`
+    img_url:
+      "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+    descr: `Thought it said Umlazi fest, never heard of it.?`
   }
 ];
 const DOMevents = document.querySelector(".events");
@@ -181,7 +183,9 @@ const popEvents = _events => {
       //Should remove tab index find something better.
       return `  
     <li class="event">
-      <img class="event__bg" src="${event.img_url}" data-src="${event.img_url}" />
+      <img class="event__bg" src="${event.img_url}" data-src="${
+        event.img_url
+      }" />
       <a href="#0"><h3 class="event__name">${event.name}</h3></a>
       <div class="event__details">
         <p class="paragraph text text--light">${event.descr}</p>
@@ -199,21 +203,25 @@ let calEvents = document.querySelectorAll(".event");
 let eventNames = document.querySelectorAll(".event__name");
 
 //Default active calender event
-calEvents[0].querySelector(".event__name").focus();
+calEvents[0].classList.add("event--active");
 
 //Blur out overflowing events incrementally
-let value = 100;
-calEvents.forEach((v, index) => {
-  if (index > 1) {
-    v.style["filter"] = `brightness(${value}%)`;
-    value -= 14;
-  }
-});
+// let value = 100;
+// calEvents.forEach((v, index) => {
+//   if (index > 0) {
+//     v.style["filter"] = `brightness(${value}%)`;
+//     value -= 20;
+//   }
+// });
 //Onclick
 calEvents.forEach((event, i) => {
   event.addEventListener("click", () => {
     console.log("Clicking");
     makeActive(calEvents, event, "event--active");
+  });
+  event.addEventListener("mouseenter", () => {
+    console.log("hovering");
+    setTimeout(() => makeActive(calEvents, event, "event--active"), 0);
   });
 });
 
@@ -228,7 +236,6 @@ eventNames.forEach((v, i) => {
   });
   console.log(v);
 });
-
 
 //Auto scroll
 
@@ -246,10 +253,9 @@ socialbtns.forEach((c, i) => {
 
 //Utiity func
 function makeActive(list, target = e.currentTarget, activeClass = "active") {
-  console.log(target);
+  const clearAllActive = _list =>
+    _list.forEach(item => item.classList.remove(activeClass));
 
-  list.forEach(item => {
-    item.classList.remove(activeClass); //Reset on every click
-  });
+  clearAllActive(list);
   target.classList.toggle(activeClass);
 }

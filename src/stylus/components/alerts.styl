@@ -1,40 +1,45 @@
-.fetch__msg
-    position absolute
-    width 44vw
-    height 52vh
-    margin auto
-    top 50%
-    left 50%
-    transform: translate(-50%, -50%)
-    color var(--secondary)
-    font-size: 18px
-    text-align: center
-    display flex
-    justify-content center
-    align-items: center
-    overflow hidden
-    .msg__inner
-        width 26vw;
-        height 26vh
-        background-color var(--accent1)
-        color var(--secondary)
-        text-align: center
-        display flex
-        justify-content center
-        align-items: center
-    &::before
-        content ''
-        position absolute
-        display: block
-        width calc(var(--main-width)*2)
-        height 100%
-        background-image repeating-linear-gradient(
-                45deg,
-                var(--accent1),
-                var(--accent1) 6px,
-                var(--secondary) 6px,
-                var(--secondary) 40px
-        )
-        background-position 0 0
-        z-index -2
-        animation movestripe 1s linear forwards
+.fetch__msg {
+    position: absolute;
+    width: 44vw;
+    height: 40vh;
+    margin: auto;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary);
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .msg__inner {
+        width: 26vw;
+        height: 26vh;
+        background-color: var(--accent1);
+        color: var(--secondary);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: calc(var(--main-width) * 2);
+        height: 100%;
+        background-image: repeating-linear-gradient(
+            45deg,
+            var(--accent1),
+            var(--accent1) 6px,
+            var(--secondary) 6px,
+            var(--secondary) 40px
+        );
+        background-position: 0 0;
+        z-index: -2;
+        animation: movestripe 1s linear forwards;
+    }
+}

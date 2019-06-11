@@ -1,150 +1,165 @@
-
 .player {
-  box-shadow:0 0 20px rgba(0,0,0,0.2);
-  background-color red
-  font-size: 0;
-  overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    font-size: 0;
+    background-color: var(--gray);
+    overflow: hidden;
+    display: flex;
+    height: 80vh;
+    width: 100%;
 }
-.player *{
-    font-family var(--font)
-}
+
 /* This css is only applied when fullscreen is active. */
 .player:fullscreen {
-  max-width: none;
-  width: 100%;
+    max-width: none;
+    width: 100%;
 }
 
 .player:-webkit-full-screen {
-  max-width: none;
-  width: 100%;
+    max-width: none;
+    width: 100%;
 }
 
 .player__video {
-  width: 100%;
+    width: 100%;
+}
+
+.player:hover .thumbnail {
+    filter: brightness(100%) blur(0px) grayscale(0%) contrast(110%);
+    transform: scale(1.05);
 }
 
 .player__button {
-  background:none;
-  border:0;
-  line-height:1;
-  color:white;
-  text-align: center;
-  outline:0;
-  padding: 0;
-  cursor:pointer;
-  max-width:50px;
+    background: none;
+    border: 0;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    max-width: 50px;
 }
 
 .player__button:focus {
-  border-color: var(--accent1);
+    border-color: var(--accent1);
 }
 
 .player__slider {
-  width:10px;
-  height:30px;
+    width: 10px;
+    height: 30px;
 }
 
 .player__controls {
-  display:flex;
-  position: absolute;
-  bottom:0;
-  width: 100%;
-  transform: translateY(100%) translateY(-5px);
-  transition:all .3s;
-  flex-wrap:wrap;
-  background:rgba(0,0,0,0.1);
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%) translateY(-5px);
+    transition: all 0.3s;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .player:hover .player__controls {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .player:hover .progress {
-  height:8px;
+    height: 8px;
 }
 
-.player__controls > * {
-  flex:1;
+.player__controls>* {
+    flex: 1;
 }
 
 .progress {
-  flex:10;
-  position: relative;
-  display:flex;
-  flex-basis:100%;
-  height:4px;
-  transition:height 0.3s;
-  background:rgba(0,0,0,0.5);
-  cursor:ew-resize;
+    flex: 10;
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+    height: 4px;
+    transition: height 0.3s;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: ew-resize;
 }
 
 .progress__filled {
-  width:50%;
-  background:var(--accent1);
-  flex:0;
-  flex-basis:50%;
+    width: 50%;
+    background: var(--accent1);
+    flex: 0;
+    flex-basis: 50%;
 }
 
 /* unholy css to style input type="range" */
-
 input[type=range] {
-  -webkit-appearance: none;
-  background:transparent;
-  width: 100%;
-  margin: 0 5px;
+    -webkit-appearance: none;
+    background: transparent;
+    width: 100%;
+    margin: 0 5px;
 }
+
 input[type=range]:focus {
-  outline: none;
+    outline: none;
 }
+
 input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: rgba(255,255,255,0.8);
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1.3px;
+    border: 0.2px solid rgba(1, 1, 1, 0);
 }
+
 input[type=range]::-webkit-slider-thumb {
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: var(--accent1);
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -3.5px;
-  box-shadow:0 0 2px rgba(0,0,0,0.2);
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: var(--accent1);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
+
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #bada55;
+    background: #bada55;
 }
+
 input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: #ffffff;
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+    background: #ffffff;
+    border-radius: 1.3px;
+    border: 0.2px solid rgba(1, 1, 1, 0);
 }
+
 input[type=range]::-moz-range-thumb {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: var(--accent1);
-  cursor: pointer;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: var(--accent1);
+    cursor: pointer;
 }
-.toggle
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-weight: bold;
-  letter-spacing: 2px;
-  background-color: transparent;
-  padding: 0.5em 1em;
-  font-family: var(--font)
-  transition: var(--prim-anim);
-.thumbnail--video
-  width 100%
-  height 100%
+
+.toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: transparent;
+    padding: 0.5em 1em;
+    font-family: var(--font);
+    transition: var(--prim-anim);
+}
+
+.thumbnail--video {
+    width: inherit;
+    height: inherit;
+}

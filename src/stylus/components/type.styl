@@ -1,67 +1,99 @@
-@font-face
-  font-family: 'druk'
-  src: url("../fonts/DrukTextWide-Bold.ttf") format('truetype')
-@font-face
-  font-family: 'druk super'
-  src: url("../fonts/DrukTextWide-SuperItalic.ttf") format('truetype')
-.text
-  color: var(--secondary)
-.text--light
-  color var(--primary)
-  line-height: 1.8rem !important
-.logo
-    font-family 'druk'
-    font-size 1.2em
-    font-weight 600
+@font-face {
+  font-family: 'druk';
+  src: url('../fonts/DrukTextWide-Bold.ttf') format('truetype');
+}
 
-.section__prehead
-  color var(--accent1)
-  &::after
-      content '___'
-.section__head
-  width 100%
-.head
-  font-family 'druk super'
-  font-size 1.5em
-  height 2.5em  
-  display flex
-  color var(--gray)
-.section__head::after
-  content ''
-  align-self: center
-  width .5em
-  height .5em
-  border-radius 50%
-  margin-left .5em
-  margin-top -.1em
-  background-image repeating-linear-gradient(
+@font-face {
+  font-family: 'druk super';
+  src: url('../fonts/DrukTextWide-SuperItalic.ttf') format('truetype');
+}
+
+.text {
+  color: var(--secondary);
+}
+
+.text--light {
+  color: var(--primary);
+  line-height: 1.8rem !important;
+}
+
+.logo {
+  font-family: 'druk';
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.section__prehead {
+  color: var(--accent1);
+
+  &::after {
+    content: '___';
+  }
+}
+
+.section__head {
+  width: 100%;
+}
+
+.head {
+  font-family: 'druk super';
+  font-size: 1.5rem;
+  height: 2.5rem;
+  margin: 0.5rem 0;
+  display: flex;
+  flex: 1;
+  color: var(--gray);
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section__head::after {
+  content: '';
+  align-self: center;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  margin-left: 0.5em;
+  margin-top: -0.1em;
+  background-image: repeating-linear-gradient(
     45deg,
     var(--gray),
     var(--gray) 2px,
     var(--secondary) 2px,
     var(--secondary) 4px
-  )
-.section__subhead
-  transform translateY(-1em)
-  font-size .9em
-  font-weight lighter
-  color var(--gray)
-.section__prehead
-  color var(--accent1) !important
-.paragraph, .description
-  font-weight 300 !important
-  text-transform none
-  font-size: 16px
-  line-height: 1.5rem
-  opacity: 0.76 
-  text-transform none
-  font-weight 400
+  );
+}
 
-.btn
-  color: var(--secondary)
+.section__subhead {
+  font-size: 0.9em;
+  font-weight: lighter;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.section__prehead {
+  color: var(--accent1) !important;
+}
+
+.paragraph, .description {
+  font-weight: 300 !important;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.5rem;
+  opacity: 0.76;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.btn {
+  color: var(--secondary);
   text-transform: uppercase;
-  font-weight bold
-  font-size 1.2em
-  font-family var(--font)
-.accent
-  color var(--secondary)
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: var(--font);
+}
+
+.accent {
+  color: var(--secondary);
+}

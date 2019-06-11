@@ -1,152 +1,152 @@
 $sq = 10vw;
 
-.quilt{
-    height 52vh
-    background-color var(--secondary)
-    padding 0 calc(var(--pad) * 2 + 7vw)
-    display flex
-    align-items: center
-    &::after{
-        content ''
-        position absolute
-        display none
-        width 7vw
-        height 7vw
-        right 0
-        background repeating-linear-gradient(
+.quilt {
+    height: 52vh;
+    background-color: var(--secondary);
+    padding: 0 calc(var(--pad) * 2 + 7vw);
+    display: flex;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: none;
+        width: 7vw;
+        height: 7vw;
+        right: 0;
+        background: repeating-linear-gradient(
             45deg,
             var(--accent1),
             var(--accent1) 6px,
             transparent 6px,
             transparent 30px
-        )
-        z-index 100
+        );
+        z-index: 100;
     }
-    &__head{
-        flex 1
-        color var(--gray) !important
+
+    &__items {
+        flex: 999;
+        height: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 24px;
     }
-    &__items{
-        flex 999
-        height 100%
-        display flex
-        justify-content space-evenly
-        align-items center
-    }
-    &__item{
-        position relative
-        width $sq
-        height $sq
-        text-align center
-        overflow hidden
-        &::before{
-            content ''
-            position absolute
-            width 200%
-            height 100%
-            left -95%
-            background-image repeating-linear-gradient(
-            45deg,
-            var(--accent1),
-            var(--accent1) 6px,
-            var(--secondary) 6px,
-            var(--secondary) 30px
-        )
+
+    &__item {
+        position: relative;
+        width: $sq;
+        height: $sq;
+        text-align: center;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            left: -95%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--accent1),
+                var(--accent1) 6px,
+                var(--secondary) 6px,
+                var(--secondary) 30px
+            );
         }
-        .icon{
+
+        .icon {
             $a = 75px;
-            position absolute
-            width $a
-            height $a
-            background-color var(--accent1)
-            top 50%
-            left 50%
-            transform translate(-50%,-50%)
-            padding 20px
-            transition .4s all ease-out
+            position: absolute;
+            width: $a;
+            height: $a;
+            background-color: var(--accent1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            transition: 0.4s all ease-out;
         }
-        &:hover::before{
-            transition 8s all
-            left 1px
+
+        &:hover::before {
+            transition: 8s all;
+            left: 1px;
         }
-        &:hover .icon{
-            transition .4s all ease-out
-            transform translate(-50%, -50%) scale(1.2)
+
+        &:hover .icon {
+            transition: 0.4s all ease-out;
+            transform: translate(-50%, -50%) scale(1.2);
         }
     }
-    
 }
-.last{
-    display grid
-    justify-content center
-    align-items: center
+
+.last {
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
-.last__bg{
-    position absolute
-    left 0
-    top 0
-    width 100%
-    height 100%
-    filter: brightness(20%) grayscale(100%)
-    }
-.last__overlay{
-    position absolute
-    top 0
-    left 0
-    width 100%
-    height 100%
-    background linear-gradient(
+
+.last__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    filter: brightness(20%) grayscale(100%);
+}
+
+.last__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
         to bottom,
         var(--secondary),
         transparent
-    )
-    z-index 10
+    );
+    z-index: 10;
 }
-.last__inner{
-    display grid
-    height 60%
-    width 60vw
-    transform translateY(-10%)
-    background-color var(--secondary)
-    box-shadow: 0 1px 40px 4px rgba(255,255,255,0.1);
-    padding var(--pad) calc(var(--pad) * 2)
+
+.last__inner {
+    display: grid;
+    height: 60%;
+    width: 60vw;
+    transform: translateY(-10%);
+    background-color: var(--secondary);
+    box-shadow: 0 1px 40px 4px rgba(255, 255, 255, 0.1);
+    padding: var(--pad) calc(var(--pad) * 2);
     align-items: end;
-    z-index 10
+    z-index: 10;
 }
-.last__email{
-    display grid
-    grid-template-columns: 1fr 150px
-    grid-auto-flow: column
-    max-width 40vw
-    height 50px
+
+.last__email {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    grid-auto-flow: column;
+    max-width: 40vw;
+    height: 50px;
     // background-color var(--accent1)
     // box-shadow -4px 4px 0 0 var(--accent1)
     // border 2px solid var(--accent1)
-    outline 2px solid var(--accent1)
+    outline: 2px solid var(--accent1);
 }
-.email-submit{
-    margin 0
-    padding 0
-    width 0
-    height 0
-    width 100%
-    height 100%
-    font-family var(--font)
-    background-color var(--accent1)
-    // border-left 2px solid var(--secondary)
-    outline 2px solid var(--accent1)
+
+.last__input {
+    margin: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    color: var(--gray);
 }
-.last__input{
-    margin 0
-    width 100%
-    background-color var(--secondary)
-    color var(--gray)
-}
-.last__text{
-    .section__prehead{
-        background-color var(--secondary)
+
+.last__text {
+    .section__prehead {
+        background-color: var(--secondary);
     }
-    .section__head{
-        color var(--gray)
+
+    .section__head {
+        color: var(--gray);
     }
 }
