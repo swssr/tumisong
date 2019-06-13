@@ -1,454 +1,606 @@
-.logo
-    position relative
-    display flex
-    color var(--accent1)
-    background-color var(--secondary)
-    svg
-        width 160px
-        height 40px
-        padding 4px
-    &::before
-                content ''
-                position absolute
-                width 100%
-                height 250%
-                margin-top -25%
-                margin-left -50%
-                z-index -1
-                background-image repeating-linear-gradient(
-                    45deg,
-                    var(--accent1),
-                    var(--accent1) 6px,
-                    var(--secondary) 6px,
-                    var(--secondary) 40px
-                )
-                background-position 0 0
-                background-repeat repeat-x
-                animation: movestripe 1s linear infinite;
+.logo {
+    position: relative;
+    display: flex;
+    color: var(--accent-gold);
+    background-color: var(--secondary);
 
-.bg
-    position absolute
-    width 100%
-    right 0px
-    height 100%
-    z-index -1
-    object-fit: cover
-    filter grayscale(100%) brightness(80%)
-    background-size 100px 100px
-.nav--left
-    position fixed
-    left 0
-    width var(--side-nav-width)
-    height 100%
-    z-index 9999
-    background-color var(--secondary)
-    text-transform uppercase
-    transition: var(--prim-anim)
-    transition-duration: .8s;
-    *   
-        color var(--gray)
-        transition: var(--prim-anim)
-        transition-duration: .4s
-    &.nav--opened
-        --side-nav-width: 20vw
-        box-shadow: 0 0 40px 0 rgba(255,255,255,.08)
-        transition: var(--prim-anim)
-        overflow hidden
-        .nav__span
-            &:first-of-type
-                transform: translateY(-100px)
-            &:last-of-type
-                transform: translateY(100px)
-        .icon
-            opacity 0
-            transform translateX(50px)
-    .nav--left__links
-        position absolute
-        display: grid
-        top calc(50% - 50px)
-        margin-left -200px
-    &.nav--opened .nav--left__links, &.nav--opened .nav--left__links
-        position absolute
-        width var(--side-nav-width)
-        height 100px
-        // background-color orangered
-        top calc(20% - 50px)
-        // grid-auto-flow: column
-        justify-content center
-        align-items: right
-        margin-left 0
-        .nav__link
-            color: var(--secondary)
-            width var(--side-nav-width)
-            padding 10px 10px
-            color var(--gray)
-            transition var(--prim-anim)
-            padding 1em
-            &:hover
-                animation linkhover .4s linear forwards
-.split
-    position absolute
-    width 60px
-    height 60px
-    border-radius 50%
-    top calc(50vh - 9px)
-    margin-left var(--pad)
-    box-shadow 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
-    transform rotate(45deg)
+    svg {
+        width: 160px;
+        height: 40px;
+        padding: 4px;
+    }
 
-.main
-    position absolute
-    right 0
-    width var(--main-width)
-    height 100%
-.nav--left.nav--opened ~ .main
-    transition: var(--prim-anim)
-    animation: defocus 1s linear forwards
-
-@keyframes defocus{
-    to{
-        filter: blur(1px) brightness(90%) grayscale(100%)
-        transform: translateX(5vh) translateZ(-100px)
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 250%;
+        margin-top: -25%;
+        margin-left: -50%;
+        z-index: -1;
+        background-image: repeating-linear-gradient(
+            45deg,
+            var(--accent-gold),
+            var(--accent-gold) 6px,
+            var(--secondary) 6px,
+            var(--secondary) 40px
+        );
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        animation: movestripe 1s linear infinite;
     }
 }
-.header
-    height 100vh
-.wide
-    width 100vw
-    background-color var(--test-2)
 
-.sect-40
-    width var(--sect-40-width)
-    height 100%
-    display flex
-.nav__span
-    position absolute
-    width 100%
-    height  var(--bar)
-    padding var(--pad)
-    display flex
-    
-    &:nth-of-type(2)
-        background-color var(--primary)
+.bg {
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(80%);
+    background-size: 100px 100px;
+}
 
-.icon
-    width var(--deco-bar)
-    height var(--deco-bar)
-    cursor pointer
-.icon--menu
-    background none !important
-    width 50px
-    display flex
-    flex-direction column
-    justify-content space-between
-    span
-        width inherit
-        height 4px
-        background-color var(--accent1)
-.col
-    position relative
-    display flex
-    flex-basis 50%
-    padding-bottom var(--pad)
-.split ~ .bottom
-    background-image: repeating-linear-gradient(45deg, var(--accent1), var(--accent1) 6px, var(--secondary) 6px, var(--secondary) 50px);
-    height 500px
-    background-position 0 0
+.nav--left {
+    position: fixed;
+    left: 0;
+    width: var(--side-nav-width);
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--secondary);
+    text-transform: uppercase;
+    transition: var(--prim-anim);
+    transition-duration: 0.8s;
+
+    * {
+        color: var(--gray);
+        transition: var(--prim-anim);
+        transition-duration: 0.4s;
+    }
+
+    &.nav--opened {
+        --side-nav-width: 20vw;
+        box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.08);
+        transition: var(--prim-anim);
+        overflow: hidden;
+
+        .nav__span {
+            &:first-of-type {
+                transform: translateY(-100px);
+            }
+
+            &:last-of-type {
+                transform: translateY(100px);
+            }
+        }
+
+        .icon {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    }
+
+    .nav--left__links {
+        position: absolute;
+        display: grid;
+        top: calc(50% - 50px);
+        margin-left: -200px;
+    }
+
+    &.nav--opened .nav--left__links, &.nav--opened .nav--left__links {
+        position: absolute;
+        width: var(--side-nav-width);
+        height: 100px;
+        // background-color orangered
+        top: calc(20% - 50px);
+        // grid-auto-flow: column
+        justify-content: center;
+        align-items: right;
+        margin-left: 0;
+
+        .nav__link {
+            color: var(--secondary);
+            width: var(--side-nav-width);
+            padding: 10px 10px;
+            color: var(--gray);
+            transition: var(--prim-anim);
+            padding: 1em;
+
+            &:hover {
+                animation: linkhover 0.4s linear forwards;
+            }
+        }
+    }
+}
+
+.split {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: calc(50vh - 9px);
+    margin-left: var(--pad);
+    box-shadow: 0 -3px 0 0 var(--gray), 0 3px 0 0 var(--gray), 0 9px 0 0 var(--gray);
+    transform: rotate(45deg);
+}
+
+.main {
+    position: absolute;
+    right: 0;
+    width: var(--main-width);
+    height: 100%;
+}
+
+.nav--left.nav--opened ~ .main {
+    transition: var(--prim-anim);
+    animation: defocus 1s linear forwards;
+}
+
+@keyframes defocus {
+    to {
+        filter: blur(1px) brightness(90%) grayscale(100%);
+        transform: translateX(5vh) translateZ(-100px);
+    }
+}
+
+.header {
+    height: 100vh;
+}
+
+.wide {
+    width: 100vw;
+    background-color: var(--test-2);
+}
+
+.sect-40 {
+    width: var(--sect-40-width);
+    height: 100%;
+    display: flex;
+}
+
+.nav__span {
+    position: absolute;
+    width: 100%;
+    height: var(--bar);
+    padding: var(--pad);
+    display: flex;
+
+    &:nth-of-type(2) {
+        background-color: var(--primary);
+    }
+}
+
+.icon {
+    width: var(--deco-bar);
+    height: var(--deco-bar);
+    cursor: pointer;
+}
+
+.icon--menu {
+    background: none !important;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+        width: inherit;
+        height: 4px;
+        background-color: var(--accent-gold);
+    }
+}
+
+.col {
+    position: relative;
+    display: flex;
+    flex-basis: 50%;
+    padding-bottom: var(--pad);
+}
+
+.split ~ .bottom {
+    background-image: repeating-linear-gradient(45deg, var(--accent-gold), var(--accent-gold) 6px, var(--secondary) 6px, var(--secondary) 50px);
+    height: 500px;
+    background-position: 0 0;
     animation: movestripe 1s linear infinite;
-.pad--top
-    margin-top 2.5em
-    *
-        align-self: center
-    .pad__item
-        position relative
-        display flex
-        padding-right 1em
-        .icon
-            margin-right 2em
-        
-    .pad__item:first-child
-        font-size .9em
-        margin-bottom 25vh
+}
 
-.hero
-    position absolute
-    width 200%
-    height 40%
-    align-self: flex-end
-    display flex
-    justify-content space-between
-    flex-direction column
-    transform translateY(-4em)
+.pad--top {
+    margin-top: 2.5em;
+
+    * {
+        align-self: center;
+    }
+
+    .pad__item {
+        position: relative;
+        display: flex;
+        padding-right: 1em;
+
+        .icon {
+            margin-right: 2em;
+        }
+    }
+
+    .pad__item:first-child {
+        font-size: 0.9em;
+        margin-bottom: 25vh;
+    }
+}
+
+.hero {
+    position: absolute;
+    width: 200%;
+    height: 40%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transform: translateY(-4em);
+
     // mix-blend-mode: multiply
+    &__txt {
+        margin-bottom: 1em;
+    }
 
-    
-    &__txt
-        margin-bottom 1em
+    &__main {
+        height: 80%;
+        margin-top: 1.2em;
+        margin-bottom: 0;
+        font-size: 0.9em;
+        font-weight: 300;
+    }
+}
 
-    &__main
-        height 80%
-        margin-top 1.2em
-        margin-bottom 0
-        font-size .9em
-        font-weight 300
-.hori
-    height 2em
-    width 200px
-    position relative
-    display flex
-    align-items: center
-    .text
-        font-weight 400
-        color var(--primary)
-    &::before
-        content ''
-        position absolute
-        width 50%
-        height 100%
-        background-color var(--secondary)
-        z-index -1
-.sect-60
-    position absolute
-    width var(--sect-60-width)
-    top p = var(--pad)
-    right p
-    bottom p
-    z-index -1
+.hori {
+    height: 2em;
+    width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
 
-.link
-    display flex
-    align-items: center
-    justify-content space-between
-    font-family 'roboto black'
-    &__text
-        font-size .9em
-    &--top-right
-        position absolute
-        right 0
-.right
-    position absolute
-    right 0px
-.mid-top
-    margin-top calc(55%)
-.r-90
-    width 1em
-    height 100px
-    span
-        transform translateX(-1.2em) rotate(-90deg)
-.blur
-    position absolute
-    width 100vw
-    height 100vh
-    background-image linear-gradient(
+    .text {
+        font-weight: 400;
+        color: var(--primary);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background-color: var(--secondary);
+        z-index: -1;
+    }
+}
+
+.sect-60 {
+    position: absolute;
+    width: var(--sect-60-width);
+    top: p = var(--pad);
+    right: p;
+    bottom: p;
+    z-index: -1;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'roboto black';
+
+    &__text {
+        font-size: 0.9em;
+    }
+
+    &--top-right {
+        position: absolute;
+        right: 0;
+    }
+}
+
+.right {
+    position: absolute;
+    right: 0px;
+}
+
+.mid-top {
+    margin-top: calc(55%);
+}
+
+.r-90 {
+    width: 1em;
+    height: 100px;
+
+    span {
+        transform: translateX(-1.2em) rotate(-90deg);
+    }
+}
+
+.blur {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
         to bottom,
         transparent,
         var(--primary)
     );
-    z-index -1
-    opacity .4
-    filter blur(1px)
-    overflow hidden
-.container
-    --new-pad: calc(var(--pad)* 2);
-    position relative
-
-    width 100%
-    height 100vh
-    padding var(--new-pad)
-    background-color var(--secondary)
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(1px);
     overflow: hidden;
-    perspective 1000px
-.flex
-    display flex
-    &--col
-        flex-direction column
-    &--row
-        flex-direction row
-    
-.featured
-.playlists
-    margin-left ml = calc(var(--sect-40-width)/2 - var(--pad))
-    background-color var(--secondary)
-    width calc(100% - var(--twvh) - var(--pad)* 2)
-    & > *
-        max-height 100vh
-        margin 8px 0
-    *
-        color var(--gray)
-    &__list
-        position absolute
-        left var(--twvh)
-        right calc(var(--pad) * 2)
-        bottom 100px
-        display grid
+}
+
+.container {
+    --new-pad: calc(var(--pad) * 2);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: var(--new-pad);
+    background-color: var(--secondary);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.flex {
+    display: flex;
+
+    &--col {
+        flex-direction: column;
+    }
+
+    &--row {
+        flex-direction: row;
+    }
+}
+
+.featured, .playlists {
+    margin-left: ml = calc(var(--sect-40-width) / 2 - var(--pad));
+    background-color: var(--secondary);
+    width: calc(100% - var(--twvh) - var(--pad) * 2);
+
+    & > * {
+        max-height: 100vh;
+        margin: 8px 0;
+    }
+
+    * {
+        color: var(--gray);
+    }
+
+    &__list {
+        position: absolute;
+        left: var(--twvh);
+        right: calc(var(--pad) * 2);
+        bottom: 100px;
+        display: grid;
         grid-template-columns: repeat(3, minmax(140px, 1fr));
         grid-template-rows: repeat(2, 200px);
-        grid-gap: 60px
-        grid-auto-flow: row
-        .item
-            background-color #ffffff
-            position relative
-            display grid
-            grid-template: 200px 1.5em / 1fr
-            grid-gap: 8px
-            flex-direction column
-            justify-content space-between
-            &__group
-                position relative
-                width 100%
-                height 100%
-            &__caption
-                display flex
-                padding 0 4px
-                justify-content space-between
-                align-items: center
-                .text
-                    flex 99999
-                .actions
-                    flex 2
-                    position relative
-                    display flex
+        grid-gap: 60px;
+        grid-auto-flow: row;
 
-                    .icon
-                        width 10px
-                        height 10px
-                        background-color var(--gray)
-.item__play{
-    background-color transparent
-    padding 4px
-    box-shadow: 0 1px 40px 4px rgba(0,0,0,.1)
-    svg{
-        width 100%
-        height 100%
+        .item {
+            background-color: #ffffff;
+            position: relative;
+            display: grid;
+            grid-template: 200px 1.5em / 1fr;
+            grid-gap: 8px;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &__group {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            &__caption {
+                display: flex;
+                padding: 0 4px;
+                justify-content: space-between;
+                align-items: center;
+
+                .text {
+                    flex: 99999;
+                }
+
+                .actions {
+                    flex: 2;
+                    position: relative;
+                    display: flex;
+
+                    .icon {
+                        width: 10px;
+                        height: 10px;
+                        background-color: var(--gray);
+                    }
+                }
+            }
+        }
     }
 }
-.item__image{
+
+.item__play {
+    background-color: transparent;
+    padding: 4px;
+    box-shadow: 0 1px 40px 4px rgba(0, 0, 0, 0.1);
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.item__image {
     animation: movestripe 1s linear infinite;
-    background-position 0 0 
-    background-repeat repeat-x
-    background-image repeating-linear-gradient(
-    45deg,
-    var(--gray),
-    var(--gray) 6px,
-    var(--secondary) 6px,
-    var(--secondary) 40px
-    )
-    filter: grayscale(100%) brightness(40%)
-    width 100%
-    height 100%
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--gray),
+        var(--gray) 6px,
+        var(--secondary) 6px,
+        var(--secondary) 40px
+    );
+    filter: grayscale(100%) brightness(40%);
+    width: 100%;
+    height: 100%;
 }
-.item__play{
-    border none
-    &:hover{
-    border-width: 2px
-    border-color: var(--secondary)
-    background-image var(--accent1-grad)
+
+.item__play {
+    border: none;
+
+    &:hover {
+        border-width: 2px;
+        border-color: var(--secondary);
+        background-image: var(--grad-gold);
     }
 }
 
-.playlist__list
-    width 100%
-    height var(--snug)
-    background-color var(--gray)
+.playlist__list {
+    width: 100%;
+    height: var(--snug);
+    background-color: var(--gray);
+}
 
-.controls
-    position absolute
-    width 50px
-    height 150px
-    top calc(60% - 75px)
-    left var(--twvh)
-    display flex
-    flex-direction column
-    *
-        transition var(--prim-anim)
-    .prev, .next
-        flex 1
-        background-color var(--accent1)
-        display flex
-        justify-content: center
-        align-items: center
-        .icon
-            width 20px
-            height 20px
-    .prev:hover, .next:hover
-        opacity .9
-    .prev:hover
-        .icon
-            transform translateY(-.5em) 
-    .next:hover
-        .icon
-            transform translateY(.5em)
+.controls {
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    top: calc(60% - 75px);
+    left: var(--twvh);
+    display: flex;
+    flex-direction: column;
 
-.bg-gray
-    position absolute
-    width 100%
-    height 100%
-    top 0
-    left 0
-    position absolute
-    width 100%
-    height 100%
-    background-size cover
-    background-image linear-gradient(
+    * {
+        transition: var(--prim-anim);
+    }
+
+    .prev, .next {
+        flex: 1;
+        background-color: var(--accent-gold);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .prev:hover, .next:hover {
+        opacity: 0.9;
+    }
+
+    .prev:hover {
+        .icon {
+            transform: translateY(-0.5em);
+        }
+    }
+
+    .next:hover {
+        .icon {
+            transform: translateY(0.5em);
+        }
+    }
+}
+
+.bg-gray {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: linear-gradient(
         to bottom,
         var(--secondary),
         var(--primary)
-    )
+    );
     // filter brightness(10%) grayscale(100%)
-    z-index 0
+    z-index: 0;
+
     // opacity .9
-    &::before
-       content ''
-       position absolute
-       width 100%
-       height 100%
-.connect
-    position absolute
-    left 0
-    z-index 2
-    max-width calc(40% - var(--pad))
-    height calc(100% - var(--pad) * 2)
-    margin-top calc(var(--pad))
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.connect {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    max-width: calc(40% - var(--pad));
+    height: calc(100% - var(--pad) * 2);
+    margin-top: calc(var(--pad));
     // margin-left calc(var(--pad))
-    padding 0 var(--pad)
-    padding-left calc(var(--pad) *3)
-
-    padding-top 16px
-    background-color var(--secondary)
-    box-shadow: 0 16px 0 0 var(--secondary);
-    *
-        color var(--gray)
-    &__links
-        .l_item
-            align-items: center
-            position relative
-            .click
-                position relative
-                height 2.4em
-                line-height: 2em
-                display flex
-                align-items: center
-                cursor pointer
-                &.active::before
-                    content ''
-                    position absolute
-                    width 4px
-                    height 100%
-                    margin-left calc(var(--pad) * -1)
-                    background-image var(--accent1-grad)
-
-.he
-    margin-left calc(var(--sect-40-width) / 4 - var(--pad))
+    padding: 0 var(--pad);
+    padding-left: calc(var(--pad) * 3);
+    padding-top: 16px;
     background-color: var(--secondary);
+    box-shadow: 0 16px 0 0 var(--secondary);
+
+    * {
+        color: var(--gray);
+    }
+
+    &__links {
+        .l_item {
+            align-items: center;
+            position: relative;
+
+            .click {
+                position: relative;
+                height: 2.4em;
+                line-height: 2em;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                &.active::before {
+                    content: '';
+                    position: absolute;
+                    width: 4px;
+                    height: 100%;
+                    margin-left: calc(var(--pad) * -1);
+                    background-image: var(--grad-gold);
+                }
+            }
+        }
+    }
+}
+
+.sect-head {
     width: 100%;
-.click
-    transition var(--prim-anim)
-    padding 1em
-    &:not(.active):hover
-        animation linkhover .4s linear forwards
-@keyframes linkhover
-    to
-        background-color: rgba(255 , 255, 255, .2)
-        filter: brightness(120%) opacity(.7)
-        transform translateX(8px)
-//I'm pleased with myself
+    margin-bottom: 3rem;
+}
+
+.sect-head-mod1 {
+    margin-left: calc((var(--sect-40-width) / 2) - var(--pad));
+    background-color: var(--secondary);
+}
+
+.click {
+    transition: var(--prim-anim);
+    padding: 1em;
+
+    &:not(.active):hover {
+        animation: linkhover 0.4s linear forwards;
+    }
+}
+
+@keyframes linkhover {
+    to {
+        background-color: rgba(255, 255, 255, 0.2);
+        filter: brightness(120%) opacity(0.7);
+        transform: translateX(8px);
+    }
+}

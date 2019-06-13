@@ -1,54 +1,54 @@
-.events {
+.container--events {
+    position: relative;
 
+    &::after {
+        content: '';
+        position: absolute;
+        right: calc(var(--pad) * -1);
+        top: 0;
+        width: 20vw;
+        height: inherit;
+        background-image: linear-gradient(to left, var(--secondary), transparent);
+        filter: blur(1px);
+        transform: scale(1.2);
+        z-index: 10;
+    }
+}
+
+.events {
     --head-margin: calc(var(--sect-40-width) / 4 - var(--pad));
     --head-margin: var(--pad);
     position: relative;
     display: flex;
     width: var(--main-width);
-    height: 45vh;
+    height: 46vh;
     min-height: 220px;
-
-    align-items: center;
-    overflow: hidden;
-
+    align-items: flex-end;
     margin-left: var(--head-margin);
-    padding-left: 1rem;
-
-    &::before {
-        content: '';
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 10vw;
-        height: 100%;
-        background-image: linear-gradient(to right, var(--secondary), rgba(0, 0, 0, 0));
-        filter: blur(1px);
-    }
-
+    padding: 1rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 .event {
     position: relative;
     flex-basis: 20vw;
-    height: 100%;
     min-width: 200px;
+    height: 90%;
+    flex-shrink: 0;
     min-height: 220px;
     grid-column: auto;
     overflow: hidden;
-
     cursor: pointer;
-
     background-color: var(--secondary);
-    // outline: 1px solid var(--accent1);
+    // outline: 1px solid var(--accent-gold);
     transition: var(--prim-anim);
     filter: brightness(70%);
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding: var(--pad);
-
     z-index: 1;
 
     &:not(:nth-child(1)) {
@@ -74,7 +74,6 @@
         height: 101%;
         object-fit: cover;
         filter: brightness(20%) grayscale(100%);
-
         z-index: -1;
     }
 
@@ -97,23 +96,14 @@
     &:nth-child(5) {
         filter: brightness(50%);
     }
-
-    // --dim-value: .7;
-    // &:nth-child(4) ~ .event:not(.event--active){
-    //     filter: blur(1px) brightness(var(--dim-value));
-    // }
 }
 
-.event--active,
-.event:focus-within {
-    transform: scale(1.06) translateY(-.5rem);
+.event--active, .event:focus-within {
+    transform: scale(1.06) translateY(-0.5rem);
     background-color: #fff;
-    box-shadow: -3px 3px 16px rgba(gold, .16);
-
-    filter: brightness(100%) !important;
-
+    box-shadow: -3px 3px 16px rgba(gold, 0.16);
+    filter: brightness(105%) !important;
     z-index: 5;
-
 
     .event__bg {
         filter: brightness(40%) grayscale(0%);
@@ -121,7 +111,7 @@
     }
 
     &~* {
-        filter: brightness(.8) !important;
+        filter: brightness(0.8) !important;
     }
 }
 

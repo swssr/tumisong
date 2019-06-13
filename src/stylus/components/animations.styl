@@ -1,21 +1,30 @@
 @keyframes movestripe {
-    from{
-        background-position 0 0        
+    from {
+        background-position: 0 0;
     }
-    to{
-        background-position 100 0
+
+    to {
+        background-position: 100 0;
     }
 }
-.anim-on-click{
+
+.anim-on-click {
     animation: mousestripe 1s infinite;
 }
-.hide{
-    display none
+
+.hide {
+    display: none;
 }
-.slide-up
-    transform translateY(calc(var(--bar) * -1))
-    transition var(--prim-anim)
-.accent
-    background-image var(--accent1-grad) !important
-.blurred
-    filter: blur(1px) brightness(90%) grayscale(100%)
+
+.slide-up {
+    transform: translateY(calc(var(--bar) * -1));
+    transition: var(--prim-anim);
+}
+
+.accent {
+    background-image: var(--grad-gold) !important;
+}
+
+.blurred {
+    filter: blur(1px) brightness(90%) grayscale(100%);
+}

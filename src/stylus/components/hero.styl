@@ -12,221 +12,248 @@
 }
 
 .hero__main {
-  position relative
+  position: relative;
   height: 80%;
-  width 100%
+  width: 100%;
 }
+
 .hero__main .btn {
-  position absolute
-  bottom 0
+  position: absolute;
+  bottom: 0;
 }
 
 .hero__head {
-  font-family: "druk super";
+  font-family: 'druk super';
   text-transform: uppercase;
-  text-shadow -1px 1px 0 var(--accent1)
+  text-shadow: -1px 1px 0 var(--accent-gold);
 }
 
-.bottom{
-    background-image: repeating-linear-gradient(45deg, var(--accent1), var(--accent1) 6px, var(--secondary) 6px, var(--secondary) 40px);
-}
-.bgfull{
-    background-image url('../images/bg2.jpg')
-}
-.new{
-    display flex
-    background-color var(--gray)    
-    justify-content space-between
-    padding-top 15vh;
-}
-.new::before, .new + .gray::before{
-  content ''
-  position absolute
-  width 18vw
-  height 100%
-  // background-image: repeating-linear-gradient(45deg, var(--secondary), var(--secondary) 6px, var(--accent1) 6px, var(--accent1) 40px);
-  background-color var(--secondary)
-  top 0
-  right 0
-  bottom 0
-  z-index 0   
-
-}
-.new{
-    align-self: center
-    z-index 10
-    font-weight 400
-}
-.context{
-    width 400px
-    margin-left 42px
-}
-.artist b::after{
-  content '___'
-}
-.song-name{
-  font-family 'druk super'
-  font-size 2em
-  font-weight bold
-  width 200px
-  margin-bottom 32px
-}
-.song-name div{
-  background-color var(--secondary)
-  color var(--primary)
-  margin-bottom 4px
-  padding 0 8px
-  margin-left -8px
-}
-.song-name div:last-child{
-  width 90%
-}
-.cover-art{
-    position relative
-    width 500px
-    height 500px
-    display flex
-    align-items: center
-    justify-content space-between
+.bottom {
+  background-image: repeating-linear-gradient(45deg, var(--accent-gold), var(--accent-gold) 6px, var(--secondary) 6px, var(--secondary) 40px);
 }
 
-.cover-art img{
-  width 380px
-  height 100%
-  object-fit: cover
-  box-shadow var(--sh)
+.bgfull {
+  background-image: url('../images/bg2.jpg');
 }
-.cover-art::before{
-  content ''
-  position absolute
-  top 0
-  left 0
-  width 380px
-  height 100%
-  background-color rgba(0,0,0,.1)
-  left calc(50% - 190px)
-  z-index 1
-  opacity 0
-  transition var(--prim-anim)
+
+.new {
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  background-color: var(--gray);
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  z-index: 10;
 }
-.cover-art:hover::before{
-  transition var(--prim-anim)
-  opacity 1
+
+.new::before, .new + .gray::before {
+  content: '';
+  position: absolute;
+  width: 18vw;
+  height: 100%;
+  // background-image: repeating-linear-gradient(45deg, var(--secondary), var(--secondary) 6px, var(--accent-gold) 6px, var(--accent-gold) 40px);
+  background-color: var(--secondary);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
 }
-.cover-art:hover::before .play--icon{
-  border-color var(--accent1)
-  opacity 1
+
+.context {
+  width: 32vw;
+  margin-left: 42px;
 }
-.cover-art .icon{
-  z-index 999
-  cursor pointer
-  transition var(--prim-anim)
+
+.artist b::after {
+  content: '___';
 }
-.cover-art .icon svg{
-  width 100%
-  height 100%
+
+.song-name {
+  font-family: 'druk super';
+  font-size: 2em;
+  font-weight: bold;
+  width: 200px;
+  margin-bottom: 32px;
 }
-.cover-art .img::hover{
+
+.song-name div {
+  background-color: var(--secondary);
+  color: var(--primary);
+  margin-bottom: 4px;
+  padding: 0 8px;
+  margin-left: -8px;
+}
+
+.song-name div:last-child {
+  width: 90%;
+}
+
+.cover-art {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-art img {
+  width: 380px;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: var(--sh);
+}
+
+.cover-art::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  left: calc(50% - 190px);
+  z-index: 1;
+  opacity: 0;
+  transition: var(--prim-anim);
+}
+
+.cover-art:hover::before {
+  transition: var(--prim-anim);
+  opacity: 1;
+}
+
+.cover-art:hover::before .play--icon {
+  border-color: var(--accent-gold);
+  opacity: 1;
+}
+
+.cover-art .icon {
+  z-index: 999;
+  cursor: pointer;
+  transition: var(--prim-anim);
+}
+
+.cover-art .icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cover-art .img::hover {
   filter: grayscale(0%);
 }
-.cover-art .icon:hover{
-  transition var(--prim-anim)
+
+.cover-art .icon:hover {
+  transition: var(--prim-anim);
 }
-.nprev, .cnext{
-  position relative
-  border-radius 50%
-  display flex
+
+.nprev, .cnext {
+  position: relative;
+  border-radius: 50%;
+  display: flex;
 }
-.nprev:hover{
-  transform scale(1.2) rotate(90deg)
+
+.nprev:hover {
+  transform: scale(1.2) rotate(90deg);
 }
-.cnext:hover{
-  transform scale(1.2) rotate(-90deg)
+
+.cnext:hover {
+  transform: scale(1.2) rotate(-90deg);
 }
-.nprev{
-  transform rotate(90deg)
+
+.nprev {
+  transform: rotate(90deg);
 }
-.cnext{
-  fill var(--gray)
-  transform rotate(-90deg)
+
+.cnext {
+  fill: var(--gray);
+  transform: rotate(-90deg);
 }
-.nprev::before, .cnext::before{
-  content ''
-  position absolute
-  display block
-  width 100%
-  height 100%
-  border-radius 50%
-  background-color rgba(0,0,0, .07)
-  z-index -1
-  filter: blur(1px)
-  transform scale(0)
-  box-shadow -1px 1px 10px 1px rgba(255,255,255, .1)
-  transition var(--prim-anim)
+
+.nprev::before, .cnext::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.07);
+  z-index: -1;
+  filter: blur(1px);
+  transform: scale(0);
+  box-shadow: -1px 1px 10px 1px rgba(255, 255, 255, 0.1);
+  transition: var(--prim-anim);
 }
-.nprev:hover::before, .cnext:hover::before{
-  transform scale(1.8)  
-  transition var(--prim-anim)
+
+.nprev:hover::before, .cnext:hover::before {
+  transform: scale(1.8);
+  transition: var(--prim-anim);
 }
-.tags{
-  border-top 1px solid rgba(0,0,0, .3)
-  padding-top .5em
+
+.tags {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 0.5em;
 }
-.genre, .tags{
-  margin-bottom 1em
-  font-size .9em
-  background-color var(--primary)
+
+.genre, .tags {
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  background-color: var(--primary);
 }
-.description, .tags{
-  margin-left 2.9em
-  margin-bottom 1em
-  background-color var(--primary)
+
+.description, .tags {
+  margin-left: 2.9em;
+  margin-bottom: 1em;
+  background-color: var(--primary);
 }
+
 // .description::before{
-//   content ''
-//   position absolute
-//   width 8px
-//   height 200vh
-//   margin-top -30%
-//   transform rotate(-45deg)
-//   background-image var(--accent1-grad)
-//   box-shadow 200px -20px 0 0 var(--accent1)
-//   opacity .4
-//   z-index -2
+// content ''
+// position absolute
+// width 8px
+// height 200vh
+// margin-top -30%
+// transform rotate(-45deg)
+// background-image var(--grad-gold)
+// box-shadow 200px -20px 0 0 var(--accent-gold)
+// opacity .4
+// z-index -2
 
 // }
-.player-widget{
-  position relative
-  width 100%
-  height 5px
-  margin-top 2em
+.player-widget {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  margin-top: 2em;
   // background-image linear-gradient(
-  //   to right,
-  //   var(--secondary) ,
-  //   var(--gray)
-  // ) 
-  background-color var(--secondary)
-  border-radius 0px
-  display flex
-  text-align center
-}
-.player-widget::before{
-  content ''
-  position absolute
-  width 10px
-  height 10px
-  top 0
-  left 0  
-  background-color var(--secondary)
-  border-radius 50%
-  margin-top -3px 
-  margin-left 20%
-  box-shadow var(--sh)
+  // to right,
+  // var(--secondary) ,
+  // var(--gray)
+  // )
+  background-color: var(--secondary);
+  border-radius: 0px;
+  display: flex;
+  text-align: center;
 }
 
-.gray{
-  background-color var(--gray)
+.player-widget::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  margin-top: -3px;
+  margin-left: 20%;
+  box-shadow: var(--sh);
 }
-.bw-filter{
-  filter: grayscale(100%) contrast(120%)
+
+.gray {
+  background-color: var(--gray);
+}
+
+.bw-filter {
+  filter: grayscale(100%) contrast(120%);
 }

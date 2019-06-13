@@ -1,84 +1,116 @@
-.modal
-    position fixed
-    display none
-    width 100%
-    height 100vh
-    overflow hidden
-    z-index 999999
-    transition var(--prim-anim)
-    &__inner
-        position absolute
-        width 70%
-        height 70vh
-        background-color var(--primary)
-        box-shadow 0 0 40px 0px var(--secondary)
-        top 50%
-        left 50%
-        margin-left -35%
-        margin-top -35vh
-        display flex
-        .img--bigger
-            width 100%
-            height 100%
-            background-position center
-            background-repeat no-repeat
-            object-fit: cover
-        button 
-            position absolute
-            top 0
-            right 0
-            font-weight bold
-            letter-spacing: 2px
-            background-color transparent
-            padding .5em 1em
-            font-family var(--font)
-            transition var(--prim-anim)
-            &:hover
-                background-image var(--accent1-grad)
-        .ctrls
-            position absolute
-            width 120%
-            display flex
-            top 50%
-            margin-left -10%
-            justify-content space-between
-            .icon
-                height 50px
-                width 100px
-                // border-radius 50%
-                fill var(--accent1)
-                &:hover
-                    fill var(--secondary)
-                &:first-of-type
-                    left 0
-                    transform rotate(90deg)
-                &:last-of-type
-                    right 0
-                    transform rotate(-90deg)
-    &::before
-        content ''
-        position absolute
-        top 0
-        left 0
-        width 100%
-        height 100%
-        background-color var(--secondary)
-        filter opacity(.5)
-.visible
-    display block
-    animation: show var(--speed) ease-out forwards;
+.modal {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 999999;
+    transition: var(--prim-anim);
 
-@keyframes show
-    0%
-        opacity 0
-        margin-right 100vw
-    100%
-        margin-right 0px
-        opacity 1
-@keyframes remove
-    0%
-        opacity 1
-        margin-top 0px
-    100%
-        margin-top 100px
-        opacity 0
+    &__inner {
+        position: absolute;
+        width: 70%;
+        height: 70vh;
+        background-color: var(--primary);
+        box-shadow: 0 0 40px 0px var(--secondary);
+        top: 50%;
+        left: 50%;
+        margin-left: -35%;
+        margin-top: -35vh;
+        display: flex;
+
+        .img--bigger {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            object-fit: cover;
+        }
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background-color: transparent;
+            padding: 0.5em 1em;
+            font-family: var(--font);
+            transition: var(--prim-anim);
+
+            &:hover {
+                background-image: var(--grad-gold);
+            }
+        }
+
+        .ctrls {
+            position: absolute;
+            width: 120%;
+            display: flex;
+            top: 50%;
+            margin-left: -10%;
+            justify-content: space-between;
+
+            .icon {
+                height: 50px;
+                width: 100px;
+                // border-radius 50%
+                fill: var(--accent-gold);
+
+                &:hover {
+                    fill: var(--secondary);
+                }
+
+                &:first-of-type {
+                    left: 0;
+                    transform: rotate(90deg);
+                }
+
+                &:last-of-type {
+                    right: 0;
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--secondary);
+        filter: opacity(0.5);
+    }
+}
+
+.visible {
+    display: block;
+    animation: show var(--speed) ease-out forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        margin-right: 100vw;
+    }
+
+    100% {
+        margin-right: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes remove {
+    0% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+
+    100% {
+        margin-top: 100px;
+        opacity: 0;
+    }
+}

@@ -14,7 +14,8 @@
 
 .text--light {
   color: var(--primary);
-  line-height: 1.8rem !important;
+  opacity: 0.56 !important;
+  line-height: 1.8rem;
 }
 
 .logo {
@@ -24,7 +25,7 @@
 }
 
 .section__prehead {
-  color: var(--accent1);
+  color: var(--accent-gold);
 
   &::after {
     content: '___';
@@ -38,8 +39,7 @@
 .head {
   font-family: 'druk super';
   font-size: 1.5rem;
-  height: 2.5rem;
-  margin: 0.5rem 0;
+  margin: 0;
   display: flex;
   flex: 1;
   color: var(--gray);
@@ -73,17 +73,16 @@
 }
 
 .section__prehead {
-  color: var(--accent1) !important;
+  color: var(--accent-gold) !important;
+  font-size: 0.8rem;
+  opacity: 0.86;
 }
 
 .paragraph, .description {
-  font-weight: 300 !important;
-  text-transform: none;
+  opacity: 0.86;
   font-size: 16px;
-  line-height: 1.5rem;
-  opacity: 0.76;
+  font-weight: 300;
   text-transform: none;
-  font-weight: 400;
 }
 
 .btn {
@@ -92,6 +91,10 @@
   font-weight: bold;
   font-size: 1.2em;
   font-family: var(--font);
+}
+
+.link {
+  font-family: oswald, sans-serif;
 }
 
 .accent {

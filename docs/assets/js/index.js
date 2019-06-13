@@ -173,12 +173,27 @@ const events = [
     img_url:
       "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
     descr: `Thought it said Umlazi fest, never heard of it.?`
+  },
+  {
+    date: "14.06.19",
+    name: "AfrikaBurn",
+    img_url:
+      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
+    descr: `This is cool. I've actually dreamt of attending it.`
+  },
+  ,
+  {
+    date: "14.06.19",
+    name: "AfrikaBurn",
+    img_url:
+      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
+    descr: `This is cool. I've actually dreamt of attending it.`
   }
 ];
 const DOMevents = document.querySelector(".events");
 const popEvents = _events => {
   DOMevents.innerHTML = events
-    .slice(0, 5)
+    .slice(0, 7)
     .map(event => {
       //Should remove tab index find something better.
       return `  

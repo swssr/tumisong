@@ -1,91 +1,107 @@
-.white{
-    background-color var(--primary)
+.white {
+    background-color: var(--primary);
 }
-.book-me{
-    display flex
+
+.book-me {
+    display: flex;
     align-items: center;
 }
-.book-me::after{
-    content ''
-    position absolute
-    width 100%
-    height 33vh
-    bottom 0
-    left 0
-    background var(--secondary)
-}
-.almost-full{
-    --padn: calc(42px + var(--pad));
-    position absolute
-    height 80vh
-    left var(--padn)
-    right var(--padn)
-    background-color var(--primary)
-    box-shadow var(--sh), 0 1px 40px 4px rgba(255,255,255,0.2);
-    display flex
-    margin auto
-    z-index 999
-}
-.form-img{
-    flex 1
-    height 100%
-    object-fit: cover;
-    filter: grayscale(100%)
-}
-.contact-form{
-    --padn: calc(42px + var(--pad));
-    flex 1
-    height calc(100% - var(--pad)*2)
-    right calc(var(--pad) + 100px)
-    padding var(--pad)
-    background-color transparent
-    text-align right
-    display flex
-    flex-direction column
-    align-items: flex-end
-    justify-content center
-} 
-.contact-form p{    
-    margin 0
-    padding 0
-    background-color var(--primary)
-    margin-bottom 1em
-}
-.contact-form .paragraph, .contact-form .contacts, .contact-form .input{
-    margin-right 2em
-}
-.pre
-  margin 0
-  color var(--accent1)
-.pre b::after{
-  content '__'
-}
-.chead{
-    position relative
-    font-family 'druk super'
-    font-weight bold
-    margin-bottom 32px
-    text-align right
-}
-.chead div{
-  background-color var(--secondary)
-  color var(--primary)
-  font-size 2em
-  margin-bottom 4px
-  padding 0 8px
-}
-.chead div:first-child{
-    width 100%
 
+.book-me::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 33vh;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary);
 }
-.contacts{
-    width 100%
-    border-top 1px solid rgba(0,0,0, .3)    
+
+.almost-full {
+    --padn: calc(42px + var(--pad));
+    position: absolute;
+    height: 80vh;
+    left: var(--padn);
+    right: var(--padn);
+    background-color: var(--primary);
+    box-shadow: var(--sh), 0 1px 40px 4px rgba(255, 255, 255, 0.2);
+    display: flex;
+    margin: auto;
+    z-index: 999;
 }
-.contact__item{
-    display flex
-    flex-direction row-reverse
+
+.form-img {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%) grayscale(100%);
 }
-.contact__item b{
-    margin-left .3em
+
+.contact-form {
+    --padn: calc(42px + var(--pad));
+    flex: 1;
+    height: calc(100% - var(--pad) * 2);
+    right: calc(var(--pad) + 100px);
+    padding: var(--pad);
+    background-color: transparent;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.contact-form p {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary);
+    margin-bottom: 1em;
+}
+
+.contact-form .paragraph, .contact-form .contacts, .contact-form .input {
+    margin-right: 2em;
+}
+
+.pre {
+    margin: 0;
+    color: var(--accent-gold);
+}
+
+.pre b::after {
+    content: '__';
+}
+
+.chead {
+    position: relative;
+    font-family: 'druk super';
+    font-weight: bold;
+    margin-bottom: 32px;
+    text-align: right;
+}
+
+.chead div {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 2em;
+    margin-bottom: 4px;
+    padding: 0 8px;
+}
+
+.chead div:first-child {
+    width: 100%;
+}
+
+.contacts {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.contact__item {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.contact__item b {
+    margin-left: 0.3em;
 }

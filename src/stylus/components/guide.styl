@@ -1,69 +1,81 @@
-:root
+:root {
     --primary: #fff;
     --secondary: rgb(0, 0, 0);
     --gray: #b9b9b9;
-    --accent1: rgb(254, 174, 1);
-    --accent1-grad: linear-gradient(
+    --accent-gold-p: rgba(254, 174, 1, 1);
+    --accent-gold: hsla(41, 99%, 45%, 1);
+    --grad-gold: linear-gradient(
         to right,
-        var(--accent1),
-        rgb(254, 174, 1)
-    )
-    --accent2:  red;
-    //alternate header
-    --twvh: 0
-    --after-top: calc(100% - var(--deco-bar))
-    --after-left: calc(var(--sect-40-width)/2)
-    --twvh: 20vh
-    --snug: calc(100% - var(--pad) * 4 - 1em)
-    --sect-40-width: calc(var(--side-nav-width) * 2)
-    --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad))
+        var(--accent-gold),
+        rgba(254, 174, 1, 0.56)
+    );
+    --accent2: red;
+    // alternate header
+    --twvh: 0;
+    --after-top: calc(100% - var(--deco-bar));
+    --after-left: calc((var(--sect-40-width) / 2));
+    --twvh: 20vh;
+    --snug: calc(100% - var(--pad) * 4 - 1em);
+    --sect-40-width: calc(var(--side-nav-width) * 2);
+    --sect-60-width: calc(100% - var(--sect-40-width) - var(--pad));
     --side-nav-width: 4vw;
     --side-nav-width: 15vw;
     --stripe-height: 40vh;
-    --main-width: calc(100vw - var(--side-nav-width))
-    --deco-bar: calc(var(--bar)/3);
-    --bar: 10vh
+    --main-width: calc(100vw - var(--side-nav-width));
+    --deco-bar: calc((var(--bar) / 3));
+    --bar: 10vh;
     --pad: var(--deco-bar);
     --sect-40-width: calc(var(--side-nav-width) * 2);
-    //decorative tings
-    --sh: -1px 1px 10px 5px rgba(0,0,0, .2);
-    --speed: .218s;
+    // decorative tings
+    --sh: -1px 1px 10px 5px rgba(0, 0, 0, 0.2);
+    --speed: 0.218s;
     --prim-anim: var(--speed) all ease-out;
     --font: Oswald, arial;
-
     --section-height: 100vh;
     --num--rows: 3;
+}
 
-::-webkit-scrollbar-track
+::-webkit-scrollbar-track {
     background-color: var(--secondary);
+}
 
-::-webkit-scrollbar
+::-webkit-scrollbar {
     width: 4px;
     height: 4px;
     background-color: var(--secondary);
+}
 
-::-webkit-scrollbar-thumb
-    background-color: var(--accent1);
-html
-    scroll-behavior: smooth
-body
-    height 100%
-    background-color var(--secondary)
-    cursor crosshair
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-gold);
+}
 
-//Testing
-.hero__head
-    font-family 'druk super'
-.debug:nth-of-type(odd)
-    background-color red
-    *
-        border 1px solid purple
-        
-.debug:nth-of-type(even)
-    background-color green
-    *
-        border 1px solid violet
+html {
+    scroll-behavior: smooth;
+}
 
-// .fullwidth
-//     --side-nav-width: 100vw;
-//     background-color rgba(0,0,0,.8) !important
+body {
+    height: 100%;
+    background-color: var(--secondary);
+    cursor: crosshair;
+}
+
+// Testing
+.hero__head {
+    font-family: 'druk super';
+}
+
+.debug:nth-of-type(odd) {
+    background-color: red;
+
+    * {
+        border: 1px solid purple;
+    }
+}
+
+.debug:nth-of-type(even) {
+    background-color: green;
+
+    * {
+        border: 1px solid violet;
+    }
+}
