@@ -124,6 +124,7 @@ let featIO;
 //end-region
 
 // const URL = "https://tumiserver.now.sh/songs";
+// const URL = "http://brain.now.sh/api/songs";
 const URL = "http://brain.now.sh/api/songs";
 
 const fetchError = err => {
@@ -145,23 +146,39 @@ fetch(URL)
   .then(json => {
     templateGrid(json, false);
   })
-.catch(fetchError);
-
+  .catch(fetchError);
 
 function templateGrid(data, isLocal) {
   hideMsg();
   const songs = data.slice(0, 6);
-  for (let i = 0; i <= songs.length; i++) {
-    const currBtn = btnPlay_spans[i];
 
-    btnPlay_spans[i].id = songs[i].title;
-    audio_tags[i].id = songs[i].title;
-    item_imgs[i].dataset.src = songs[i].cover;
-    figCaptions[i].textContent = songs[i].title;
-    audio_tags[i].src = songs[i].src;
+  // for (let i = 0; i <= songs.length; i++) {
+  //   const currBtn = btnPlay_spans[i];
+
+  //   console.log(songs[i]);
+  //   btnPlay_spans[i].id = songs[i].title;
+  //   audio_tags[i].id = songs[i].title;
+  //   item_imgs[i].dataset.src = songs[i].cover;
+  //   figCaptions[i].textContent = songs[i].title;
+  //   audio_tags[i].src = songs[i].src;
+
+  //   currBtn.addEventListener("click", e => playPause(e));
+  // }
+  console.clear();
+
+  songs.forEach((song, index) => {
+    const currBtn = btnPlay_spans[index];
+    console.log(song.title);
+
+    btnPlay_spans[index].id = songs[index].title;
+    audio_tags[index].id = songs[index].title;
+    item_imgs[index].dataset.src = songs[index].cover;
+    item_imgs[index].src = songs[index].cover;
+    figCaptions[index].textContent = songs[index].title;
+    audio_tags[index].src = songs[index].src;
 
     currBtn.addEventListener("click", e => playPause(e));
-  }
+  });
 }
 function hideMsg() {
   fetchMsg.style.opacity = 0;
@@ -170,7 +187,7 @@ function hideMsg() {
 function playPause(event) {
   const btn = event.target.closest("span");
   const audio = lastSibling(btn);
-  
+
   bar.classList.add("bar--active");
 
   btnPlay_spans.forEach(b =>

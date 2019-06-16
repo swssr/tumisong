@@ -61,7 +61,7 @@
     bottom: 0;
     width: 100%;
     transform: translateY(100%) translateY(-5px);
-    transition: all 0.3s;
+    transition: var(--anim);
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.1);
 }
@@ -84,7 +84,8 @@
     display: flex;
     flex-basis: 100%;
     height: 4px;
-    transition: height 0.3s;
+    transition: var(--anim);
+    transition-property: height;
     background: rgba(0, 0, 0, 0.5);
     cursor: ew-resize;
 }
@@ -161,7 +162,7 @@ input[type=range]::-moz-range-thumb {
     background-color: transparent;
     padding: 0.5em 1em;
     font-family: var(--font);
-    transition: var(--prim-anim);
+    transition: var(--anim);
 }
 
 .thumbnail--video {

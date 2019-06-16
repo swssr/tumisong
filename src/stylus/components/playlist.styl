@@ -10,56 +10,44 @@ ul, li {
 .player-container {
   position: relative;
   margin: auto;
+  // margin-left: calc(var(--pad) * -6);
   width: 100%;
-  height: 100%;
   overflow: hidden;
   box-shadow: 0 1px 40px 0px rgba(255, 255, 255, 0.1);
-  background-color: #fff;
-}
-
-.mp {
-  position: relative;
-  width: inherit;
-  height: var(--snug);
-  overflow: hidden;
-  overflow-y: scroll;
 }
 
 .mp__widget {
+  position: relative;
   width: inherit;
-  height: var(--mp__widget-height);
+  height: 80px;
   background: var(--secondary);
   box-shadow: 0 0px 20px 0px rgba(255, 255, 255, 0.1);
   border: 1px solid var(--accent-gold);
   padding: 1em;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-auto-flow: column;
   align-items: center;
-  justify-content: space-between;
   z-index: 10;
 }
 
-.mp__cover-art {
-  width: calc(50px + 3em);
-  height: calc(100% + 2em);
-  margin-left: -1em;
-  filter: blur(1pt);
+.widget__controls {
+  padding-left: 2rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 60% 1fr auto;
+  grid-gap: 18px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.overlay {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(50px + 3em);
-  height: calc(100%);
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--gray),
-    var(--gray) 6px,
-    var(--secondary) 6px,
-    var(--secondary) 20px
-  );
-  z-index: 2;
+.mp__cover-art {
+  width: 120px;
+  height: calc(100% + 2em);
+  margin-left: -1em;
+  margin-right: 1em;
+  filter: blur(1pt);
+  background-color: #fff;
 }
 
 .artist-name {
@@ -72,9 +60,8 @@ ul, li {
 
 .mp__icon {
   display: block;
-  width: 24px;
-  height: 24px;
-  background-color: red;
+  width: 18px;
+  height: 18px;
 
   img {
     fill: var(--secondary);
@@ -93,10 +80,14 @@ ul, li {
 }
 
 .mp__progress {
-  width: 300px;
+  width: 100%;
   height: 4px;
   background-color: #141414;
-  margin: 0 20px;
+  cursor: ew-resize;
+}
+
+.mp__progress--big {
+  width: 100%;
 }
 
 .mp__progress--fill {
@@ -119,13 +110,29 @@ ul, li {
 }
 
 .mp__icon-list {
-  width: 10%;
   display: flex;
   justify-content: space-between;
 }
 
 .mp__songs {
-  margin-top: var(--mp__widget-height);
+  position: relative;
+  width: calc(100% + 2px);
+  min-height: 350px;
+  height: 50vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.mp__song:empty {
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--accent-gold),
+    var(--accent-gold) 6px,
+    var(--secondary) 6px,
+    var(--secondary) 40px
+  );
+  filter: blur(1px) grayscale(100%);
 }
 
 .mp__song {
@@ -195,7 +202,11 @@ ul, li {
 .inline__widget {
   width: 100%;
   height: 40px;
-  grid-template-columns: 40px 1fr 40px;
+  padding: 0 18px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 24px 1fr 40px;
+  grid-gap: 24px;
   background-color: transparent;
   margin-left: -10px;
   border: 4px solid var(--secondary);
@@ -245,7 +256,7 @@ ul, li {
   height: 20px;
   position: fixed;
   bottom: var(--pad);
-  right: calc(var(--pad) * -2);
+  right: var(--pad);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -256,11 +267,16 @@ ul, li {
   cursor: pointer;
   overflow: hidden;
   z-index: 9999;
-  transition: 0.4s all;
+  transform: translateX(calc(var(--pad) * 2));
+  transition: var(--anim);
 }
 
 .bar--active {
-  right: var(--pad);
+  transform: translateX(0);
+
+  svg {
+    width: 100%;
+  }
 }
 
 .mute::before {

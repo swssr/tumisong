@@ -39,14 +39,17 @@ $sq = 10vw;
         width: $sq;
         height: $sq;
         text-align: center;
+        transition: var(--anim);
         overflow: hidden;
 
         &::before {
             content: '';
             position: absolute;
-            width: 200%;
+            width: 400%;
             height: 100%;
-            left: -95%;
+            transform: translateX(-50%);
+            transition: var(--anim) forwards infinite;
+            transition-duration: 8s;
             background-image: repeating-linear-gradient(
                 45deg,
                 var(--accent-gold),
@@ -54,6 +57,10 @@ $sq = 10vw;
                 var(--secondary) 6px,
                 var(--secondary) 30px
             );
+        }
+
+        &:hover::before {
+            transform: translateX(-25%);
         }
 
         .icon {
@@ -66,16 +73,10 @@ $sq = 10vw;
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 20px;
-            transition: 0.4s all ease-out;
-        }
-
-        &:hover::before {
-            transition: 8s all;
-            left: 1px;
+            transition: var(--anim);
         }
 
         &:hover .icon {
-            transition: 0.4s all ease-out;
             transform: translate(-50%, -50%) scale(1.2);
         }
     }

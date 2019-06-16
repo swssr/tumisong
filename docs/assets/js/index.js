@@ -220,22 +220,12 @@ let eventNames = document.querySelectorAll(".event__name");
 //Default active calender event
 calEvents[0].classList.add("event--active");
 
-//Blur out overflowing events incrementally
-// let value = 100;
-// calEvents.forEach((v, index) => {
-//   if (index > 0) {
-//     v.style["filter"] = `brightness(${value}%)`;
-//     value -= 20;
-//   }
-// });
 //Onclick
 calEvents.forEach((event, i) => {
   event.addEventListener("click", () => {
-    console.log("Clicking");
     makeActive(calEvents, event, "event--active");
   });
   event.addEventListener("mouseenter", () => {
-    console.log("hovering");
     setTimeout(() => makeActive(calEvents, event, "event--active"), 0);
   });
 });
@@ -243,13 +233,9 @@ calEvents.forEach((event, i) => {
 //Event focus
 eventNames.forEach((v, i) => {
   v.addEventListener("focus", () => {
-    console.log("focusing");
     makeActive(eventNames, v, "event--active");
   });
-  v.addEventListener("blur", () => {
-    console.log("blur");
-  });
-  console.log(v);
+  v.addEventListener("blur", () => {});
 });
 
 //Auto scroll

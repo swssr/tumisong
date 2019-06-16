@@ -1,21 +1,24 @@
-.footer
+.footer {
     $h = var(--bar);
-    position fixed
-    bottom calc(var(--bar) * -1)
-    background var(--secondary)
-    height $h
-    left var(--side-nav-width)
-    right 0
-    transform translateY(-4px)
-    transition var(--prim-anim)
-    display grid
-    justify-content end
-    grid-auto-flow: column
-    grid-gap: var(--pad)
-    padding 0 var(--pad)
-    z-index 999
-    &__link
-        font-size .8em
-        display flex
-        align-items: center
-        color var(--accent-gold)
+    position: fixed;
+    bottom: 0;
+    background: var(--secondary);
+    height: $h;
+    left: var(--side-nav-width);
+    right: 0;
+    display: grid;
+    justify-content: end;
+    grid-auto-flow: column;
+    grid-gap: var(--pad);
+    padding: 0 var(--pad);
+    transform: translateY($h);
+    transition: var(--anim);
+    z-index: 999;
+
+    &__link {
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        color: var(--accent-gold);
+    }
+}

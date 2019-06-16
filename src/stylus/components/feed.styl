@@ -1,4 +1,4 @@
-.sc-feed
+.sc-feed {
     position: relative;
     height: var(--section-height);
     background-color: var(--secondary);
@@ -8,14 +8,18 @@
     text-transform: uppercase;
     overflow: hidden;
     perspective: 1000px;
-.sc-feed__buttons
+}
+
+.sc-feed__buttons {
     padding: 30px;
     margin-left: 20px;
+}
 
-.sc-feed__buttons .section__head
-    color: var(--gray)
+.sc-feed__buttons .section__head {
+    color: var(--gray);
+}
 
-.sc-links
+.sc-links {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -25,65 +29,77 @@
     overflow: hidden;
     margin-left: -30px;
     margin-top: 30px;
+}
 
-.sc-links__item
+.sc-links__item {
     position: relative;
     color: var(--gray) !important;
     padding: 12px 0;
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: .4s ease-out all;
-
+    transition: var(--anim);
     z-index: 1;
+}
 
-.sc-links__item:hover
+.sc-links__item:hover {
     transform: translateX(5px);
+}
 
-.sc-links__item::before
+.sc-links__item::before {
     content: '';
     position: absolute;
     width: 10px;
     height: 100%;
     margin-left: -85px;
     background-color: var(--accent-gold);
+}
 
-.sc-links__item:not(.active)::before
-    transform: translateX(-5px)
+.sc-links__item:not(.active)::before {
+    transform: translateX(-5px);
+}
 
-.sc-links__item.active::before
-    transform: translateX(10px)
+.sc-links__item.active::before {
+    transform: translateX(10px);
+}
 
-.sc-links__item::after
+.sc-links__item::after {
     content: '';
     position: absolute;
     width: 200%;
     height: 100%;
     z-index: -1;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+}
 
-.sc-links__item .text
+.sc-links__item .text {
     color: var(--gray);
-    transition: var(--prim-anim)
+    transition: var(--anim);
+}
 
-.sc-links__item:hover .text
-    color: var(--secondary)
+.sc-links__item:hover .text {
+    color: var(--secondary);
+}
 
-.sc-links__item:hover::after
+.sc-links__item:hover::after {
     background-color: rgba(200, 195, 185, 0.507);
+}
 
-.sc-feed
+.sc-feed {
     width: 100%;
     height: inherit;
     padding: 0;
+}
 
-.sc__feed
-    color: var(--gray)
+.sc__feed {
+    color: var(--gray);
+}
 
-.sc-feed__grid-container
+.sc-feed__grid-container {
     width: 100%;
+}
 
-.sc-feed__inner
+.sc-feed__inner {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -91,10 +107,11 @@
     filter: blur(1px) grayscale(100%);
     transform: translateZ(-200px) rotateX(45deg);
     z-index: 9999;
-    transition: var(--prim-anim);
-    transition-duration: .8s;
+    transition: var(--anim);
+    transition-duration: 0.8s;
+}
 
-.sc-feed__inner.active
+.sc-feed__inner.active {
     position: relative;
     width: 100%;
     height: 100%;
@@ -102,26 +119,31 @@
     filter: blur(0px) grayscale(0%);
     transform: translateZ(0px) rotateX(0deg);
     display: grid;
-    grid-template-rows: repeat(var(--num--rows), 1fr)
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(var(--num--rows), 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
 
-.sc-feed__inner .sc-feed__item,
-.sc-feed__item .sc-feed__img
+.sc-feed__inner .sc-feed__item, .sc-feed__item .sc-feed__img {
     position: relative;
     width: 100%;
-    height: calc(var(--section-height) / var(--num--rows));
+    height: calc((var(--section-height) / var(--num--rows)));
     overflow: hidden;
     object-fit: cover;
-    margin 0
+    margin: 0;
+}
 
-.sc-feed__all
+.sc-feed__all {
     background-color: #fff;
+}
 
-.sc-feed__instagram
+.sc-feed__instagram {
     background-color: var(--secondary) !important;
+}
 
-.sc-feed__twitter
+.sc-feed__twitter {
     background-color: powderblue !important;
+}
 
-.sc-feed__facebook
+.sc-feed__facebook {
     background-color: blue !important;
+}

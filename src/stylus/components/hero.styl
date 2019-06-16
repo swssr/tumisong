@@ -115,11 +115,11 @@
   left: calc(50% - 190px);
   z-index: 1;
   opacity: 0;
-  transition: var(--prim-anim);
+  transition: var(--anim);
 }
 
 .cover-art:hover::before {
-  transition: var(--prim-anim);
+  transition: var(--anim);
   opacity: 1;
 }
 
@@ -131,7 +131,7 @@
 .cover-art .icon {
   z-index: 999;
   cursor: pointer;
-  transition: var(--prim-anim);
+  transition: var(--anim);
 }
 
 .cover-art .icon svg {
@@ -144,7 +144,7 @@
 }
 
 .cover-art .icon:hover {
-  transition: var(--prim-anim);
+  transition: var(--anim);
 }
 
 .nprev, .cnext {
@@ -182,12 +182,12 @@
   filter: blur(1px);
   transform: scale(0);
   box-shadow: -1px 1px 10px 1px rgba(255, 255, 255, 0.1);
-  transition: var(--prim-anim);
+  transition: var(--anim);
 }
 
 .nprev:hover::before, .cnext:hover::before {
   transform: scale(1.8);
-  transition: var(--prim-anim);
+  transition: var(--anim);
 }
 
 .tags {
