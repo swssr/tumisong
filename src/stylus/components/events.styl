@@ -77,6 +77,11 @@
         z-index: -1;
     }
 
+    &__details {
+        min-height: 60%;
+        text-align: start;
+    }
+
     &__name {
         color: var(--gray);
     }
@@ -100,7 +105,7 @@
 
 .event--active, .event:focus-within {
     transform: scale(1.06) translateY(-0.5rem);
-    background-color: #fff;
+    background-color: var(--secondary);
     box-shadow: -3px 3px 16px rgba(gold, 0.16);
     filter: brightness(105%) !important;
     z-index: 5;

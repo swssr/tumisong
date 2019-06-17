@@ -101,5 +101,7 @@
 
 .nav--left.nav--opened ~ .main {
     transition: var(--anim);
-    animation: defocus 1s linear forwards;
+    animation: defocus forwards;
+    animation-duration: 0.8s;
+    animation-timing-function: var(--timeFunc);
 }

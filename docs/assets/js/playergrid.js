@@ -128,8 +128,6 @@ let featIO;
 const URL = "http://brain.now.sh/api/songs";
 
 const fetchError = err => {
-  console.error(err);
-
   featuredList_div.innerHTML = ``;
   featuredList_div.innerHTML = `
     <div class="fetch__msg error">
@@ -152,23 +150,8 @@ function templateGrid(data, isLocal) {
   hideMsg();
   const songs = data.slice(0, 6);
 
-  // for (let i = 0; i <= songs.length; i++) {
-  //   const currBtn = btnPlay_spans[i];
-
-  //   console.log(songs[i]);
-  //   btnPlay_spans[i].id = songs[i].title;
-  //   audio_tags[i].id = songs[i].title;
-  //   item_imgs[i].dataset.src = songs[i].cover;
-  //   figCaptions[i].textContent = songs[i].title;
-  //   audio_tags[i].src = songs[i].src;
-
-  //   currBtn.addEventListener("click", e => playPause(e));
-  // }
-  console.clear();
-
   songs.forEach((song, index) => {
     const currBtn = btnPlay_spans[index];
-    console.log(song.title);
 
     btnPlay_spans[index].id = songs[index].title;
     audio_tags[index].id = songs[index].title;

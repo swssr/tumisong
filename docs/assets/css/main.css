@@ -23,6 +23,7 @@
   --sect-40-width: calc(var(--side-nav-width) * 2);
   --sh: -1px 1px 10px 5px rgba(0,0,0,0.2);
   --speed: 0.8s;
+  --timeFunc: cubic-bezier(0.18, 0.89, 0.32, 1.28);
   --anim: var(--speed) opacity, var(--speed) transform, background-color var(--speed);
   --font: Oswald, arial;
   --section-height: 100vh;
@@ -119,30 +120,6 @@ button {
   display: flex;
   justify-content: space-between;
 }
-.logo {
-  position: relative;
-  display: flex;
-  color: var(--accent-gold);
-  background-color: var(--secondary);
-}
-.logo svg {
-  width: 160px;
-  height: 40px;
-  padding: 4px;
-}
-.logo::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 250%;
-  margin-top: -25%;
-  margin-left: -50%;
-  z-index: -1;
-  background-image: repeating-linear-gradient(45deg, var(--accent-gold), var(--accent-gold) 6px, var(--secondary) 6px, var(--secondary) 40px);
-  background-position: 0 0;
-  background-repeat: repeat-x;
-  animation: movestripe 1s linear infinite;
-}
 .bg {
   position: absolute;
   width: 100%;
@@ -178,6 +155,7 @@ button {
   right: 0;
   width: var(--main-width);
   height: 100%;
+  transform-origin: left;
 }
 .header {
   height: 100vh;
@@ -197,6 +175,9 @@ button {
   height: var(--bar);
   padding: var(--pad);
   display: flex;
+}
+.nav__span--brand {
+  padding: 0;
 }
 .nav__span:nth-of-type(2) {
   background-color: var(--primary);
@@ -554,25 +535,25 @@ button {
 @-moz-keyframes defocus {
   to {
     filter: blur(1px) brightness(90%) grayscale(100%);
-    transform: translateX(5vh) translateZ(-100px);
+    transform: translateX(5vh) translateZ(-200px) rotateY(10deg);
   }
 }
 @-webkit-keyframes defocus {
   to {
     filter: blur(1px) brightness(90%) grayscale(100%);
-    transform: translateX(5vh) translateZ(-100px);
+    transform: translateX(5vh) translateZ(-200px) rotateY(10deg);
   }
 }
 @-o-keyframes defocus {
   to {
     filter: blur(1px) brightness(90%) grayscale(100%);
-    transform: translateX(5vh) translateZ(-100px);
+    transform: translateX(5vh) translateZ(-200px) rotateY(10deg);
   }
 }
 @keyframes defocus {
   to {
     filter: blur(1px) brightness(90%) grayscale(100%);
-    transform: translateX(5vh) translateZ(-100px);
+    transform: translateX(5vh) translateZ(-200px) rotateY(10deg);
   }
 }
 @-moz-keyframes linkhover {
@@ -618,11 +599,6 @@ button {
   color: var(--primary);
   opacity: 0.56 !important;
   line-height: 1.8rem;
-}
-.logo {
-  font-family: 'druk';
-  font-size: 1.2em;
-  font-weight: 600;
 }
 .section__prehead {
   color: var(--accent-gold);
@@ -1099,6 +1075,7 @@ button {
 .form-img {
   flex: 1;
   width: 50%;
+  max-width: 50%;
   height: 100%;
   object-fit: cover;
   filter: brightness(50%) grayscale(100%);
@@ -1406,6 +1383,9 @@ button {
     background-position: 100 0;
   }
 }
+.logo {
+  width: calc(100% - var(--pad));
+}
 .abs {
   position: absolute;
 }
@@ -1419,7 +1399,7 @@ button {
   transition: var(--anim);
 }
 .black {
-  color: #000;
+  color: var(--secondary);
 }
 .item__group {
   overflow: hidden;
@@ -1787,6 +1767,7 @@ li {
   stroke-width: 4px;
   justify-content: center;
   align-items: center;
+  fill: var(--accent-gold);
 }
 .svg--play:hover,
 .svg--pause:hover {
@@ -1794,7 +1775,7 @@ li {
 }
 .svg--play:hover *,
 .svg--pause:hover * {
-  fill: #000;
+  fill: var(--secondary);
 }
 .isPlaying {
   border: none;
@@ -2068,14 +2049,16 @@ li {
 }
 .nav--left.nav--opened ~ .main {
   transition: var(--anim);
-  animation: defocus 1s linear forwards;
+  animation: defocus forwards;
+  animation-duration: 0.8s;
+  animation-timing-function: var(--timeFunc);
 }
 .fetch__msg {
   position: relative;
   width: 100%;
   height: 100%;
   grid-column: span 3;
-  grid-row: span 2;
+  grid-row: span 3;
   color: var(--secondary);
   font-size: 18px;
   text-align: center;
@@ -2182,6 +2165,10 @@ li {
   filter: brightness(20%) grayscale(100%);
   z-index: -1;
 }
+.event__details {
+  min-height: 60%;
+  text-align: start;
+}
 .event__name {
   color: var(--gray);
 }
@@ -2200,7 +2187,7 @@ li {
 .event--active,
 .event:focus-within {
   transform: scale(1.06) translateY(-0.5rem);
-  background-color: #fff;
+  background-color: var(--secondary);
   box-shadow: -3px 3px 16px rgba(255,215,0,0.16);
   filter: brightness(105%) !important;
   z-index: 5;
