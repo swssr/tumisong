@@ -2,10 +2,6 @@
     width: calc(100% - var(--pad));
 }
 
-.abs {
-    position: absolute;
-}
-
 .img {
     object-fit: cover;
 }
@@ -19,6 +15,34 @@
 
 .black {
     color: var(--secondary);
+}
+
+.centered {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.group {
+    position: relative;
+    width: min-content;
+    min-width: 100px;
+    height: min-content;
+    min-height: 40px;
+    background-color: red;
+    display: flex;
+
+    .btn--wide {
+        border: none;
+        outline: none;
+        transition: var(--anim);
+
+        &:hover {
+            transform: scale(1.06);
+        }
+    }
 }
 
 .item__group {

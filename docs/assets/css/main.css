@@ -189,14 +189,15 @@ button {
 }
 .icon--menu {
   background: none !important;
-  width: 50px;
+  width: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-right: calc(var(--pad) * -1);
 }
 .icon--menu span {
   width: inherit;
-  height: 4px;
+  height: 8px;
   background-color: var(--accent-gold);
 }
 .col {
@@ -722,9 +723,9 @@ button {
 }
 .song-name {
   font-family: 'druk super';
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
-  width: 200px;
+  width: 60%;
   margin-bottom: 32px;
 }
 .song-name div {
@@ -894,7 +895,7 @@ button {
   align-items: center;
   box-sizing: border-box;
   position: absolute;
-  right: 0;
+  right: -98px;
   display: flex;
   width: 100px;
   padding: 8px;
@@ -1386,9 +1387,6 @@ button {
 .logo {
   width: calc(100% - var(--pad));
 }
-.abs {
-  position: absolute;
-}
 .img {
   object-fit: cover;
 }
@@ -1400,6 +1398,30 @@ button {
 }
 .black {
   color: var(--secondary);
+}
+.centered {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.group {
+  position: relative;
+  width: min-content;
+  min-width: 100px;
+  height: min-content;
+  min-height: 40px;
+  background-color: #f00;
+  display: flex;
+}
+.group .btn--wide {
+  border: none;
+  outline: none;
+  transition: var(--anim);
+}
+.group .btn--wide:hover {
+  transform: scale(1.06);
 }
 .item__group {
   overflow: hidden;
@@ -2119,8 +2141,7 @@ li {
   align-items: flex-end;
   margin-left: var(--head-margin);
   padding: 1rem;
-  overflow-y: hidden;
-  overflow-x: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
 }
 .event {
