@@ -5,16 +5,16 @@
 -------------
 
 This is the offical website of **DJ Tumisong**, click [here](https://tumi.now.sh) to view it.<br>
-It's my current flagship portfolio website. I design and coded everthing from scratch.<br>
+It's my current flagship portfolio website. I designed and built everthing from scratch.<br>
 Click [here](https://github.com/swssr/exp-server) to view the node server code.<br>
-There's a .NET Core version too [here](https://github.com/swssr/dotnet-songs-api).
+Here's a .NET Core version [here](https://github.com/swssr/dotnet-songs-api).
 
 --------------
 
 ## **Vision** - Ya know Browski 💯🐬☢
 
 Some of these are just wishful thinking. I'm trying to push myself to be a better developer on this one.<br>
-Everything should be written in the vanilla stack. I'm trying really really hard not to use libraries.
+Everything is written vanilla. I'm trying really really hard not to use any libraries.
 
 ### **TODO**
 
@@ -39,4 +39,4 @@ Look I even have a check list! real fancy. 🤵
 * 🔳 Add newsletter
 
 * 🔳 **Build dashbord**
-  * Use `React` or `Vue`, you can use `bulma` or `skeleton`, you've written enought CSS on this one.
+  * Use `React` or `Vue`, you can use `bulma` or `skeleton`.
