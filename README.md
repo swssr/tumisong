@@ -1,6 +1,6 @@
 # **[Tumisong.dj](https://tumi.now.sh)** Official Website
 
-> Like what you see? please email at **swssdev@gmail.com**.
+> Like what you see? please email me at **swssdev@gmail.com**.
 
 -------------
 
