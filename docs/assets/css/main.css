@@ -1413,7 +1413,7 @@ button {
   position: relative;
   width: min-content;
   min-width: 100px;
-  height: min-content;
+  height: 40px;
   min-height: 40px;
   background-color: #f00;
   display: flex;
@@ -1606,8 +1606,8 @@ input[type=range]::-moz-range-thumb {
   transition: var(--anim);
 }
 .thumbnail--video {
-  width: calc(100% + var(--pad));
-  height: inherit;
+  width: inherit;
+  height: 100%;
 }
 :root {
   --mp__widget-height: 80px;
