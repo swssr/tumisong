@@ -125,7 +125,8 @@ let featIO;
 
 // const URL = "https://tumiserver.now.sh/songs";
 // const URL = "http://brain.now.sh/api/songs";
-const URL = "http://brain.now.sh/api/songs";
+// const URL = "http://brain.now.sh/api/songs";
+const URL = "http://localhost:7700/api/songs/";
 
 const fetchError = err => {
   featuredList_div.innerHTML = ``;
@@ -148,7 +149,10 @@ fetch(URL)
 
 function templateGrid(data, isLocal) {
   hideMsg();
-  const songs = data.slice(0, 6);
+  const reversedData = data.sort(
+    (a, b) => new Date(b.uploaded) - new Date(a.uploaded)
+  );
+  const songs = reversedData.slice(0, 6);
 
   songs.forEach((song, index) => {
     const currBtn = btnPlay_spans[index];
