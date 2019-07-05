@@ -161,6 +161,7 @@ function templateGrid(data, isLocal) {
     audio_tags[index].id = songs[index].title;
     item_imgs[index].dataset.src = songs[index].cover;
     item_imgs[index].src = songs[index].cover;
+    item_imgs[index].alt = songs[index].description;
     figCaptions[index].textContent = songs[index].title;
     audio_tags[index].src = songs[index].src;
 
