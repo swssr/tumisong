@@ -1,5 +1,5 @@
 :root {
-  --primary: #fff;
+  --primary: #fbfbfb;
   --secondary: #000;
   --gray: #b9b9b9;
   --accent-gold-p: #feae01;
@@ -232,7 +232,7 @@ button {
 }
 .hero {
   position: absolute;
-  width: 200%;
+  width: 150%;
   height: 40%;
   align-self: flex-end;
   display: flex;
@@ -612,14 +612,22 @@ button {
 }
 .head {
   font-family: 'druk super';
-  font-size: 1.5rem;
+  font-size: calc(1.5rem + 0.6vmin);
   margin: 0;
   display: flex;
   flex: 1;
   color: var(--gray);
+  text-transform: uppercase;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.hero__head {
+  color: var(--secondary);
+  text-shadow: -1px 1px 0 var(--accent-gold);
+  background: -webkit-linear-gradient(#333, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--secondary);
 }
 .section__head::after {
   content: '';
@@ -681,11 +689,6 @@ button {
 .hero__main .btn {
   position: absolute;
   bottom: 0;
-}
-.hero__head {
-  font-family: 'druk super';
-  text-transform: uppercase;
-  text-shadow: -1px 1px 0 var(--accent-gold);
 }
 .bottom {
   background-image: repeating-linear-gradient(45deg, var(--accent-gold), var(--accent-gold) 6px, var(--secondary) 6px, var(--secondary) 40px);
@@ -895,7 +898,7 @@ button {
   align-items: center;
   box-sizing: border-box;
   position: absolute;
-  right: -98px;
+  right: 0;
   display: flex;
   width: 100px;
   padding: 8px;
@@ -1467,6 +1470,9 @@ button {
   height: 80vh;
   width: 100%;
 }
+.player div {
+  width: inherit;
+}
 .player:fullscreen {
   max-width: none;
   width: 100%;
@@ -1576,7 +1582,7 @@ input[type=range]::-moz-range-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px rgba(0,0,0,0), 0 0 1px rgba(13,13,13,0);
-  background: #fff;
+  background: var(--primary);
   border-radius: 1.3px;
   border: 0.2px solid rgba(1,1,1,0);
 }
@@ -1647,7 +1653,7 @@ li {
   margin-left: -1em;
   margin-right: 1em;
   filter: blur(1pt);
-  background-color: #fff;
+  background-color: var(--primary);
 }
 .artist-name {
   font-weight: bold;
@@ -1759,7 +1765,7 @@ li {
   color: var(--secondary);
 }
 .mp__song.mp__song.playing .mp__icon {
-  background-color: #fff;
+  background-color: var(--primary);
 }
 .mp__song:not(.playing) {
   opacity: 0.9;
@@ -2343,7 +2349,7 @@ li {
   margin: 0;
 }
 .sc-feed__all {
-  background-color: #fff;
+  background-color: var(--primary);
 }
 .sc-feed__instagram {
   background-color: var(--secondary) !important;

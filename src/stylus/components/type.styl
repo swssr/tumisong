@@ -32,14 +32,23 @@
 
 .head {
   font-family: 'druk super';
-  font-size: 1.5rem;
+  font-size: calc(1.5rem + 0.6vmin);
   margin: 0;
   display: flex;
   flex: 1;
   color: var(--gray);
+  text-transform: uppercase;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero__head {
+  color: var(--secondary);
+  text-shadow: -1px 1px 0 var(--accent-gold);
+  background: -webkit-linear-gradient(#333, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--secondary);
 }
 
 .section__head::after {
