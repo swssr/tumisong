@@ -138,81 +138,33 @@ IO = new IntersectionObserver(renderImgs, IOoptions);
 imgs_tag.forEach(img => IO.observe(img));
 
 //Start events
-const events = [
-  {
-    date: "14.06.19",
-    name: "Ultra South Africa",
-    img_url:
-      "https://images.unsplash.com/photo-1505842465776-3b4953ca4f44?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    descr: `Why are tickets so expensive. What do you have against Durban?`
-  },
-  {
-    date: "14.06.19",
-    name: "Cape Town International Jazz Festival",
-    img_url:
-      "https://images.unsplash.com/13/unsplash_523b1f5aafc42_1.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=754&q=80",
-    descr: `Some call it Pretentious Coconut fest? I love jazz.`
-  },
-  {
-    date: "14.06.19",
-    name: "AfrikaBurn",
-    img_url:
-      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
-    descr: `This is cool. I've actually dreamt of attending it.`
-  },
-  {
-    date: "14.07.19",
-    name: "Vodacom Durban July",
-    img_url:
-      "https://images.unsplash.com/photo-1526094798790-1df6f28275cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    descr: `Queue Jame Blunt, 'Goodbye My Lover'!`
-  },
-  {
-    date: "14.06.19",
-    name: "Umuzi Week of Festivals",
-    img_url:
-      "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-    descr: `Thought it said Umlazi fest, never heard of it.?`
-  },
-  {
-    date: "14.06.19",
-    name: "AfrikaBurn",
-    img_url:
-      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
-    descr: `This is cool. I've actually dreamt of attending it.`
-  },
-  ,
-  {
-    date: "14.06.19",
-    name: "AfrikaBurn",
-    img_url:
-      "https://images.unsplash.com/photo-1557693116-fb9cff08f972?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
-    descr: `This is cool. I've actually dreamt of attending it.`
-  }
-];
+const getEvents = async () => {
+  const res = await fetch("http://localhost:7700/api/events/");
+  const data = await res.json();
+  return data || [];
+};
 const DOMevents = document.querySelector(".events");
 const popEvents = _events => {
-  DOMevents.innerHTML = events
-    .slice(0, 7)
-    .map(event => {
-      //Should remove tab index find something better.
-      return `  
-    <li class="event">
-      <img class="event__bg" src="${event.img_url}" data-src="${
-        event.img_url
-      }" />
-      <a href="#0"><h3 class="event__name">${event.name}</h3></a>
-      <div class="event__details">
-        <p class="paragraph text text--light">${event.descr}</p>
-        <div class="event__date text text--light">${event.date}</div>
-      </div>
-    </li>
-    `;
-    })
-    .join("");
+  console.log(_events);
+  const bgs = document.querySelectorAll(".event__bg");
+  const names = document.querySelectorAll(".event__name");
+  const descrs = document.querySelectorAll(".event__details p.text");
+  const dates = document.querySelectorAll(".event__date");
+  //
+  for (let index = 0; index <= 7; index++) {
+    bgs[index].src = _events[index].img;
+    names[index].textContent = _events[index].name;
+    descrs[index].textContent = _events[index].descr;
+    dates[index].textContent = new Date(
+      _events[index].date
+    ).toLocaleDateString();
+  }
 };
 //
-popEvents();
+(async () => {
+  const events = await getEvents();
+  popEvents(events);
+})();
 
 let calEvents = document.querySelectorAll(".event");
 let eventNames = document.querySelectorAll(".event__name");
