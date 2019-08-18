@@ -1183,6 +1183,9 @@ button {
 .modal__inner button:hover {
   background-image: var(--grad-gold);
 }
+.modal__inner .toggle {
+  background-color: rgba(255,255,255,0.16) !important;
+}
 .modal__inner .ctrls {
   position: absolute;
   width: 120%;
@@ -1598,7 +1601,7 @@ input[type=range]::-moz-range-thumb {
   right: 0;
   font-weight: bold;
   letter-spacing: 2px;
-  background-color: transparent;
+  background-color: var(--accent-gold) !important;
   padding: 0.5em 1em;
   font-family: var(--font);
   transition: var(--anim);

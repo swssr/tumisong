@@ -139,7 +139,7 @@ imgs_tag.forEach(img => IO.observe(img));
 
 //Start events
 const getEvents = async () => {
-  const res = await fetch("http://localhost:7700/api/events/");
+  const res = await fetch("https://zenbrain.now.sh/api/events");
   const data = await res.json();
   return data || [];
 };
