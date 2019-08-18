@@ -889,8 +889,8 @@ button {
 }
 .nav__link {
   display: flex;
-  width: 100px;
-  padding: 4px 8px;
+  width: 100%;
+  padding: 8px 16px;
   align-items: center;
   font-weight: bold;
 }

@@ -139,9 +139,9 @@ imgs_tag.forEach(img => IO.observe(img));
 
 //Start events
 const getEvents = async () => {
-  const res = await fetch("https://zenbrain.now.sh/api/events");
+  const res = await fetch("https://filr-server.appspot.com/api/events");
   const data = await res.json();
-  return data || [];
+  return [...data].reverse() || [];
 };
 const DOMevents = document.querySelector(".events");
 const popEvents = _events => {
