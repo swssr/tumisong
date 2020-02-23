@@ -1,7 +1,5 @@
 # **[Tumisong.dj](https://tumi.now.sh)** Official Website
 
-> Like what you see? please email me at **swssdev@gmail.com**.
-
 -------------
 
 This is the offical website of **DJ Tumisong**, click [here](https://tumi.now.sh) to view it.<br>
