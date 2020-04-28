@@ -1,21 +1,23 @@
 {
-    "name": "tumisong",
-    "version": "1.0.0",
-    "description": "official website for tumisong dj",
-    "main": "assets/js/index.js",
-    "scripts": {
-        "start": "node index",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "styl": "stylus -w ./src/stylus/main.styl -o ./docs/assets/css/main.css"
-    },
-    "author": "swssr",
-    "license": "ISC",
-    "devDependencies": {
-        "cssnano": "^4.1.0",
-        "stylus": "^0.54.5"
-    },
-    "dependencies": {
-        "node-fetch": "^2.3.0",
-        "vue": "^2.6.10"
-    }
+  "name": "tumisong",
+  "version": "1.0.4",
+  "description": "official website for tumisong dj",
+  "main": "assets/js/index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styl": "stylus -w ./src/stylus/main.styl -o ./docs/assets/css/main.css",
+    "build": "parcel build ./src/index.html -d ./public"
+  },
+  "author": "swssr",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^4.1.0",
+    "parcel-bundler": "^1.12.4",
+    "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "vue": "^2.6.10"
+  }
 }

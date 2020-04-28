@@ -1,3 +1,5 @@
+import "../../stylus/main.styl";
+
 // @ts-nocheck
 
 let nav = document.querySelector(".nav--left");
