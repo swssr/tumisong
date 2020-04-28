@@ -12,7 +12,7 @@ counter = 0;
 //Open/close modal mechanism
 let modalImgs = document.querySelector(".img--bigger");
 imgs.forEach((img, i) => {
-  img.addEventListener("click", e => {
+  img.addEventListener("click", (e) => {
     //Show modal
     modal.classList.add("visible");
     main.classList.add(`blurred`);
@@ -28,10 +28,12 @@ const dropModal = () => {
   main.classList.remove(`blurred`);
   nav.classList.remove(`blurred`);
 };
-document.querySelector(`.modal__inner button`).addEventListener("click", _ => {
-  dropModal();
-});
-modal.addEventListener("click", e => {
+document
+  .querySelector(`.modal__inner button`)
+  .addEventListener("click", (_) => {
+    dropModal();
+  });
+modal.addEventListener("click", (e) => {
   e.target === modal ? dropModal() : "";
 });
 //Instagram feed
@@ -62,14 +64,14 @@ const fromInsta = () => {
         <figcaption class="sc-feed__caption"></figcaption>
     </figure>
     `,
-    error: err =>
+    error: (err) =>
       (feedContainer.innerHTML = `
     <div class="fetch__msg error">
         <h1 class="msg__inner">
           ${err}
         </h1>
     </div>
-    `)
+    `),
   });
   feed.run();
 };
@@ -91,13 +93,13 @@ document.querySelector(".sc-feed__all").addEventListener("click", () => {
 let fObserver;
 let fOptions = {
   rootMargin: "0px",
-  treshold: 1.0
+  treshold: 1.0,
 };
 let footer = document.querySelector(`.footer`);
 let main = document.querySelector(`.main`);
 
 function showFooter(entries) {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       footer.classList.add(`slide-up`);
       footer.classList.remove(`accent`);
@@ -123,11 +125,11 @@ let IO;
 var IOoptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 1.0
+  threshold: 1.0,
 };
 
-const renderImgs = entries => {
-  entries.forEach(entry => {
+const renderImgs = (entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src;
     }
@@ -135,23 +137,23 @@ const renderImgs = entries => {
 };
 
 IO = new IntersectionObserver(renderImgs, IOoptions);
-imgs_tag.forEach(img => IO.observe(img));
+imgs_tag.forEach((img) => IO.observe(img));
 
 //Start events
 const getEvents = async () => {
   const res = await fetch("https://filr-server.appspot.com/api/events");
   const data = await res.json();
-  return [...data].reverse() || [];
+  return [...data].reverse();
 };
 const DOMevents = document.querySelector(".events");
-const popEvents = _events => {
+const popEvents = (_events) => {
   console.log(_events);
   const bgs = document.querySelectorAll(".event__bg");
   const names = document.querySelectorAll(".event__name");
   const descrs = document.querySelectorAll(".event__details p.text");
   const dates = document.querySelectorAll(".event__date");
   //
-  for (let index = 0; index <= 7; index++) {
+  for (let index = 0; index < 7; index++) {
     bgs[index].src = _events[index].img;
     names[index].textContent = _events[index].name;
     descrs[index].textContent = _events[index].descr;
@@ -199,15 +201,15 @@ eventNames.forEach((v, i) => {
 let socialbtns = document.querySelectorAll(".click");
 
 socialbtns.forEach((c, i) => {
-  c.addEventListener("click", _ => {
+  c.addEventListener("click", (_) => {
     makeActive(socialbtns);
   });
 });
 
 //Utiity func
 function makeActive(list, target = e.currentTarget, activeClass = "active") {
-  const clearAllActive = _list =>
-    _list.forEach(item => item.classList.remove(activeClass));
+  const clearAllActive = (_list) =>
+    _list.forEach((item) => item.classList.remove(activeClass));
 
   clearAllActive(list);
   target.classList.toggle(activeClass);

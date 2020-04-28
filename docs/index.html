@@ -1,501 +1,661 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Dj Tumisong official website. I'll post events and new music." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Dj Tumisong official website. I'll post events and new music."
+    />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
     <meta name="apple-mobile-web-app-title" content="Tumisong.dj" />
     <meta name="theme-color" content="#000000" />
 
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:300,400"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
 
     <title>Tumisong - DJ Tumisong official website</title>
-    
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="modal">
-        <div class="modal__inner">
-            <button class="toggle">exit</button>
-            <img src="assets/images/loader.gif" alt="" class="img--bigger modal__image">
-            <div class="ctrls">
-                <button class="icon">
-                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                        <polygon
-                            points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	">
-                        </polygon>
-                    </svg>
-                </button>
-                <button class="icon">
-                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                        <polygon
-                            points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	">
-                        </polygon>
-                    </svg>
-                </button>
-            </div>
+      <div class="modal__inner">
+        <button class="toggle">exit</button>
+        <img
+          src="assets/images/loader.gif"
+          alt=""
+          class="img--bigger modal__image"
+        />
+        <div class="ctrls">
+          <button class="icon">
+            <svg
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"
+              ></polygon>
+            </svg>
+          </button>
+          <button class="icon">
+            <svg
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"
+              ></polygon>
+            </svg>
+          </button>
         </div>
+      </div>
     </div>
-    <img src="assets/images/bg3.jpg" alt="Tumisong performing at the Taboo night club." class="bg" data-src="assets/images/bg3.jpg">
+    <img
+      src="assets/images/bg3.jpg"
+      alt="Tumisong performing at the Taboo night club."
+      class="bg"
+      data-src="assets/images/bg3.jpg"
+    />
     <aside class="nav--left">
-        <div class="nav__span nav__span--brand top">
-            <img src="assets/images/brand/SVG/tlogo.svg" class="logo" alt="tumisong logo">
+      <div class="nav__span nav__span--brand top">
+        <img
+          src="assets/images/brand/SVG/tlogo.svg"
+          class="logo"
+          alt="tumisong logo"
+        />
+      </div>
+      <div class="mid">
+        <button class="icon icon--menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="nav--left__links">
+        <a href="#player" class="nav__link">My music</a>
+        <a href="#events" class="nav__link">Events</a>
+        <a href="#moments" class="nav__link">Moments</a>
+        <a href="#newsong" class="nav__link">Latest</a>
+        <a href="#video" class="nav__link">Video</a>
+        <a href="#newsletter" class="nav__link">Newsletter</a>
+      </div>
+      <div class="nav__span bottom">
+        <div class="inner inner--flex">
+          <a href="#header" class="link link--primary">back top</a>
         </div>
-        <div class="mid">
-            <button class="icon icon--menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <div class="nav--left__links">
-            <a href="#player" class="nav__link">My music</a>
-            <a href="#events" class="nav__link">Events</a>
-            <a href="#moments" class="nav__link">Moments</a>
-            <a href="#newsong" class="nav__link">Latest</a>
-            <a href="#video" class="nav__link">Video</a>
-            <a href="#newsletter" class="nav__link">Newsletter</a>
-        </div>
-        <div class="nav__span bottom">
-            <div class="inner inner--flex">
-                <a href="#header" class="link link--primary">back top</a>
-            </div>
-        </div>
+      </div>
     </aside>
     <main class="main">
-        <nav class="top-nav">
-            <a href="" class="nav__link accent abs--right">
-                <span class="text">beatport</span>
-                <svg class="icon" viewBox="0 0 80 80">
-                    <path d="M67.9,11.1H23.4c-1.7,0-3,1.3-3,3V47c0,1.5,1.3,2.8,2.8,2.8c1.6,0,2.8-1.3,2.8-2.8V17c0-0.1,0.1-0.2,0.2-0.2h39.1v46.3
+      <nav class="top-nav">
+        <a href="" class="nav__link accent abs--right">
+          <span class="text">beatport</span>
+          <svg class="icon" viewBox="0 0 80 80">
+            <path
+              d="M67.9,11.1H23.4c-1.7,0-3,1.3-3,3V47c0,1.5,1.3,2.8,2.8,2.8c1.6,0,2.8-1.3,2.8-2.8V17c0-0.1,0.1-0.2,0.2-0.2h39.1v46.3
         c0,0.1-0.1,0.2-0.2,0.2H17.9c-1.7,0-3.1-1.4-3.1-3.1V47V14c0-0.9-0.5-1.8-1.2-2.3c-1-0.7-2.5-0.8-3.9,0.4c-0.4,0.3-0.5,0.8-0.5,1.2
-        l0,4.9V47v14.7c0,3.9-0.4,7.1,7.1,7.1H69c1,0,1.9-0.8,1.9-1.9V14.1C70.9,12.5,69.5,11.1,67.9,11.1z" />
-                </svg>
-            </a>
-        </nav>
-        <div class="blur">
+        l0,4.9V47v14.7c0,3.9-0.4,7.1,7.1,7.1H69c1,0,1.9-0.8,1.9-1.9V14.1C70.9,12.5,69.5,11.1,67.9,11.1z"
+            />
+          </svg>
+        </a>
+      </nav>
+      <div class="blur"></div>
+      <header id="header" class="header">
+        <div class="sect-40">
+          <div class="col"></div>
+          <div class="col">
+            <div class="hero">
+              <!-- <h5 class="hero__txt">i live and breath music</h5> -->
+              <div class="hero__main">
+                <p style="font-weight: 500;">a dj and a half.</p>
+                <h1 class="head hero__head">house leagues deeper.</h1>
+                <a class="btn btn--primary accent">
+                  <span>BOOK ME</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <header id="header" class="header">
-            <div class="sect-40">
-                <div class="col">
-                </div>
-                <div class="col">
-                    <div class="hero">
-                        <!-- <h5 class="hero__txt">i live and breath music</h5> -->
-                        <div class="hero__main">
-                            <p style="font-weight: 500">a dj and a half. </p>
-                            <h1 class="head hero__head">house leagues deeper.</h1>
-                            <a class="btn btn--primary accent">
-                                <span>BOOK ME</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="sect-60">
+          <span class="social">
+            <span class="social__icon"></span>
+            <span class="social__icon"></span>
+            <span class="social__icon"></span>
+          </span>
+        </div>
+      </header>
+      <section>
+        <div class="container container--featured">
+          <div class="featured">
+            <div class="sect-head">
+              <span class="section__prehead">lose yourself</span>
+              <h2 class="head">featured compilations</h2>
+              <span class="section__subhead"
+                >submerge your soul into the best of house music</span
+              >
             </div>
-            <div class="sect-60">
-                <span class="social">
-                    <span class="social__icon"></span>
-                    <span class="social__icon"></span>
-                    <span class="social__icon"></span>
+            <div class="featured__list">
+              <div class="fetch__msg error">
+                <h1 class="msg__inner">
+                  Still loading
+                </h1>
+              </div>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+              <figure class="item">
+                <div class="item__group">
+                  <img
+                    src="assets/images/loader.gif"
+                    alt="album cover"
+                    class="item__image img"
+                  />
+                  <span class="icon btn--play play--icon item__play grd__btn">
+                    <svg class="svg--play" viewBox="0 0 77 76.1">
+                      <path
+                        class="st0"
+                        d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="svg--pause"
+                      width="30px"
+                      height="30px"
+                      viewBox="0 0 33 40"
+                    >
+                      <rect y="5" width="10" height="30"></rect>
+                      <rect y="5" x="20" width="10" height="30"></rect>
+                    </svg>
+                  </span>
+                  <span></span>
+                  <audio></audio>
+                </div>
+
+                <figcaption class="item__caption">
+                  <span class="text text--light"></span>
+                  <span class="actions">
+                    <i class="icon icon--play"></i>
+                  </span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="player" class="container rhalf">
+        <div class="controls">
+          <button name="previous" class="prev">
+            <svg
+              class="icon"
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="9.5,0 9.5,0 9.5,0 7.9,0 7.9,0 7.9,0 0,7.9 1.6,9.4 8.7,2.3 15.8,9.4 17.3,7.9 	"
+              />
+            </svg>
+          </button>
+          <button name="next" class="next">
+            <svg
+              class="icon"
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="playlists">
+          <div class="sect-head">
+            <span class="section__prehead">my taste</span>
+            <h2 class="head">Oh! traxsource</h2>
+            <span class="section__subhead">some of my favourite songs</span>
+          </div>
+          <div class="player-container">
+            <div class="mp__widget">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/2b6bf061247247.5a6f4997d27bf.jpg"
+                alt="now playing song album cover"
+                class="mp__cover-art img bw-filter"
+              />
+              <div class="widget__controls">
+                <div class="playing">
+                  <div class="mp__artist-name">Select song</div>
+                  <div class="mp__song-name"></div>
+                </div>
+                <div class="mp__center">
+                  <span class="icon volume"></span>
+                  <div class="mp__progress mp__progress--big">
+                    <span class="mp__progress mp__progress--fill"></span>
+                  </div>
+                  <span class="time time--current">0:00</span>
+                </div>
+                <span class="mp__icon-list">
+                  <span class="mp__icon"></span>
+                  <span class="mp__icon"></span>
+                  <span class="mp__icon"></span>
                 </span>
+              </div>
             </div>
-        </header>
-        <section>
-            <div class="container container--featured">
-                <div class="featured">
-                    <div class="sect-head">
-                        <span class="section__prehead">lose yourself</span>
-                        <h2 class="head">featured compilations</h2>
-                        <span class="section__subhead">submerge your soul into the best of house music</span>
-                    </div>
-                    <div class="featured__list">
-                        <div class="fetch__msg error">
-                            <h1 class="msg__inner">
-                                Still loading
-                            </h1>
-                        </div>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                        <figure class="item">
-                            <div class="item__group">
-                                <img src="assets/images/loader.gif" alt="album cover" class="item__image img">
-                                <span class="icon btn--play play--icon item__play grd__btn">
-                                    <svg class="svg--play" viewBox="0 0 77 76.1">
-                                        <path class="st0"
-                                            d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z">
-                                        </path>
-                                    </svg>
-                                    <svg class="svg--pause" width="30px" height="30px" viewBox="0 0 33 40">
-                                        <rect y="5" width="10" height="30"></rect>
-                                        <rect y="5" x="20" width="10" height="30"></rect>
-                                    </svg>
-                                </span>
-                                <span></span>
-                                <audio></audio>
-
-                            </div>
-
-                            <figcaption class="item__caption">
-                                <span class="text text--light"></span>
-                                <span class="actions">
-                                    <i class="icon icon--play"></i>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="player" class="container rhalf">
-            <div class="controls">
-                <button name="previous" class="prev">
-                    <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4"
-                        xml:space="preserve">
-                        <polygon
-                            points="9.5,0 9.5,0 9.5,0 7.9,0 7.9,0 7.9,0 0,7.9 1.6,9.4 8.7,2.3 15.8,9.4 17.3,7.9 	" />
-                    </svg>
-                </button>
-                <button name="next" class="next">
-                    <svg class="icon" x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4"
-                        xml:space="preserve">
-                        <polygon
-                            points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	" />
-                    </svg>
-                </button>
-            </div>
-            <div class="playlists">
-                <div class="sect-head">
-                    <span class="section__prehead">my taste</span>
-                    <h2 class="head">Oh! traxsource</h2>
-                    <span class="section__subhead">some of my favourite songs</span>
-                </div>
-                <div class="player-container">
-                    <div class="mp__widget">
-                        <img src="assets/images/loader.gif" data-src="assets/images/2b6bf061247247.5a6f4997d27bf.jpg" alt="now playing song album cover"
-                            class="mp__cover-art img bw-filter">
-                        <div class="widget__controls">
-                            <div class="playing">
-                                <div class="mp__artist-name">Select song</div>
-                                <div class="mp__song-name"></div>
-                            </div>
-                            <div class="mp__center">
-                                <span class="icon volume"></span>
-                                <div class="mp__progress mp__progress--big">
-                                    <span class="mp__progress mp__progress--fill"></span>
-                                </div>
-                                <span class="time time--current">0:00</span>
-                            </div>
-                            <span class="mp__icon-list">
-                                <span class="mp__icon"></span>
-                                <span class="mp__icon"></span>
-                                <span class="mp__icon"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <ul class="mp__songs"></ul>
-                </div>
-            </div>
-        </section>
-        <section id="events" class="container white-text container--events">
-            <div class="sect-head sect-head--mod1">
-                <span class="section__prehead">party with me</span>
-                <h2 class="head">Event calender</h2>
-                <span class="section__subhead">I go places too</span>
-            </div>
-            <div>
-            <ul class="events">
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-                <li class="event">
-                    <img class="event__bg" src="" data-src="" />
-                    <a href="#0"><h3 class="event__name"></h3></a>
-                    <div class="event__details">
-                        <p class="paragraph text text--light"></p>
-                        <div class="event__date text text--light"></div>
-                    </div>
-                </li>
-            </ul>
-            </div>
-        </section>
-        <section class="container sc-feed">
-            <div class="sc-feed__buttons">
-                <div class="sect-head">
-                    <span class="section__prehead">I've been places</span>
-                    <h2 class="head">Pose check</h2>
-                    <span class="section__subhead">moments from places I've been</span>
-                </div>
-                <ul class="sc-links">
-                    <li class="sc-links__item active">
-                        <span class="text">all</span>
-                    </li>
-                    <li class="sc-links__item" title="albums">
-                        <span class="text">curated</span>
-                    </li>
-                    <li id="btnInsta" class="sc-links__item">
-                        <span class="text">instafeed</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="sc-feed__grid-container">
-                <div class="sc-feed__inner sc-feed__all active">
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img1.jpg" alt="tumisong black coffee and other at taboo"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-feed__caption"></figcaption>
-                    </figure>
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg4.jpg" alt="tumisong axe ibiza performance"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-feed__caption"></figcaption>
-                    </figure>
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg3.jpg" alt="tumisong axe ibiza performance"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-feed__caption"></figcaption>
-                    </figure>
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg2.jpg" alt="tumisong axe ibiza performance"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-feed__caption"></figcaption>
-                    </figure>
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/bg1.jpg" alt="tumisong axe ibiza performance"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-sc-feed__caption"></figcaption>
-                    </figure>
-                    <figure class="sc-feed__item">
-                        <img src="assets/images/loader.gif" data-src="assets/images/img2.jpg" alt="tumisong axe ibiza performance"
-                            class="sc-feed__img img thumbnail">
-                        <figcaption class="sc-feed__caption"></figcaption>
-                    </figure>
-                </div>
-                <div class="sc-feed__inner sc-feed__twitter"></div>
-                <div class="sc-feed__inner sc-feed__facebook"></div>
-                <div id="instafeed" class="sc-feed__inner sc-feed__instagram">
-                </div>
-            </div>
-        </section>
-        <section id="newsong" class="container new white">
-            <div class="context">
-                <p class="artist"><b>by</b> <span class="accent">tumisong</span></p>
-                <div class="song-name">
-                    <div id="beer">BLACK WINTER</div>
-                    <div>MERCH</div>
-                </div>
-                <p class="genre"><b>Prices</b> R300</p>
-                <p class="description">It's december, at least it was, no work means more sweat and beers. A call to your groovy whatwhat! Untie your tie vibes and be please buy my merch! please!</p>
-                <ul class="tags">
-                    <li class="tag__item"><b>colors</b>
-                        <span class="tag__item">black, gold</span></li>
-                    <li class="tag__item"><b>sizes</b>
-                        <span class="tag__item">small, med, large</span></li>
-                </ul>
-            </div>
-            <div class="cover-art">
-                <div class="icon nprev">
-                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                        <polygon
-                            points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	">
-                        </polygon>
-                    </svg>
-                </div>
-                <div class="group centered">
-                    <button class="btn--wide">order</button>
-                </div>
-                <img src="assets/images/loader.gif" data-src="assets/images/1e2e5b61247247.5a6f4997c1aab.jpg"
-                alt="cover art" class="bw-filter img">
-                <div class="icon cnext">
-                    <svg x="0px" y="0px" width="17.3px" height="9.4px" viewBox="0 0 17.3 9.4" xml:space="preserve">
-                        <polygon
-                            points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	">
-                        </polygon>
-                    </svg>
-                </div>
-            </div>
-        </section>
-        <section id="video" class="container bridge">
-            <div class="player viewer">
+            <ul class="mp__songs"></ul>
+          </div>
+        </div>
+      </section>
+      <section id="events" class="container white-text container--events">
+        <div class="sect-head sect-head--mod1">
+          <span class="section__prehead">party with me</span>
+          <h2 class="head">Event calender</h2>
+          <span class="section__subhead">I go places too</span>
+        </div>
+        <div>
+          <ul class="events">
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+            <li class="event">
+              <img class="event__bg" src="" data-src="" />
+              <a href="#0"><h3 class="event__name"></h3></a>
+              <div class="event__details">
+                <p class="paragraph text text--light"></p>
+                <div class="event__date text text--light"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="container sc-feed">
+        <div class="sc-feed__buttons">
+          <div class="sect-head">
+            <span class="section__prehead">I've been places</span>
+            <h2 class="head">Pose check</h2>
+            <span class="section__subhead">moments from places I've been</span>
+          </div>
+          <ul class="sc-links">
+            <li class="sc-links__item active">
+              <span class="text">all</span>
+            </li>
+            <li class="sc-links__item" title="albums">
+              <span class="text">curated</span>
+            </li>
+            <li id="btnInsta" class="sc-links__item">
+              <span class="text">instafeed</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sc-feed__grid-container">
+          <div class="sc-feed__inner sc-feed__all active">
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/img1.jpg"
+                alt="tumisong black coffee and other at taboo"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-feed__caption"></figcaption>
+            </figure>
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/bg4.jpg"
+                alt="tumisong axe ibiza performance"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-feed__caption"></figcaption>
+            </figure>
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/bg3.jpg"
+                alt="tumisong axe ibiza performance"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-feed__caption"></figcaption>
+            </figure>
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/bg2.jpg"
+                alt="tumisong axe ibiza performance"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-feed__caption"></figcaption>
+            </figure>
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/bg1.jpg"
+                alt="tumisong axe ibiza performance"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-sc-feed__caption"></figcaption>
+            </figure>
+            <figure class="sc-feed__item">
+              <img
+                src="assets/images/loader.gif"
+                data-src="assets/images/img2.jpg"
+                alt="tumisong axe ibiza performance"
+                class="sc-feed__img img thumbnail"
+              />
+              <figcaption class="sc-feed__caption"></figcaption>
+            </figure>
+          </div>
+          <div class="sc-feed__inner sc-feed__twitter"></div>
+          <div class="sc-feed__inner sc-feed__facebook"></div>
+          <div id="instafeed" class="sc-feed__inner sc-feed__instagram"></div>
+        </div>
+      </section>
+      <section id="newsong" class="container new white">
+        <div class="context">
+          <p class="artist"><b>by</b> <span class="accent">tumisong</span></p>
+          <div class="song-name">
+            <div id="beer">BLACK WINTER</div>
+            <div>MERCH</div>
+          </div>
+          <p class="genre"><b>Prices</b> R300</p>
+          <p class="description">
+            It's december, at least it was, no work means more sweat and beers.
+            A call to your groovy whatwhat! Untie your tie vibes and be please
+            buy my merch! please!
+          </p>
+          <ul class="tags">
+            <li class="tag__item">
+              <b>colors</b> <span class="tag__item">black, gold</span>
+            </li>
+            <li class="tag__item">
+              <b>sizes</b> <span class="tag__item">small, med, large</span>
+            </li>
+          </ul>
+        </div>
+        <div class="cover-art">
+          <div class="icon nprev">
+            <svg
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"
+              ></polygon>
+            </svg>
+          </div>
+          <div class="group centered">
+            <button disabled class="btn--wide">coming soon</button>
+          </div>
+          <img
+            src="assets/images/loader.gif"
+            data-src="assets/images/1e2e5b61247247.5a6f4997c1aab.jpg"
+            alt="cover art"
+            class="bw-filter img"
+          />
+          <div class="icon cnext">
+            <svg
+              x="0px"
+              y="0px"
+              width="17.3px"
+              height="9.4px"
+              viewBox="0 0 17.3 9.4"
+              xml:space="preserve"
+            >
+              <polygon
+                points="7.9,9.4 7.9,9.4 7.9,9.4 9.5,9.4 9.5,9.4 9.5,9.4 17.3,1.6 15.8,0 8.7,7.1 1.6,0 0,1.6 	"
+              ></polygon>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section id="video" class="container bridge">
+        <!-- <div class="player viewer">
                 <div class="inner--bottom" style="--bgcolor: var(--primary)">
                     <img src="assets/images/loader.gif" data-src="assets/images/img3.jpg" alt="video thumbnail"
                         class="thumbnail thumbnail--video img bw-filter">
@@ -509,8 +669,15 @@
                         <button data-skip="-10" class="player__button">« 10s</button>
                         <button data-skip="25" class="player__button">25s »</button>
                     </div>
-                </div>
-                <span class="icon btn--play play--icon item__play">
+                </div> -->
+        <iframe
+          class="player viewer"
+          src="https://www.youtube.com/embed/O5ldtW9ejco"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <!-- <span class="icon btn--play play--icon item__play">
                     <svg class="svg--play" viewBox="0 0     77 76.1">
                         <path class="st0" d="M67.9,33L29.1,10.6c-4.3-2.5-9.6,0.6-9.6,5.6v44.8c0,4.9,5.3,8,9.6,5.6l38.8-22.4C72.1,41.6,72.1,35.4,67.9,33z"></path>
                     </svg>
@@ -518,134 +685,226 @@
                         <rect y="5" width="10" height="30"></rect>
                         <rect y="5" x="20" width="10" height="30"></rect>
                     </svg>
-                </span>
+                </span> -->
+        <!-- </div> -->
+      </section>
+      <section class="container gray white book-me bridge">
+        <div class="almost-full">
+          <img
+            src="assets/images/loader.gif"
+            data-src="assets/images/chen-zo-1630076-unsplash.jpg"
+            alt="tumi good sundae"
+            class="img form-img"
+          />
+          <form id="contacts" class="contact-form">
+            <p class="pre">
+              <b>ok</b> <span class="accent">here's how to find me</span>
+            </p>
+            <div class="chead">
+              <div>bookings</div>
+              <div>fanmail you asked</div>
             </div>
-        </section>
-        <section class="container gray white book-me bridge">
-            <div class="almost-full">
-                <img src="assets/images/loader.gif" data-src="assets/images/chen-zo-1630076-unsplash.jpg"
-                    alt="tumi good sundae" class="img form-img">
-                <form id="contacts" class="contact-form">
-                    <p class="pre"><b>ok</b> <span class="accent">here's how to find me</span></p>
-                    <div class="chead">
-                        <div>bookings</div>
-                        <div>fanmail you asked</div>
-                    </div>
-                    <p class="paragraph">A bot handles my twitter account. <br> If you mean business send me an email or just call.</p>
-                    <br>
-                    <ul class="contacts">
-                        <li class="contact__item"><b>call</b><a class="text" href="tel:+">086 455 3389</a></li>
-                        <li class="contact__item"><b>email</b><a class="text" href="mailto:bookings@tumisong.com">bookings@tumisong.com</a>
-                        </li>
-                    </ul>
-                    <button class="btn">
-                        <span>request call</span>
-                    </button>
-                </form>
-            </div>
-        </section>
-        <section class="quilt">
-            <div class="quilt__head">
-                <span class="section__prehead">stalkers welcome</span>
-                <h2 class="head">FOLLOW ME</h2>
-            </div>
-            <div class="quilt__items">
-                <a href="https://www.instagram.com/tumisong" target="_blank" class="quilt__item">
-                    <img class="icon" src="assets/images/icons/instagram.svg" data-src="assets/images/icons/instagram.svg" />
-                </a>
-                <a href="https://audiomack.com/tumisong" target="_blank" class="quilt__item">
-                    <img class="icon" src="assets/images/icons/audiomack.svg" data-src="assets/images/icons/audiomack.svg"/>
-                </a>
-                <a href="https://www.twitter.com/tumisong" target="_blank" class="quilt__item">
-                    <img class="icon" src="assets/images/icons/twitter.svg" data-src="assets/images/icons/twitter.svg" />
-                </a>
-            </div>
-        </section>
-        <section class="container last">
-            <div class="last__overlay">
-            </div>
-            <img src="assets/images/img3.jpg" data-src="assets/images/img3.jpg" alt="image" class="last__bg img">
-            <div class="last__inner">
-                <div class="last__text">
-                    <span class="section__prehead">yay! free stuff</span>
-                    <h2 class="head">join the party</h2>
-                    <p class="paragraph text text--light">I heard you like free stuff. leave your email below <br>
-                        be the first get my new music, compilations and bro stuff
-                    </p>
-                </div>
-                <form id="newsletter" class="last__email">
-                    <input type="text" name="email" id="email" placeholder="your email address"
-                        class="input last__input">
-                    <button type="submit" class="btn--wide">go!</button>
-                </form>
-                <div class="marker"></div>
-            </div>
-        </section>
+            <p class="paragraph">
+              A bot handles my twitter account. <br />
+              If you mean business send me an email or just call.
+            </p>
+            <br />
+            <ul class="contacts">
+              <br />
+              <li class="contact__item">
+                <b>call</b><a class="text" href="tel:+">086 455 3389</a>
+              </li>
+              <li class="contact__item">
+                <b>email</b
+                ><a class="text" href="mailto:bookings@tumisong.com"
+                  >bookings@tumisong.com</a
+                >
+              </li>
+            </ul>
+            <!-- <button class="btn">
+              <span>request call</span>
+            </button> -->
+          </form>
+        </div>
+      </section>
+      <section class="quilt">
+        <div class="quilt__head">
+          <span class="section__prehead">stalkers welcome</span>
+          <h2 class="head">FOLLOW ME</h2>
+        </div>
+        <div class="quilt__items">
+          <a
+            href="https://www.instagram.com/tumisong"
+            target="_blank"
+            class="quilt__item"
+          >
+            <img
+              class="icon"
+              src="assets/images/icons/instagram.svg"
+              data-src="assets/images/icons/instagram.svg"
+            />
+          </a>
+          <a
+            href="https://audiomack.com/tumisong"
+            target="_blank"
+            class="quilt__item"
+          >
+            <img
+              class="icon"
+              src="assets/images/icons/audiomack.svg"
+              data-src="assets/images/icons/audiomack.svg"
+            />
+          </a>
+          <a
+            href="https://www.twitter.com/tumisong"
+            target="_blank"
+            class="quilt__item"
+          >
+            <img
+              class="icon"
+              src="assets/images/icons/twitter.svg"
+              data-src="assets/images/icons/twitter.svg"
+            />
+          </a>
+        </div>
+      </section>
+      <section class="container last">
+        <div class="last__overlay"></div>
+        <img
+          src="assets/images/img3.jpg"
+          data-src="assets/images/img3.jpg"
+          alt="image"
+          class="last__bg img"
+        />
+        <div class="last__inner">
+          <div class="last__text">
+            <span class="section__prehead">yay! free stuff</span>
+            <h2 class="head">join the party</h2>
+            <p class="paragraph text text--light">
+              We all like free stuff. leave your email below and be the first<br />
+              to get my new music, compilations and bro stuff
+            </p>
+          </div>
+          <form id="newsletter" class="last__email">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="your email address"
+              class="input last__input"
+            />
+            <button type="submit" class="btn--wide">go!</button>
+          </form>
+          <div class="marker"></div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
-        <a href="https://swssr.com" class="footer__link"><span>design by</span><span class="accent">
-                <b class="text">swssr</b></span></a>
-        <a href="http://tumisong.dj/privacy" class="footer__link">privacy</a>
-        <a href="http://tumisong.dj/privacy" class="footer__link">copyright</a>
+      <a href="https://swssr.com" class="footer__link"
+        ><span>design by</span
+        ><span class="accent"> <b class="text">swssr</b></span></a
+      >
+      <a href="http://tumisong.dj/privacy" class="footer__link">privacy</a>
+      <a href="http://tumisong.dj/privacy" class="footer__link">copyright</a>
     </footer>
     <div class="bar">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 56"><title>music</title><g id="Layer_2" data-name="Layer 2"><g id="icon"><path d="M42,4a4,4,0,0,1-4,4H24V43h0c0,.33,0,.66,0,1a12,12,0,1,1-6-10.4V4a4,4,0,0,1,4-4H38A4,4,0,0,1,42,4Z"/></g></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 56">
+        <title>music</title>
+        <g id="Layer_2" data-name="Layer 2">
+          <g id="icon">
+            <path
+              d="M42,4a4,4,0,0,1-4,4H24V43h0c0,.33,0,.66,0,1a12,12,0,1,1-6-10.4V4a4,4,0,0,1,4-4H38A4,4,0,0,1,42,4Z"
+            />
+          </g>
+        </g>
+      </svg>
     </div>
     <audio data-ispaused="true"></audio>
     <script defer src="assets/js/instafeed.min.js"></script>
     <script>
-        const sc_links = document.querySelectorAll('.sc-links__item')
-        const feed__inners = document.querySelectorAll('.sc-feed__inner')
-        const img_els = document.querySelectorAll('.img')
-        let io
-        const io_options = {
-            root: null,
-            rootMargin: '300px',
-            threshold: 1.0
-        }
+      const sc_links = document.querySelectorAll(".sc-links__item");
+      const feed__inners = document.querySelectorAll(".sc-feed__inner");
+      const img_els = document.querySelectorAll(".img");
+      let io;
+      const io_options = {
+        root: null,
+        rootMargin: "300px",
+        threshold: 1.0,
+      };
 
-        sc_links.forEach((link, index) => {
-            link.addEventListener('click', e => {
-                sc_links.forEach(x => x.classList.remove('active'))
-                link.classList.add('active')
+      sc_links.forEach((link, index) => {
+        link.addEventListener("click", (e) => {
+          sc_links.forEach((x) => x.classList.remove("active"));
+          link.classList.add("active");
 
-                if (feed__inners[index]) {
-                    feed__inners.forEach(x => x.classList.remove('active'))
-                    feed__inners[index].classList.add('active')
+          if (feed__inners[index]) {
+            feed__inners.forEach((x) => x.classList.remove("active"));
+            feed__inners[index].classList.add("active");
+          }
+        });
+      });
 
-                }
-            })
-        })
+      const io_cb = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const { target } = entry;
+            target.src = target.dataset.src;
 
-        const io_cb = entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const {
-                        target
-                    } = entry
-                    target.src = target.dataset.src
+            io.unobserve(entry.target);
+          }
+        });
+      };
 
-                    io.unobserve(entry.target)
-                }
-            })
-        }
+      io = new IntersectionObserver(io_cb, io_options);
+      for (const img of img_els) {
+        io.observe(img);
+      }
+    </script>
+    <script>
+      //Handle email submit
+      const newsletterForm = document.getElementById("newsletter");
+      console.clear();
+      console.log(newsletterForm);
+      const visitorEmail = document.getElementById("email").value;
 
-        io = new IntersectionObserver(io_cb, io_options)
-        for (const img of img_els) {
-            io.observe(img)
-        }
+      newsletterForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        console.log("Submiting email");
+        const body = {
+          sender: visitorEmail,
+          text: "Hey please add me to you fans list!",
+        };
+        await submitEnquiry(body);
+      });
+
+      async function submitEnquiry(body) {
+        const url = "https://filr-server.appspot.com/api/messages";
+        const headers = { "Content-Type": "application/json" };
+        const options = { body: JSON.stringify(body), method: "POST", headers };
+
+        await fetch(url, options)
+          .then((res) => {
+            console.log("Email sent");
+            alert("Email sent");
+          })
+          .catch((res) => {
+            console.log(
+              "Something broke, please get in touch using my socials."
+            );
+            alert("Something broke, please get in touch using my socials.");
+          });
+      }
     </script>
     <script src="assets/js/index.js"></script>
     <script defer async src="assets/js/slide.js"></script>
     <script defer async src="assets/js/playerwidget.js"></script>
     <script defer async src="assets/js/playergrid.js"></script>
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js');
-            });
-        }
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js");
+        });
+      }
     </script>
-</body>
-
+  </body>
 </html>

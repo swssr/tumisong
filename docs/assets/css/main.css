@@ -1428,6 +1428,12 @@ button {
 .group .btn--wide:hover {
   transform: scale(1.06);
 }
+.group .btn--wide:disabled {
+  filter: grayscale(1);
+}
+.group .btn--wide:disabled:hover {
+  transform: none;
+}
 .item__group {
   overflow: hidden;
   transition: var(--anim);

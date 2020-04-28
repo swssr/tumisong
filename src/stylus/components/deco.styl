@@ -42,6 +42,13 @@
         &:hover {
             transform: scale(1.06);
         }
+        &:disabled{
+            filter: grayscale(1);
+            &:hover{
+                transform: none;
+            }
+            
+        }
     }
 }
 
